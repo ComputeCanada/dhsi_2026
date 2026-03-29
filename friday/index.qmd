@@ -1,0 +1,21 @@
+---
+title: Presentations
+subtitle: Stress-free presentations of your results and what you learnt
+description: Friday, June 12, 2026
+title-block-banner: true
+toc: false
+---
+
+:::{.topdef}
+
+**Time:** \
+9am–noon
+
+**Live notes:** \
+[Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
+
+:::
+
+<br>
+
+![](/img/logo_dhsi.png){fig-alt="frontlogo" fig-align="center" width="12%"}

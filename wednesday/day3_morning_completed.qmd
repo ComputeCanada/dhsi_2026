@@ -1,0 +1,186 @@
+---
+title: Introduction to API Querying
+jupyter: python3
+---
+
+
+In today’s digital world, being able to access and work with online data is a valuable skill, even in the Humanities and Social Sciences. This session is all about getting comfortable with APIs (Application Programming Interfaces) and understanding why they’re useful for research. You’ll learn how APIs compare to other ways of getting data, like text mining and web scraping, and how to tell if a website has an API you can use. We’ll walk through how to make a request to an API, use parameters to get the exact data you want, and understand the responses you get back (usually in JSON format). By the end, you’ll have hands-on experience using APIs to gather and explore data for your own projects.
+
+
+Let's get started by importing the libraries that we will be using:
+
+```{python}
+import requests
+import json 
+```
+
+Let’s explore the requests and json libraries using the Help function:
+
+```{python}
+#| scrolled: true
+help(requests)
+```
+
+```{python}
+#| scrolled: true
+help(json)
+```
+
+Let’s get started with some hands-on API querying!
+
+For our first example, we’ll use an easy-to-understand API from [catfact.ninja](https://catfact.ninja), a site that serves up random cat facts, perfect for learning the basics in a fun way.
+
+**1. Create a variable for base URL**
+
+Let's do a simple request and see what we get:
+
+```{python}
+base_url = 'https://catfact.ninja/facts'
+requests.get(base_url)
+```
+
+**2. Create a variable for the cat facts response**
+
+```{python}
+cat_facts = requests.get(base_url)
+```
+
+Let's explore the ‘responses’ library:
+
+```{python}
+cat_facts.status_code
+```
+
+```{python}
+cat_facts.text
+```
+
+The output for the .text function is actually JSON (Javascript object notation). If we apply a JSON method we can export this as a dictionary, which will be much easier for us to work with:
+
+```{python}
+#| scrolled: true
+cat_facts.json()
+```
+
+**3. Querying parameters**
+
+```{python}
+requests.get(base_url+"?limit=50")
+```
+
+Let's create a variable to save this parameter: 
+
+```{python}
+#| scrolled: true
+many_cat_facts = requests.get(base_url+"?limit=5")
+many_cat_facts.json()
+```
+
+## Exercise 1:
+
+Query the /breeds attribute and limit our results to 10.
+
+```{python}
+base_url_breeds = "https://catfact.ninja/breeds"
+cat_breeds = requests.get(base_url_breeds)
+cat_breeds
+```
+
+```{python}
+#| scrolled: true
+cat_breeds_limit = requests.get(base_url_breeds+"?limit=1")
+cat_breeds_limit.json()
+```
+
+Let’s try another example of API querying—this time with a sci-fi twist!
+
+We’ll be using [swapi.info](https://swapi.info/), an API built specifically for exploring data from the Star Wars universe. It’s a great way to practice working with structured data while having a bit of fun with characters, planets, and starships.
+
+Let’s create a variable for the people attributes URL and do a simple request to it:
+
+```{python}
+#| scrolled: true
+people_url = "https://swapi.info/api/people"
+all_people_api = requests.get(people_url)
+all_people_api.json()
+```
+
+Let’s query the People attribute ID 1 by creating a variable
+
+```{python}
+requests.get(people_url+"/1")
+```
+
+```{python}
+first_person_url = "https://swapi.info/api/people/1"
+requests.get(first_person_url)
+```
+
+Let's declare a second variable, called api_url_response:
+
+```{python}
+first_person_response = requests.get(first_person_url)
+first_person_info = first_person_response.json()
+```
+
+**JSON Format**
+
+JSON data is formatted in *key-value* pairs. If you refer to the JSON data, you'll see that it's actually a list of keys and their corresponding values. For example, there's a "birth_year" key whose value is "19BBY" as well as an "eye_color" key whose value is "blue."
+
+
+We can refer to the JSON data by its key:
+
+```{python}
+hair = first_person_info["hair_color"]
+name = first_person_info["name"]
+
+print(f"{name} \'s hair is: {hair}")
+```
+
+In the statement above, we are setting a new variable called hair. The variable is composed of the value of the *hair_color* key, as specified in the data you see in the previous cell.
+
+
+We also set a variable called name, which is composed of the value of the *name* key. Then we tell the program to print those values
+
+## Exercise 2
+Write some code that uses the API to tell us Luke Skywalker's eye color.
+
+```{python}
+eye_color = first_person_info["eye_color"]
+print(f"{name}'s eye color is {eye_color}")
+```
+
+## Exercise 3
+
+Let’s try a different attribute! Choose one from the documentation: [swapi.info](https://swapi.info/)
+
+Try choosing a specific endpoint associated with an attribute to create a full string.
+
+```{python}
+#| scrolled: true
+films_url = "https://swapi.info/api/films"
+films_response = requests.get(films_url)
+films_response
+```
+
+```{python}
+#| scrolled: true
+films
+```
+
+```{python}
+films = films_response.json()
+film_names = list()
+
+for film in films:
+    title = film['title']
+    film_names.append(title)
+
+print("The Star Wars films are:\n")
+
+count = 0
+for name in film_names:
+    count = count + 1
+    print(f"{count} {name}")
+```
+

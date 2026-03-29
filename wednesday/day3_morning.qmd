@@ -1,0 +1,145 @@
+---
+title: Introduction to API Querying
+jupyter: python3
+---
+
+
+In today’s digital world, being able to access and work with online data is a valuable skill, even in the Humanities and Social Sciences. This session is all about getting comfortable with APIs (Application Programming Interfaces) and understanding why they’re useful for research. You’ll learn how APIs compare to other ways of getting data, like text mining and web scraping, and how to tell if a website has an API you can use. We’ll walk through how to make a request to an API, use parameters to get the exact data you want, and understand the responses you get back (usually in JSON format). By the end, you’ll have hands-on experience using APIs to gather and explore data for your own projects.
+
+
+Let's get started by importing the libraries that we will be using:
+
+```{python}
+#Your code goes here
+```
+
+Let’s explore the requests and json libraries using the Help function:
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+Let’s get started with some hands-on API querying!
+
+For our first example, we’ll use an easy-to-understand API from [catfact.ninja](https://catfact.ninja), a site that serves up random cat facts, perfect for learning the basics in a fun way.
+
+**1. Create a variable for base URL**
+
+Let's do a simple request and see what we get:
+
+```{python}
+#Your code goes here
+```
+
+**2. Create a variable for the cat facts response**
+
+```{python}
+#Your code goes here
+```
+
+Let's explore the ‘responses’ library:
+
+```{python}
+#Your code goes here
+```
+
+```{python}
+#Your code goes here
+```
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+The output for the .text function is actually JSON (Javascript object notation). If we apply a JSON method we can export this as a dictionary, which will be much easier for us to work with:
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+**3. Querying parameters**
+
+```{python}
+#Your code goes here
+```
+
+Let's create a variable to save this parameter: 
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+## Exercise 1:
+
+Query the /breeds attribute and limit our results to 10.
+
+```{python}
+#Your code goes here
+```
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+Let’s try another example of API querying—this time with a sci-fi twist!
+
+We’ll be using [swapi.info](https://swapi.info/), an API built specifically for exploring data from the Star Wars universe. It’s a great way to practice working with structured data while having a bit of fun with characters, planets, and starships.
+
+Let’s create a variable for the people attributes URL and do a simple request to it:
+
+```{python}
+#| scrolled: true
+#Your code goes here
+```
+
+Let’s query the People attribute ID 1 by creating a variable
+
+```{python}
+#Your code goes here
+```
+
+Let's declare a second variable, called api_url_response:
+
+```{python}
+#Your code goes here
+```
+
+**JSON Format**
+
+JSON data is formatted in *key-value* pairs. If you refer to the JSON data, you'll see that it's actually a list of keys and their corresponding values. For example, there's a "birth_year" key whose value is "19BBY" as well as an "eye_color" key whose value is "blue."
+
+
+We can refer to the JSON data by its key:
+
+```{python}
+#Your code goes here
+```
+
+In the statement above, we are setting a new variable called hair. The variable is composed of the value of the *hair_color* key, as specified in the data you see in the previous cell.
+
+
+We also set a variable called name, which is composed of the value of the *name* key. Then we tell the program to print those values
+
+## Exercise 2
+Write some code that uses the API to tell us Luke Skywalker's eye color.
+
+```{python}
+#Your code goes here
+```
+
+## Exercise 3
+
+Let’s try a different attribute! Choose one from the documentation: [swapi.info](https://swapi.info/)
+
+Try choosing a specific endpoint associated with an attribute to create a full string.
+

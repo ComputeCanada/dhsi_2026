@@ -1,0 +1,325 @@
+---
+title: Introduction to Python for Digital Humanities
+jupyter: python3
+---
+
+The Digital Humanities (DH) is an interdisciplinary field that brings together computational tools and methods with traditional disciplines in the humanities, such as history, literature, art history, linguistics, philosophy, and cultural studies. As the volume of digital cultural content grows—such as digitized manuscripts, historical records, social media posts, and multimedia archives—the need to process, analyze, and interpret these materials using digital tools becomes increasingly important.
+
+### Why Use Python in the Digital Humanities?
+
+Python has emerged as a key language in DH because it is:
+
+- **Easy to Read and Write:** Python’s clean syntax makes it approachable, especially for scholars without a computer science background.
+- **Widely Supported:** Python has a vibrant global community and extensive online documentation, tutorials, and forums.
+- **Rich in Libraries:** There are many ready-to-use libraries for working with text, data, images, sound, and even geographic information.
+- **Flexible and Powerful:** Python can be used for small tasks like file renaming, or large-scale tasks like building full text analysis pipelines or interactive web applications.
+- **Interoperable:** Python can work with many different file formats (e.g., CSV, XML, JSON, PDF, images) and integrate with other tools commonly used in humanities research.
+
+### Practical Applications of Python in DH
+
+Using Python, digital humanists can:
+
+- **Analyze Large Text Corpora:** Quickly process thousands of pages to extract keywords, count word frequencies, detect sentiment, or classify genres.
+- **Explore Historical Patterns:** Visualize trends over time using data from newspapers, census records, or personal letters.
+- **Build Digital Exhibits:** Combine historical images, audio clips, and data visualizations in an interactive website.
+- **Transcribe and Clean Data:** Automate OCR cleanup, remove metadata noise, or reformat archival information.
+- **Perform Network Analysis:** Study connections between people, places, or concepts across time using network graphs.
+- **Map Cultural Content:** Use Python’s geospatial libraries to create maps that show the spread of artistic movements, migration patterns, or historical events.
+
+### Real-World Examples:
+
+- **Text Mining:** Identify recurring phrases and topics in a century's worth of digitized books.
+- **Social Media Analysis:** Study public sentiment and discourse during key cultural or political events.
+- **Metadata Curation:** Automatically extract, clean, and organize metadata from thousands of image or document files.
+- **Historical Visualization:** Animate the rise and fall of empires using historical timelines and geographic data.
+- **Interactive Archives:** Create searchable digital editions of rare manuscripts using Python web frameworks.
+
+By learning Python, researchers in the humanities gain a set of tools to extend their traditional methods, handle complex datasets, and share their work in innovative and engaging ways.
+
+
+## Introduction to JupyterLab
+JupyterLab is an interactive computing environment that allows you to create and share documents containing live code, equations, visualizations, and narrative text. It is commonly used in data science, research, and education, especially for projects in the Digital Humanities, because of its flexibility and ease of use. JupyterLab is essentially an upgrade of Jupyter Notebooks, providing a more modular and feature-rich interface.
+
+### Key Features of JupyterLab:
+- **Code cells:** These are cells where you write and execute code.
+- **Markdown cells:** These cells are used for explanatory text, formatted using Markdown.
+- **Rich outputs:** Visualizations, graphs, images, and other media can be displayed inline within the notebook.
+- **File management:** JupyterLab has a built-in file browser that allows you to organize and manage notebooks, text files, images, and other resources.
+
+### How to Add Cells in JupyterLab
+In JupyterLab, cells are the building blocks of your notebook. You can add, delete, and modify cells to create a flow between code execution and explanatory text.
+
+#### Adding Cells:
+1. **Via Menu:** Navigate to the top menu: *Insert → Insert Cell Below or Insert → Insert Cell Above.*
+
+2. **Keyboard Shortcuts:** *Press B* to insert a cell below the current one or *A* to insert a cell above.
+
+3. **Clicking Buttons:** Use the "+" button in the toolbar to insert new cells.
+
+#### Switching Between Cell Types (Code and Markdown):
+You can switch between code cells and markdown cells to organize your content effectively.
+
+1. **To Change a Cell Type to Code:**
+
+-  Select the cell and *press Y*.
+- Alternatively, click on the Cell Type dropdown menu in the toolbar (where "Markdown" is by default) and select Code.
+
+2. **To Change a Cell Type to Markdown:**
+
+- Select the cell and *press M*.
+- Alternatively, use the Cell Type dropdown and select Markdown.
+
+This allows you to seamlessly switch between running code and writing descriptive text.
+
+#### Running and Stopping Cells
+Cells in JupyterLab can either be run (executed) or stopped, depending on whether you want to see the result of the code.
+
+1. **Running Cells:**
+To execute a cell, you can:
+
+- Windows/Linux: Press *Shift + Enter* to run the current cell and move to the next.
+
+- Mac: Press *Shift + Enter* to run the current cell and move to the next. You can also use *command + Enter* to run the cell and stay in that cell. 
+
+- Alternatively, click the *Run* button in the toolbar.
+
+2. **Stopping a Cell:**
+If you want to stop the execution of a cell:
+
+- Navigate to *Kernel → Interrupt* in the top menu or use the Stop button in the toolbar.
+
+- Alternatively, use the keyboard shortcut *I* twice (press I quickly two times) to interrupt the current execution.
+
+### The Kernel in JupyterLab
+The kernel is the engine behind your notebook, it runs your Python code and remembers what you’ve done.
+
+When you press *Shift + Enter* to run a cell, the kernel executes that code and gives you a result (a number, a list, a graph, etc.).
+
+#### Understanding [ ], [*], and [1] in Jupyter Cells
+Every time you run a code cell, you’ll see a number appear inside square brackets next to the cell, like this:
+
+```{python}
+print("Hello")
+```
+
+Here’s what those brackets mean:
+
+**[ ]** — The cell has not been run yet.
+
+**[*]** — The code is currently running (kernel is busy).
+
+**[1], [2], ...** — The number shows the order in which you ran the cells.
+
+For example:
+
+If you see [5] next to a cell, it means this was the fifth cell you ran.
+
+If a cell is stuck on [*], it might be taking a long time or be stuck — you can stop it using Kernel → Interrupt.
+
+#### Common Kernel Actions:
+1. **Run code:** Shift + Enter
+2. **Interrupt kernel:** Stop a running cell (especially useful if stuck on [*])
+3. **Restart kernel:** Clears everything the kernel remembers (variables, imports, etc.)
+
+Use Kernel → Restart if things get messy or confusing — then rerun your cells from the top to start fresh.
+
+## Built-in Functions and Documentation
+Python provides a wide range of built-in functions—these are standard, preloaded tools that help with common tasks. They require no additional libraries or installations and are available immediately when you run Python.
+
+### What Are Built-in Functions?
+
+A built-in function is a function that is always available in Python. These are designed to simplify common programming tasks. For instance, rather than writing your own code to calculate the length of a string, you can use len().
+
+Built-in functions improve productivity and reduce the need for writing code from scratch for basic operations.
+
+### Common Built-in Functions and What They Do:
+
+- **print()**: Displays text or variable output.
+- **len()**: Returns the number of items in an object (string, list, etc.).
+- **type()**: Returns the data type of a variable (e.g., int, str).
+- **int()**, **float()**, **str()**: Convert between data types.
+- **range()**: Produces a sequence of numbers, often used in loops.
+- **sum()**: Adds numbers in a list or iterable.
+- **sorted()**: Returns a new list containing all items from the iterable in ascending order.
+- **max()** / **min()**: Finds the largest or smallest value in a dataset.
+
+```{python}
+# Example 1: Basic text output
+print("Welcome to Digital Humanities")
+
+# Example 2: Working with a string
+sentence = "Humanities meet computation"
+print("Length of sentence:", len(sentence))
+
+# Example 3: Check data type
+number = 42
+print("Data type:", type(number))
+
+# Example 4: Sorting a list
+years = [1850, 2023, 1945, 1789]
+print("Sorted years:", sorted(years))
+
+# Example 5: Using range and sum
+print("Sum from 1 to 5:", sum(range(1, 6)))  # 1+2+3+4+5 = 15
+```
+
+### Exploring Python Documentation
+
+Learning how to explore the documentation is key to becoming self-sufficient in Python.
+
+**Python provides tools for this:**
+- help() function
+- The ? syntax in Jupyter Notebooks
+
+```{python}
+#| scrolled: true
+help(str)
+```
+
+This gives detailed information about how to work with strings.
+
+```{python}
+#| scrolled: true
+str?
+```
+
+This brings up a quick help popup describing the str class.
+
+You can also combine help with other functions:
+
+```{python}
+help(len)
+```
+
+This shows how the len() function works and what types it supports.
+
+## Libraries and Modules
+Python's strength lies in its standard library and external packages—collections of modules that offer specialized functionality. A module is simply a file containing Python definitions and statements. A library is a collection of modules that can be imported and used in your programs.
+
+### Why Libraries Matter:
+
+They save time and provide tested, optimized tools for:
+- Text processing
+- Data handling
+- Visualization
+- Machine learning
+- File and network operations
+
+### Importing Modules
+To use a module, you import it into your Python script:
+
+```{python}
+import math
+print(math.sqrt(16))  # Output: 4.0
+```
+
+You can also import specific functions or classes:
+
+```{python}
+from math import pi, sin
+print(pi)         # Output: 3.141592653589793
+print(sin(pi/2))  # Output: 1.0
+```
+
+Or give a library module an alias:
+
+```{python}
+import numpy as np
+array = np.array([1, 2, 3])
+array
+```
+
+### Built-in Python Libraries
+Python comes with a rich standard library — a collection of modules and packages that are bundled with Python itself. This means you don’t need to install anything extra to start using them. They’re always available whenever you run Python, making it super convenient to perform many common programming tasks right out of the box.
+
+#### *random* : Generate random numbers
+
+Useful for creating random data, games, simulations, or selecting random elements.
+
+```{python}
+import random
+print(random.randint(1, 10))  # Random number between 1 and 10
+```
+
+#### *datetime* — Work with dates and times
+Easily get the current date/time or perform date calculations.
+
+```{python}
+import datetime
+now = datetime.datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M:%S"))
+```
+
+#### *os* — Interact with your computer’s operating system
+Get info about files, directories, environment variables, or execute system commands.
+
+```{python}
+import os
+
+print(os.getcwd())  # Current working directory
+print(os.listdir()) # List files in the current directory
+```
+
+### External Libraries
+While Python’s built-in libraries cover a lot, many advanced tasks require specialized tools, this is where external libraries come in. These are packages developed by the Python community (or companies) and shared through the Python Package Index (PyPI). You usually install them using the package manager *pip*.
+
+#### What Are External Libraries?
+- They extend Python’s capabilities beyond the standard library.
+- Provide tools for data science, machine learning, web development, image processing, automation, and much more.
+- They often come with many modules and sub-packages bundled together, making them powerful libraries.
+
+#### Installing External Libraries
+Normally, you install external libraries using the command line:
+
+pip install library-name
+
+For example:
+
+pip install numpy
+pip install pandas
+pip install matplotlib
+
+Most popular external libraries used for data science and scientific computing come pre-installed in JupyterLab environments such as:
+- Anaconda distribution (a popular Python distribution for data science)
+- Cloud platforms like Google Colab
+- Many managed JupyterHub setups
+
+This means when you open a notebook in JupyterLab, you can often import and use libraries like *numpy*, *pandas*, and *matplotlib* immediately, no extra installation required.
+
+Let's see some examples of these libraries:
+
+#### *numpy* — Fast numerical computing
+Provides powerful arrays and mathematical functions.
+
+```{python}
+import numpy as np
+
+arr = np.array([1, 2, 3])
+print(arr * 2)  # [2 4 6]
+```
+
+#### *pandas* — Data manipulation and analysis
+Makes working with tabular data easy.
+
+```{python}
+import pandas as pd
+
+data = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
+df = pd.DataFrame(data)
+print(df)
+```
+
+#### *matplotlib* — Data visualization
+Create charts and graphs.
+
+```{python}
+import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4]
+y = [10, 20, 25, 30]
+
+plt.plot(x, y)
+plt.title("Simple Line Plot")
+plt.show()
+```
+

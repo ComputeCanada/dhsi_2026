@@ -1,0 +1,249 @@
+---
+jupyter: python3
+---
+
+```{python}
+fruits = ['apple', 'banana', 'orange']
+for fruit in fruits:
+    print(fruit)
+```
+
+```{python}
+# Loop through a list
+fruits = ['apple', 'banana', 'orange']
+for fruit in fruits:
+    print(fruit)
+
+# Loop through a range of numbers
+for i in range(5):  # 0, 1, 2, 3, 4
+    print(i)
+
+# Loop through a string
+for letter in "hello":
+    print(letter)
+```
+
+```{python}
+def multiply_by_eight(num):
+    print(num * 8)
+```
+
+```{python}
+test = multiply_by_eight(2)
+```
+
+```{python}
+type(test)
+```
+
+```{python}
+test
+```
+
+```{python}
+print(test)
+```
+
+```{python}
+from urllib.request import urlopen
+
+url = "https://mint.westdri.ca/python/data/pratchett.txt"
+with urlopen(url) as response:
+    text = response.read().decode('utf-8')  # decode bytes to string
+print(text)
+```
+
+```{python}
+type(url)
+```
+
+```{python}
+import requests
+
+url = "https://mint.westdri.ca/python/data/pratchett.txt"
+response = requests.get(url)
+text = response.text  # already decoded as string
+print(text)
+```
+
+```{python}
+import requests
+```
+
+```{python}
+url = "https://mint.westdri.ca/python/data/pratchett.txt"
+```
+
+```{python}
+print(url)
+```
+
+```{python}
+type(url)
+```
+
+```{python}
+requests.get(url)
+```
+
+```{python}
+response = requests.get(url)
+```
+
+```{python}
+x
+```
+
+
+```{python}
+print(response)
+```
+
+```{python}
+type(response)
+```
+
+```{python}
+text = response.text
+```
+
+```{python}
+url
+```
+
+```{python}
+text = response.text
+```
+
+```{python}
+type(text)
+```
+
+```{python}
+print(text)
+```
+
+```{python}
+test
+```
+
+```{python}
+# Split the text into words using split()
+words = text.split()
+
+# Count the number of words
+num_words = len(words)
+
+print("Number of words:", num_words)
+```
+
+```{python}
+help(len)
+```
+
+```{python}
+words = text.split()
+```
+
+```{python}
+type(words)
+```
+
+```{python}
+type(text)
+```
+
+```{python}
+len(text)
+```
+
+```{python}
+#| collapsed: true
+#| jupyter: {outputs_hidden: true}
+print(text)
+```
+
+```{python}
+print(words)
+```
+
+```{python}
+words[0]
+```
+
+```{python}
+type(words)
+```
+
+```{python}
+type(words[0])
+```
+
+```{python}
+print(text)
+```
+
+```{python}
+pattern = r'(["\'])(?:(?=(\\?))\2.)*?\1'
+```
+
+```{python}
+type(pattern)
+```
+
+```{python}
+import re
+matches = re.findall(pattern, text, re.DOTALL)
+```
+
+```{python}
+type(matches)
+```
+
+```{python}
+print(matches)
+```
+
+```{python}
+quotes = [match[0] for match in re.findall(r'(["\'])(.*?)(\1)', text, re.DOTALL)]
+```
+
+```{python}
+print(quotes)
+```
+
+```{python}
+for quote in quotes:
+    print(quote[1])
+```
+
+```{python}
+quotes = re.findall(r'"(.*?)"', text)
+```
+
+```{python}
+print(quotes)
+```
+
+```{python}
+type(quotes)
+```
+
+```{python}
+len(quotes)
+```
+
+```{python}
+for quote in quotes:
+    print(quote + '\n')
+```
+
+```{python}
+'test' + ' to try.'
+```
+
+```{python}
+'test' * 3
+```
+
+

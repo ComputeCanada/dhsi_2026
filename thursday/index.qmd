@@ -1,0 +1,42 @@
+---
+title: Your turn!
+subtitle: Query an API or scrape a website in teams
+description: Thursday, June 11, 2026
+title-block-banner: true
+toc: false
+---
+
+:::{.topdef}
+
+**Time:** \
+9am–noon, 1:30pm–4pm
+
+**Live notes:** \
+[Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
+
+**Topic:** \
+Today, you will be working in teams on a project of your own. Your goal is to extract useful data from a website, either via API querying (if the option is available) or via web scraping (if your site has no API).
+
+Try to pair up with one or more people having a similar interest.
+
+Of course, we will be with you all day to help!
+
+It would be fantastic if you could chose a website that contains data useful for your research or that is of interest to you. If you don't have any idea however, here is a list of sites that have well-built APIs:
+
+- [Hathi Trust Hathifiles](https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/hathifiles/)
+- [Hathi Trust bibliographic API](https://www.hathitrust.org/member-libraries/resources-for-librarians/data-resources/bibliographic-api/)
+- [New York Times](https://developer.nytimes.com/apis)
+- [Internet Archive](https://archive.org/developers/index-apis.html)
+- [Spotify](https://developer.spotify.com/documentation/web-api)
+- [Getty Museum](https://data.getty.edu/)
+- [Library of Congress](https://guides.loc.gov/digital-scholarship/accessing-digital-materials#s-lib-ctab-26648178-2)
+- [World Bank](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information)
+- [NASA](https://api.nasa.gov/)
+
+You can find other sites with good APIs [here](https://libguides.mit.edu/c.php?g=1253643&p=9182104#s-lg-box-wrapper-34833896) and [here](https://github.com/public-apis/public-apis).
+
+:::
+
+<br>
+
+![](/img/logo_dhsi.png){fig-alt="frontlogo" fig-align="center" width="12%"}

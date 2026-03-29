@@ -1,0 +1,61 @@
+---
+title: Programming fundamentals
+subtitle: Core concepts
+description: Monday, June 8, 2026
+title-block-banner: true
+toc: false
+---
+
+## Programming languages
+
+:::{.topdef}
+
+**Time:** \
+11:00am–noon
+
+**Instructor:** \
+Marie-Hélène Burle (Simon Fraser University)
+
+**Live notes:** \
+Feel free to use the [etherpad](https://etherpad.wikimedia.org/p/dhsi26) for this course to share notes or communicate among each other. It is entirely for you, so you can use it however you want.
+
+**Material:** \
+[Slides](wb_hss_prog_slides.html) (this presentation may take a little time to load).
+
+**Topic:** \
+An introduction to the core concepts of programming languages.
+
+:::
+
+## JupyterLab & Python
+
+:::{.topdef}
+
+**Time:** \
+1:30pm–4:00pm
+
+**Instructor:** \
+Alex Razoumov (Simon Fraser University)
+
+**Live notes:** \
+[Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
+
+**Material:** \
+Download the Jupyter notebook for this afternoon: {{< downloadthis day1_afternoon.ipynb dname="day1_afternoon" label="Download" >}}
+
+You will open this notebook on your computer and work in it.
+
+You can see (but not edit) the content of the notebook [here](day1_afternoon.html){target="_blank"}. \
+After the end of today's class, we will publish a completed notebook at the link above so that you don't have to worry about missing something during the class: just focus on learning.
+
+**Post course material:** \
+We will post the completed notebook after the course.
+<!-- Here is the completed notebook: {{< downloadthis day1_afternoon_completed.ipynb dname="day1_afternoon_completed" label="Download" >}} -->
+
+<!-- And it can be visualized [here](day1_afternoon_completed.html){target="_blank"}. -->
+
+:::
+
+<br>
+
+![](/img/logo_dhsi.png){fig-alt="frontlogo" fig-align="center" width="12%"}

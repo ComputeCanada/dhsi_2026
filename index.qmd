@@ -1,0 +1,143 @@
+---
+title: Coding Fundamentals for Humanists
+description: |
+  <br>Course for the [Digital Humanities Summer Institute (DHSI)](https://dhsi.org/) 2026
+toc: false
+title-block-banner: true
+anchor-sections: false
+---
+
+:::{layout="[[2.1, 10], [2.1, 10], [2.1, 10], [2.1, 10], [2.1, 10], [2.1, 10]]"}
+
+:::{.card-body}
+
+:::{.date}
+:::
+
+:::
+
+:::{.card-special .mb-3}
+
+:::{.card-body}
+
+[Software installation instructions](install.qmd){.card-title .stretched-link}
+
+:::
+
+:::
+
+:::{.card-body}
+
+:::{.date}
+
+Monday<br>June 8, 2026
+
+:::
+
+:::
+
+:::{.card .mb-3}
+
+:::{.card-body}
+
+[Programming fundamentals](/monday/index.qmd){.card-title .stretched-link}
+
+[Introduction to the core concepts of programming languages]{.text-muted}
+
+:::
+
+:::
+
+:::{.card-body}
+
+:::{.date}
+
+Tuesday<br>June 9, 2026
+
+:::
+
+:::
+
+:::{.card .mb-3}
+
+:::{.card-body}
+
+[Basics of Python](/tuesday/index.qmd){.card-title .stretched-link}
+
+[Python as an example of programming language]{.text-muted}
+
+:::
+
+:::
+
+:::{.card-body}
+
+:::{.date}
+
+Wednesday<br>June 10, 2026
+
+:::
+
+:::
+
+:::{.card .mb-3}
+
+:::{.card-body}
+
+[Python for the humanities](/wednesday/index.qmd){.card-title .stretched-link}
+
+[Examples of use cases]{.text-muted}
+
+:::
+
+:::
+
+:::{.card-body}
+
+:::{.date}
+
+Thursday<br>June 11, 2026
+
+:::
+
+:::
+
+:::{.card .mb-3}
+
+:::{.card-body}
+
+[Your turn!](/thursday/index.qmd){.card-title .stretched-link}
+
+[Query an API or scrape a website in teams]{.text-muted}
+
+:::
+
+:::
+
+:::{.card-body}
+
+:::{.date}
+
+Friday<br>June 12, 2026
+
+:::
+
+:::
+
+:::{.card .mb-3}
+
+:::{.card-body}
+
+[Presentations](/friday/index.qmd){.card-title .stretched-link}
+
+[Stress-free presentations of your results and what you learnt]{.text-muted}
+
+:::
+
+:::
+
+:::
+
+![](/img/logo_dhsi.png){fig-alt="frontlogo" fig-align="center"}
+
+![](/img/logo_drac_bilingual_no_bg.svg){fig-alt="frontlogo" fig-align="center"}
