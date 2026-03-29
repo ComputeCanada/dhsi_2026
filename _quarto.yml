@@ -1,0 +1,70 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "!*.py"
+    - "!*.ipynb"
+
+website:
+  title: Coding Fundamentals for Humanists
+  favicon: /img/logo_dhsi.png
+  site-url: https://dhsi-2026.netlify.app/
+  repo-url: https://github.com/ComputeCanada/dhsi_2026
+  page-navigation: true
+  bread-crumbs: false
+  page-footer:
+    left:
+      - text: About
+        href: about.qmd
+    center:
+      - text: Live notes
+        href: https://etherpad.wikimedia.org/p/dhsi26
+        target: _blank
+    right:
+      - text: Software installation
+        href: install.qmd
+  navbar:
+    background: light
+    logo: /img/logo_dhsi.png
+    logo-alt: "DHSI logo"
+    title: false
+    left:
+      - text: Monday
+        href: monday/index.qmd
+      - text: Tuesday
+        href: tuesday/index.qmd
+      - text: Wednesday
+        href: wednesday/index.qmd
+      - text: Thursday
+        href: thursday/index.qmd
+      - text: Friday
+        href: friday/index.qmd
+    right:
+      - text: Live notes
+        href: https://etherpad.wikimedia.org/p/dhsi26
+        target: _blank
+      - text: Software installation
+        href: install.qmd
+      - text: About
+        href: about.qmd
+
+format:
+  html:
+    toc: true
+    toc-title: "<em>On this page:</em>"
+    toc-depth: 5
+    highlight-style: vim-dark
+    theme:
+      light: [cosmo, theme.scss]
+    css: styles.css
+    link-external-newwindow: true
+    # reference-location: margin
+    # fig-cap-location: margin
+    callout-icon: false
+
+execute:
+  freeze: auto
+  cache: true
+  error: true
+  echo: true

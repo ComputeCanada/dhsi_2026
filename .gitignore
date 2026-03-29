@@ -1,0 +1,5 @@
+/.quarto/
+.DS_Store
+*_cache/
+2026_coursepack.pdf
+**/*.quarto_ipynb
