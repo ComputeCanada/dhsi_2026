@@ -56,11 +56,9 @@ format:
     toc-depth: 5
     highlight-style: vim-dark
     theme:
-      light: [cosmo, theme.scss]
-    css: styles.css
+      light: [cosmo, theme.scss, theme_light.scss, styles.css]
+      dark: [cosmo, theme.scss, theme_dark.scss, styles_dark.css]
     link-external-newwindow: true
-    # reference-location: margin
-    # fig-cap-location: margin
     callout-icon: false
 
 execute:
