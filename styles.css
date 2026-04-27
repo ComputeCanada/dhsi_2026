@@ -3,9 +3,9 @@
 /*. navbar */
 
 .navbar {
-  --bs-navbar-active-color: #b5111b !important;
-  --bs-navbar-hover-color: #740b12 !important;
-  --bs-navbar-brand-hover-color: #740b12 !important;
+  --bs-navbar-active-color: #c08d12 !important;
+  --bs-navbar-hover-color: #997300 !important;
+  --bs-navbar-brand-hover-color: #997300 !important;
 }
 
 /*. button for slides */

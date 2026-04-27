@@ -63,11 +63,11 @@
 }
 
 .quarto-title-banner a {
-  color: $red !important;
+  color: $dhsi-dark !important;
 }
 
 .quarto-title-banner a:hover {
-    color: $red-dark !important;
+    color: $brown-red !important;
 }
 
 .quarto-title-banner li {
@@ -82,19 +82,19 @@ div.sidebar-item-container {
 
 div.sidebar-item-container:hover,
 div.sidebar-item-container:focus {
-    color: $red !important;
+    color: $dhsi-dark !important;
 }
 
 div.sidebar-item-container .active,
 div.sidebar-item-container .show>.nav-link,
 div.sidebar-item-container .sidebar-link>code {
-    color: $red !important;
+    color: $dhsi-dark !important;
 }
 
 .sidebar nav[role=doc-toc] ul>li>a.active,
 .sidebar nav[role=doc-toc] ul>li>ul>li>a.active {
-  border-left: 1px solid $red;
-  color: $red !important;
+  border-left: 1px solid $dhsi-dark;
+  color: $dhsi-dark !important;
 }
 
 div.sidebar.sidebar-navigation.rollup.quarto-sidebar-toggle-contents,
@@ -105,21 +105,21 @@ nav.sidebar.sidebar-navigation:not(.rollup) {
 div.sidebar-item-container .active,
 div.sidebar-item-container .show>.nav-link,
 div.sidebar-item-container .sidebar-link>code {
-  color: $red !important;
+  color: $dhsi-dark !important;
 }
 
 // . sidebar on the right
 
 .sidebar nav[role="doc-toc"] ul>li>a:hover {
-  color: $red-dark !important;
+  color: $brown-red !important;
 }
 
 #quarto-content .quarto-sidebar-toggle-title {
-  color: $brown-dark !important;
+  color: $dhsi-dark !important;
 }
 
 .quarto-sidebar-toggle-icon {
-  color: $brown-light !important;
+  color: $dhsi !important;
 }
 
 // . footer
@@ -175,6 +175,23 @@ div.sidebar-item-container .sidebar-link>code {
 
 .card-special:hover {
   background-color: $red;
+}
+
+.card-dhsi {
+  width: 100% !important;
+  background-color: $dhsi;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  a {
+    color: $grey-black;
+  }
+}
+
+.card-dhsi:hover {
+  background-color: $dhsi-dark;
+  a {
+    color: $black-soft;
+  }
 }
 
 .card-title {
@@ -302,10 +319,10 @@ img[alt=frontlogo] {
   border: 0.5pt solid $grey-pink;
   border-radius: 5px;
   a {
-    color: $red;
+    color: $brown-red;
   }
   a:hover {
-    color: $red-dark;
+    color: $dhsi-dark;
   }
 }
 
@@ -691,11 +708,11 @@ body {
 
 a {
   text-decoration: none;
-  color: $red;
+  color: $dhsi-dark;
 }
 
 a:hover {
-  color: $red-dark;
+  color: $brown-red;
 }
 
 a>code {

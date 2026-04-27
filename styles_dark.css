@@ -3,9 +3,9 @@
 /*. navbar */
 
 .navbar {
-  --bs-navbar-active-color: #FF5E50 !important;
-  --bs-navbar-hover-color: #FF9B8D !important;
-  --bs-navbar-brand-hover-color: #FF9B8D !important;
+  --bs-navbar-active-color: #c08d12 !important;
+  --bs-navbar-hover-color: #997300 !important;
+  --bs-navbar-brand-hover-color: #997300 !important;
 }
 
 .navbar-nav {

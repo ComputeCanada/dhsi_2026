@@ -16,7 +16,7 @@ anchor-sections: false
 
 :::
 
-:::{.card-special .mb-3}
+:::{.card-dhsi .mb-3}
 
 :::{.card-body}
 
