@@ -3,7 +3,7 @@ title: Intro programming for the humanities
 frontpic: /img/logo_dhsi.png
 noshadow: noshadow
 author: Marie-Hélène Burle
-date: 2025-06-2
+date: 2026-06-8
 date-format: long
 execute:
   error: true
@@ -21,7 +21,7 @@ format:
       color: "#b5111b"
       pointerSize: 32
     link-external-newwindow: true
-    footer: <a href="."><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(134,110,26)" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"/></svg>&nbsp;Back to course page</a>
+    footer: <a href="index.qmd"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(134,110,26)" class="bi bi-arrow-90deg-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"/></svg>&nbsp;Back to course page</a>
     auto-stretch: false
 revealjs-plugins:
   - pointer
@@ -225,6 +225,10 @@ Python examples:
 
 :::
 
+::::{.columns}
+
+:::{.column width="49%"}
+
 ```{python}
 type(5)
 ```
@@ -232,6 +236,13 @@ type(5)
 ```{python}
 type(5.0)
 ```
+
+:::
+
+:::{.column width="2%"}
+:::
+
+:::{.column width="49%"}
 
 ```{python}
 type("This is a string")
@@ -241,13 +252,17 @@ type("This is a string")
 type(True)
 ```
 
+:::
+
+::::
+
 ## Variables {.center}
 
 Values can be assigned to names to create variables
 
 :::{.example}
 
-Python example
+Python example:
 
 :::
 
@@ -267,7 +282,20 @@ a * 2
 
 ## Data structures {.center}
 
+::::{.columns}
+
+:::{.column width="49%"}
+
 A data structure is a collection of values
+
+Each type of structure has its own characteristics (necessarily homogeneous or not, mutable or not, ordered or not, etc.). This gives several data storage options, each best in different situations
+
+:::
+
+:::{.column width="2%"}
+:::
+
+:::{.column width="49%"}
 
 :::{.example}
 
@@ -287,15 +315,28 @@ type((3, 5, "something"))
 type({0, 2, 6})
 ```
 
-Each type of structure has its own characteristics (necessarily homogeneous or not, mutable or not, ordered or not, etc.). This gives several data storage options, each best in different situations
+:::
+
+::::
 
 ## Functions {.center}
 
+::::{.columns}
+
+:::{.column width="49%"}
+
 Functions are snippets of code that accomplish a specific task
 
-Built-in functions come with the language and are readily available. Other functions become available once a particular module or package is loaded. Finally, the user can definite their own functions
+Built-in functions come with the language and are readily available. Other functions become available once a particular module or package is loaded.
 
-Some functions take arguments
+Finally, the user can definite their own functions
+
+:::
+
+:::{.column width="2%"}
+:::
+
+:::{.column width="49%"}
 
 :::{.example}
 
@@ -314,6 +355,10 @@ def hello():
 hello()
 ```
 
+:::
+
+::::
+
 ## Control flow {.center}
 
 Commands are normally run sequentially, from top to bottom, but it is possible to alter the flow of execution by creating repeats (loops) or conditional executions
@@ -324,19 +369,33 @@ Python examples:
 
 :::
 
+::::{.columns}
+
+:::{.column width="49%"}
+
 ```{python}
-for i in range(3):
+for i in range(4):
     print(i)
 ```
 
+:::
+
+:::{.column width="2%"}
+:::
+
+:::{.column width="49%"}
+
 ```{python}
 x = -3
-
 if x > 0:
     print(x + 2)
 else:
     print(x * 3)
 ```
+
+:::
+
+::::
 
 # Getting help
 
