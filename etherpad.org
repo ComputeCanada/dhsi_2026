@@ -1,0 +1,13 @@
+Etherpad for the course "Coding Fundamentals for Humanists".
+
+Programming for Humanists
+June 8-12, 2026
+DHSI
+
+    Course website: https://dhsi-2026.netlify.app/
+
+    DHSI timetable: https://dhsi.org/timetable/
+
+
+This etherpad is a convenient way for you to exchange information, paste links, jot ideas, take notes, etc.
+Note that, as it is public, you shouldn't post sensitive information in it.
