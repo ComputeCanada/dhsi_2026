@@ -19,11 +19,13 @@ Marie-Hélène Burle (Simon Fraser University)
 **Live notes:** \
 Feel free to use the [etherpad](https://etherpad.wikimedia.org/p/dhsi26) for this course to share notes or communicate among each other. It is entirely for you, so you can use it however you want.
 
+**Topics:** \
+- Go over website and program for the week. \
+- An introduction to the core concepts of programming languages. \
+- Check Python installation.
+
 **Material:** \
 [Slides](wb_hss_prog_slides.html) (this presentation may take a little time to load).
-
-**Topic:** \
-An introduction to the core concepts of programming languages.
 
 :::
 
