@@ -19,6 +19,9 @@ Alex Razoumov (Simon Fraser University)
 **Live notes:** \
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
+**Topic:** \
+We will gather internet data using APIs.
+
 **Materials:** \
 [Slides](https://docs.google.com/presentation/d/e/2PACX-1vTn0lqZrMbfUAUVaMSdAkLeHy3eJoNsczElUZvl87ou6OO5amDkf9aAetYdqqKGIg/pub?start=false&loop=false&delayms=3000#slide=id.p1) \
 Download the Jupyter notebook for this morning: {{< downloadthis day3_morning.ipynb dname="day3_morning" label="Download" >}}
@@ -27,9 +30,6 @@ You will open this notebook on your computer and work in it.
 
 You can see (but not edit) the content of the notebook [here](day3_morning.html){target="_blank"}. \
 After the end of today's class, we will publish a completed notebook at the link above so that you don't have to worry about missing something during the class: just focus on learning.
-
-**Topic:** \
-We will gather internet data using APIs.
 
 **Post course material:** \
 We will post the completed notebook after the course.
