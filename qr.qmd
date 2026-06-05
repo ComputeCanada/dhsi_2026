@@ -1,0 +1,8 @@
+---
+title: QR code for this course's website
+title-block-banner: true
+toc: false
+css: force_light.css
+---
+
+![](img/qr_site.png){width="50%"}
