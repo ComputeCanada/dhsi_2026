@@ -1,0 +1,43 @@
+---
+title: The Jupyter interface
+description: |
+  Useful keybindings to navigate a Jupyter notebook
+title-block-banner: true
+toc: false
+---
+
+Jupyter notebooks come with two modes:
+
+- **edit mode** in which you can type text as usual,
+- **command mode** in which many keys are shortcuts to specific actions.
+
+:::{.info}
+
+```{.bash}
+Enter            enter edit mode
+Esc              enter command mode
+
+# in edit mode
+Tab              code completion
+
+# in command mode
+up               navigate up
+down             navigate up
+Shift+up         select multiple cells up
+Shift+down       select multiple cells down
+a                insert a new blank cell above
+b                insert a new blank cell below
+c		         copy the current or selected cells
+x		         cut the current or selected cells
+v		         paste the copied or cut cells
+dd				 delete cell
+m		         turn the cell into a markdown cell
+y		         turn the cell into a code cell
+Shift+m	         merge selected cells
+
+# in either mode
+Ctl+Enter        run the current cell
+Shift+Enter      run the current cell and move to a new cell below
+```
+
+:::
