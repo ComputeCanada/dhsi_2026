@@ -40,15 +40,18 @@ website:
         href: thursday/index.qmd
       - text: Friday
         href: friday/index.qmd
-    right:
-      - text: Live notes
+    tools:
+      - icon: qr-code-scan
+        href: qr.qmd
+      - icon: journal
         href: https://etherpad.wikimedia.org/p/dhsi26
         target: _blank
-      - text: Software installation
+      - icon: download
         href: install.qmd
-      - text: About
+      - icon: question-square
+        href: jupyter_kbd.qmd
+      - icon: info-square
         href: about.qmd
-
 format:
   html:
     toc: true
