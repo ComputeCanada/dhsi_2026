@@ -1,10 +1,11 @@
 ---
 title: About Coding Fundamentals for Humanists
+description: |
+  This workshop is part of the [Digital Humanities Summer Institute](https://dhsi.org/) (DHSI) 2026 event.
+title-block-banner: true
 toc: false
 anchor-sections: false
 ---
-
-This workshop is part of the [Digital Humanities Summer Institute](https://dhsi.org/) (DHSI) 2026 event.
 
 ## Instructors
 
