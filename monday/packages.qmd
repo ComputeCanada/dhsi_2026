@@ -95,7 +95,9 @@ There are several methods to install packages. Here are the main ones:
 | [pip](https://github.com/pypa/pip) | The official method to install Python packages. It requires other tools to manage the virtual environments. |
 | [uv](https://github.com/astral-sh/uv) | A new, efficient, and wonderful tool to manage Python packages, projects and environments. The best tool by far in my opinion! |
 | [Anaconda](https://www.anaconda.com/) | A data science platform for Python that comes with Python itself, the `conda` package and environment manager, and many packages for data science. This project is more beginner friendly and popular among Windows users. |
-| [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) | A minimal installation of `conda` |
+| [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) | A minimal installation of `conda`. |
+
+: {tbl-colwidths="[15,85]"}
 
 #### In this course
 
