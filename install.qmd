@@ -31,13 +31,39 @@ We will teach Python using JupyterLab, a programming environment that runs in a 
 
 ![Step 5. Check "add Anaconda3 to my PATH environment variable" box and then click on "Install"](img/install5.png)
 
-### macOS users
+### MacOS users
 
-1. Open [this link](https://www.anaconda.com/products/individual#download-section).
+<!-- 1. Open [this link](https://www.anaconda.com/products/individual#download-section). -->
 
-2. Click on the "Download" button which will then download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer).
+<!-- 2. Click on the "Download" button which will then download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer). -->
 
-3. Install Python 3 by running the Anaconda Installer using all the defaults.
+<!-- 3. Install Python 3 by running the Anaconda Installer using all the defaults. -->
+
+Install using the Terminal:
+
+```sh
+curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-MacOSX-arm64.sh
+bash ./Anaconda3-2025.12-2-MacOSX-arm64.sh
+/bin/rm Anaconda3-2025.12-2-MacOSX-arm64.sh
+source $HOME/anaconda3/etc/profile.d/conda.sh
+```
+
+Create a new virtual environment:
+
+```sh
+conda create --name env-conda-dhsi python=3.14
+```
+
+And the activate and use it:
+
+```sh
+conda activate env-conda-dhsi
+conda install requests plotly numpy jupyter
+...
+conda deactivate
+```
+
+
 
 ### Linux users
 
