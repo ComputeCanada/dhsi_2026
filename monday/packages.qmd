@@ -1,0 +1,143 @@
+---
+title: Python packages
+author: Marie-Hélène Burle
+---
+
+:::{.def}
+
+This section explains how to access Python modules from the standard library and how to install external packages.
+
+:::
+
+## The standard library
+
+Python comes with an extensive [standard library](https://docs.python.org/3/library/index.html#library-index). As soon as you launch the program, you can access part of it such as the [built-in functions](https://docs.python.org/3/library/functions.html) and [built-in constants](https://docs.python.org/3/library/constants.html):
+
+:::{.example}
+
+Example:
+
+:::
+
+```{python}
+type(3)    # type is a built-in function
+```
+
+Most of the standard library however is held in [several thematic modules](https://docs.python.org/3/py-modindex.html). Each module contains additional functions, constants, and facilities. Before you can use them, you need to load them into your session.
+
+### Example: the [math](https://docs.python.org/3/library/math.html) module
+
+The [math](https://docs.python.org/3/library/math.html) module contains many mathematical functions and constants, including the `sqrt` function.
+
+This function cannot be accessed directly:
+
+```{python}
+sqrt(9)
+```
+
+In order to use it, you have several options:
+
+- Load the module, then access the function as a method of the module:
+
+```{python}
+import math
+math.sqrt(9)
+```
+
+You can create an alias for the module:
+
+```{python}
+import math as m
+m.sqrt(9)
+```
+
+This is particularly convenient with modules of longer names. Note that everybody uses the same aliases for packages and modules and it is a good idea to respect these habits as it will make your code easier to read by others.
+
+- Import the function directly:
+
+```{python}
+from math import sqrt
+sqrt(9)
+```
+
+## External packages
+
+A very large number of free and open-source packages are created by the community. They expand the capabilities of Python into specialized domains.
+
+You can browse for the in [the Python Package Index (PyPI)](https://pypi.org/).
+
+:::{.exo}
+
+:::{.yourturn}
+
+Your turn:
+
+:::
+
+Ask Google or an LLM for the name of a statistical plotting library in Python, then look for it in PyPI.
+
+:::
+
+### Installing packages
+
+#### Virtual environments
+
+It is a very good idea to install the packages for a project into a [virtual environment]{.emph}. This isolates projects from one another and prevents conflicts between dependencies that might arise when you have too many packages installed in the same place.
+
+Additionally, it allows you to have packages for different projects at different versions if that is important for reproducibility.
+
+#### Tools
+
+There are several methods to install packages. Here are the main ones:
+
+| Tool | Description |
+|---|---|
+| [pip](https://github.com/pypa/pip) | The official method to install Python packages. It requires other tools to manage the virtual environments. |
+| [uv](https://github.com/astral-sh/uv) | A new, efficient, and wonderful tool to manage Python packages, projects and environments. The best tool by far in my opinion! |
+| [Anaconda](https://www.anaconda.com/) | A data science platform for Python that comes with Python itself, the `conda` package and environment manager, and many packages for data science. This project is more beginner friendly and popular among Windows users. |
+| [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/main) | A minimal installation of `conda` |
+
+#### In this course
+
+In this course, we will use Anaconda to install packages.
+
+Anaconda comes with a number of packages, but it can be used to install new packages via the `conda` command.
+
+First, launch a terminal to run `conda`:
+
+::: {.panel-tabset}
+
+### Windows
+
+Press the Windows Key, type [Anaconda Prompt]{.codelike}, and press [Enter]{.codelike}.
+
+### Linux/macOS
+
+macOS users: open the program called [Terminal]{.codelike}. \
+Linux users: open the terminal emulator of your choice.
+
+:::
+
+Now, create a new Python virtual environment by typing in the terminal:
+
+```{.bash}
+conda create --name myenv python=3.14
+```
+
+Activate that environment:
+
+```{.bash}
+conda activate myenv
+```
+
+Install the package(s) you need. Here is an example for the package `polars`:
+
+```{.bash}
+conda install polars
+```
+
+If you want to deactivate the virtual environment (when you are done or if you want to activate a different one), run:
+
+```{.bash}
+conda deactivate
+```

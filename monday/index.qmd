@@ -22,7 +22,8 @@ Feel free to use the [etherpad](https://etherpad.wikimedia.org/p/dhsi26) for thi
 **Topics:** \
 - Go over website and program for the week. \
 - An introduction to the core concepts of programming languages. \
-- Check Python installation.
+- Check Python installation. \
+- A word about [Python packages](packages.qmd).
 
 **Material:** \
 [Slides](wb_hss_prog_slides.html) (this presentation may take a little time to load).
