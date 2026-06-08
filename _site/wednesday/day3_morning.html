@@ -367,76 +367,76 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In today’s digital world, being able to access and work with online data is a valuable skill, even in the Humanities and Social Sciences. This session is all about getting comfortable with APIs (Application Programming Interfaces) and understanding why they’re useful for research. You’ll learn how APIs compare to other ways of getting data, like text mining and web scraping, and how to tell if a website has an API you can use. We’ll walk through how to make a request to an API, use parameters to get the exact data you want, and understand the responses you get back (usually in JSON format). By the end, you’ll have hands-on experience using APIs to gather and explore data for your own projects.</p>
 <p>Let’s get started by importing the libraries that we will be using:</p>
-<div id="7ffa40e9" class="cell" data-execution_count="1">
+<div id="c5b435b5" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s explore the requests and json libraries using the Help function:</p>
-<div id="ddf34d0f" class="cell" data-execution_count="2">
+<div id="4fa7c812" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="b76a6aaa" class="cell" data-execution_count="3">
+<div id="1d8a8f96" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s get started with some hands-on API querying!</p>
 <p>For our first example, we’ll use an easy-to-understand API from <a href="https://catfact.ninja">catfact.ninja</a>, a site that serves up random cat facts, perfect for learning the basics in a fun way.</p>
 <p><strong>1. Create a variable for base URL</strong></p>
 <p>Let’s do a simple request and see what we get:</p>
-<div id="ba6668b4" class="cell" data-execution_count="4">
+<div id="a49cb251" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>2. Create a variable for the cat facts response</strong></p>
-<div id="8a3607d7" class="cell" data-execution_count="5">
+<div id="d082efd6" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s explore the ‘responses’ library:</p>
-<div id="197b76be" class="cell" data-execution_count="6">
+<div id="1338c863" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="2034737b" class="cell" data-execution_count="7">
+<div id="9d327232" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="ed0d5c79" class="cell" data-execution_count="8">
+<div id="76366c9c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The output for the .text function is actually JSON (Javascript object notation). If we apply a JSON method we can export this as a dictionary, which will be much easier for us to work with:</p>
-<div id="751d7b99" class="cell" data-execution_count="9">
+<div id="fd3c7ddd" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>3. Querying parameters</strong></p>
-<div id="7ac21946" class="cell" data-execution_count="10">
+<div id="a700be97" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s create a variable to save this parameter:</p>
-<div id="403664ef" class="cell" data-execution_count="11">
+<div id="b1fc5d6e" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1:</h2>
 <p>Query the /breeds attribute and limit our results to 10.</p>
-<div id="b4ffdd05" class="cell" data-execution_count="12">
+<div id="28aa5132" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="80f5635b" class="cell" data-execution_count="13">
+<div id="ea7852c6" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s try another example of API querying—this time with a sci-fi twist!</p>
 <p>We’ll be using <a href="https://swapi.info/">swapi.info</a>, an API built specifically for exploring data from the Star Wars universe. It’s a great way to practice working with structured data while having a bit of fun with characters, planets, and starships.</p>
 <p>Let’s create a variable for the people attributes URL and do a simple request to it:</p>
-<div id="27cfbd96" class="cell" data-execution_count="14">
+<div id="7a851d6e" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s query the People attribute ID 1 by creating a variable</p>
-<div id="bc709ad7" class="cell" data-execution_count="15">
+<div id="5865f6e4" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s declare a second variable, called api_url_response:</p>
-<div id="97339c70" class="cell" data-execution_count="16">
+<div id="3337de2c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>JSON Format</strong></p>
 <p>JSON data is formatted in <em>key-value</em> pairs. If you refer to the JSON data, you’ll see that it’s actually a list of keys and their corresponding values. For example, there’s a “birth_year” key whose value is “19BBY” as well as an “eye_color” key whose value is “blue.”</p>
 <p>We can refer to the JSON data by its key:</p>
-<div id="4f50796c" class="cell" data-execution_count="17">
+<div id="1e4e2204" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>In the statement above, we are setting a new variable called hair. The variable is composed of the value of the <em>hair_color</em> key, as specified in the data you see in the previous cell.</p>
@@ -445,7 +445,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Write some code that uses the API to tell us Luke Skywalker’s eye color.</p>
-<div id="b54dcc37" class="cell" data-execution_count="18">
+<div id="61ac6db9" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Your code goes here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>

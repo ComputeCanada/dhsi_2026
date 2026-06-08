@@ -367,12 +367,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In today’s digital world, being able to access and work with online data is a valuable skill, even in the Humanities and Social Sciences. This session is all about getting comfortable with APIs (Application Programming Interfaces) and understanding why they’re useful for research. You’ll learn how APIs compare to other ways of getting data, like text mining and web scraping, and how to tell if a website has an API you can use. We’ll walk through how to make a request to an API, use parameters to get the exact data you want, and understand the responses you get back (usually in JSON format). By the end, you’ll have hands-on experience using APIs to gather and explore data for your own projects.</p>
 <p>Let’s get started by importing the libraries that we will be using:</p>
-<div id="b289eefd" class="cell" data-execution_count="1">
+<div id="2965459e" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s explore the requests and json libraries using the Help function:</p>
-<div id="c4f80f7f" class="cell" data-execution_count="2">
+<div id="2dd24e43" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(requests)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on package requests:
@@ -2094,7 +2094,7 @@ FILE
 </code></pre>
 </div>
 </div>
-<div id="f147a2b8" class="cell" data-execution_count="3">
+<div id="8dae1d51" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(json)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on package json:
@@ -2378,7 +2378,7 @@ CLASSES
      |  decode(
      |      self,
      |      s,
-     |      _w=&lt;built-in method match of re.Pattern object at 0x7f02c68e0a00&gt;
+     |      _w=&lt;built-in method match of re.Pattern object at 0x7f6d2aadca00&gt;
      |  )
      |      Return the Python representation of ``s`` (a ``str`` instance
      |      containing a JSON document).
@@ -2749,7 +2749,7 @@ FILE
 <p>For our first example, we’ll use an easy-to-understand API from <a href="https://catfact.ninja">catfact.ninja</a>, a site that serves up random cat facts, perfect for learning the basics in a fun way.</p>
 <p><strong>1. Create a variable for base URL</strong></p>
 <p>Let’s do a simple request and see what we get:</p>
-<div id="5f21eb77" class="cell" data-execution_count="4">
+<div id="7075d351" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">'https://catfact.ninja/facts'</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>requests.get(base_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -2757,24 +2757,24 @@ FILE
 </div>
 </div>
 <p><strong>2. Create a variable for the cat facts response</strong></p>
-<div id="0cf87ea7" class="cell" data-execution_count="5">
+<div id="d657e307" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cat_facts <span class="op">=</span> requests.get(base_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Let’s explore the ‘responses’ library:</p>
-<div id="4f95bf0d" class="cell" data-execution_count="6">
+<div id="ba790c64" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cat_facts.status_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>200</code></pre>
 </div>
 </div>
-<div id="44182c6a" class="cell" data-execution_count="7">
+<div id="74213fe6" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cat_facts.text</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>'{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\\u2019s hairball is a \\u201cbezoar.\\u201d","length":54},{"fact":"A group of cats is called a \\u201cclowder.\\u201d","length":38},{"fact":"A cat can\\u2019t climb head first down a tree because every claw on a cat\\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\\/\\/catfact.ninja\\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\\/\\/catfact.ninja\\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=1","label":"1","active":true},{"url":"https:\\/\\/catfact.ninja\\/facts?page=2","label":"2","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=3","label":"3","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=4","label":"4","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=5","label":"5","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=6","label":"6","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=7","label":"7","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=8","label":"8","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=9","label":"9","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=33","label":"33","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=34","label":"34","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\\/\\/catfact.ninja\\/facts?page=2","path":"https:\\/\\/catfact.ninja\\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332}'</code></pre>
 </div>
 </div>
 <p>The output for the .text function is actually JSON (Javascript object notation). If we apply a JSON method we can export this as a dictionary, which will be much easier for us to work with:</p>
-<div id="d8e01fa5" class="cell" data-execution_count="8">
+<div id="c78c7036" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cat_facts.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>{'current_page': 1,
@@ -2832,14 +2832,14 @@ FILE
 </div>
 </div>
 <p><strong>3. Querying parameters</strong></p>
-<div id="e37d44ff" class="cell" data-execution_count="9">
+<div id="7220eafd" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>requests.get(base_url<span class="op">+</span><span class="st">"?limit=50"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
 <p>Let’s create a variable to save this parameter:</p>
-<div id="2e95d6f7" class="cell" data-execution_count="10">
+<div id="b5923bbf" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>many_cat_facts <span class="op">=</span> requests.get(base_url<span class="op">+</span><span class="st">"?limit=5"</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>many_cat_facts.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -2891,7 +2891,7 @@ FILE
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1:</h2>
 <p>Query the /breeds attribute and limit our results to 10.</p>
-<div id="9bf3c62c" class="cell" data-execution_count="11">
+<div id="6cef7ec0" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>base_url_breeds <span class="op">=</span> <span class="st">"https://catfact.ninja/breeds"</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cat_breeds <span class="op">=</span> requests.get(base_url_breeds)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>cat_breeds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2899,7 +2899,7 @@ FILE
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
-<div id="24d293f7" class="cell" data-execution_count="12">
+<div id="f6129284" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cat_breeds_limit <span class="op">=</span> requests.get(base_url_breeds<span class="op">+</span><span class="st">"?limit=1"</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cat_breeds_limit.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
@@ -2963,7 +2963,7 @@ FILE
 <p>Let’s try another example of API querying—this time with a sci-fi twist!</p>
 <p>We’ll be using <a href="https://swapi.info/">swapi.info</a>, an API built specifically for exploring data from the Star Wars universe. It’s a great way to practice working with structured data while having a bit of fun with characters, planets, and starships.</p>
 <p>Let’s create a variable for the people attributes URL and do a simple request to it:</p>
-<div id="356de2a4" class="cell" data-execution_count="13">
+<div id="615fdfbb" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>people_url <span class="op">=</span> <span class="st">"https://swapi.info/api/people"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>all_people_api <span class="op">=</span> requests.get(people_url)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>all_people_api.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -4376,13 +4376,13 @@ FILE
 </div>
 </div>
 <p>Let’s query the People attribute ID 1 by creating a variable</p>
-<div id="7886eaff" class="cell" data-execution_count="14">
+<div id="0a77ad27" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>requests.get(people_url<span class="op">+</span><span class="st">"/1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
-<div id="6f4e2067" class="cell" data-execution_count="15">
+<div id="25068d96" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>first_person_url <span class="op">=</span> <span class="st">"https://swapi.info/api/people/1"</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>requests.get(first_person_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -4390,14 +4390,14 @@ FILE
 </div>
 </div>
 <p>Let’s declare a second variable, called api_url_response:</p>
-<div id="36c9c653" class="cell" data-execution_count="16">
+<div id="069108cf" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>first_person_response <span class="op">=</span> requests.get(first_person_url)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>first_person_info <span class="op">=</span> first_person_response.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>JSON Format</strong></p>
 <p>JSON data is formatted in <em>key-value</em> pairs. If you refer to the JSON data, you’ll see that it’s actually a list of keys and their corresponding values. For example, there’s a “birth_year” key whose value is “19BBY” as well as an “eye_color” key whose value is “blue.”</p>
 <p>We can refer to the JSON data by its key:</p>
-<div id="df73b7e7" class="cell" data-execution_count="17">
+<div id="2383cc59" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>hair <span class="op">=</span> first_person_info[<span class="st">"hair_color"</span>]</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> first_person_info[<span class="st">"name"</span>]</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4412,7 +4412,7 @@ FILE
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Write some code that uses the API to tell us Luke Skywalker’s eye color.</p>
-<div id="33bd2317" class="cell" data-execution_count="18">
+<div id="dac8a75d" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="op">=</span> first_person_info[<span class="st">"eye_color"</span>]</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'s eye color is </span><span class="sc">{</span>eye_color<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -4424,7 +4424,7 @@ FILE
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Let’s try a different attribute! Choose one from the documentation: <a href="https://swapi.info/">swapi.info</a></p>
 <p>Try choosing a specific endpoint associated with an attribute to create a full string.</p>
-<div id="eea4a32e" class="cell" data-execution_count="19">
+<div id="2e08416c" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>films_url <span class="op">=</span> <span class="st">"https://swapi.info/api/films"</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>films_response <span class="op">=</span> requests.get(films_url)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>films_response</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -4432,7 +4432,7 @@ FILE
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
-<div id="86b6e487" class="cell" data-execution_count="20">
+<div id="880eebe4" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>films</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
@@ -4445,7 +4445,7 @@ FILE
 </div>
 </div>
 </div>
-<div id="438bb866" class="cell" data-execution_count="21">
+<div id="1c5f2c7a" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>films <span class="op">=</span> films_response.json()</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>film_names <span class="op">=</span> <span class="bu">list</span>()</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
