@@ -1,4 +1,4 @@
 - source: project
   netlify:
     - id: "1af1415f-4c88-4112-b827-b3a91589015e"
-      url: "dhsi-2026.netlify.app"
+      url: "https://dhsi-2026.netlify.app"
