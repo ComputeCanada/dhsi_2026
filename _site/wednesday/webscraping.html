@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Wednesday, June 10, 2026">
+<meta name="author" content="Marie-Hélène Burle">
 
-<title>Python for the humanities – Coding Fundamentals for Humanists</title>
+<title>Web scraping with Beautiful Soup – Coding Fundamentals for Humanists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -80,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -245,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -269,7 +304,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Tuesday</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../wednesday/index.html" aria-current="page"> 
+    <a class="nav-link" href="../wednesday/index.html"> 
 <span class="menu-text">Wednesday</span></a>
   </li>  
   <li class="nav-item">
@@ -294,73 +329,282 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Python for the humanities</h1>
-            <p class="subtitle lead">Examples of use cases</p>
-                  <div>
-        <div class="description">
-          Wednesday, June 10, 2026
-        </div>
-      </div>
-                </div>
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title"><em>On this page:</em></h2>
+   
+  <ul>
+  <li><a href="#html-and-css" id="toc-html-and-css" class="nav-link active" data-scroll-target="#html-and-css">HTML and CSS</a></li>
+  <li><a href="#web-scrapping" id="toc-web-scrapping" class="nav-link" data-scroll-target="#web-scrapping">Web scrapping</a></li>
+  <li><a href="#example-for-this-workshop" id="toc-example-for-this-workshop" class="nav-link" data-scroll-target="#example-for-this-workshop">Example for this workshop</a></li>
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#explore-the-raw-data" id="toc-explore-the-raw-data" class="nav-link" data-scroll-target="#explore-the-raw-data">Explore the raw data</a></li>
+  <li><a href="#parse-the-data" id="toc-parse-the-data" class="nav-link" data-scroll-target="#parse-the-data">Parse the data</a></li>
+  <li><a href="#identify-relevant-markers" id="toc-identify-relevant-markers" class="nav-link" data-scroll-target="#identify-relevant-markers">Identify relevant markers</a></li>
+  <li><a href="#extract-the-first-title" id="toc-extract-the-first-title" class="nav-link" data-scroll-target="#extract-the-first-title">Extract the first title</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Web scraping with Beautiful Soup</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Marie-Hélène Burle </p>
+          </div>
   </div>
     
   
-  <div class="quarto-title-meta">
-
-      
     
-      
-    </div>
-    
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
+</header>
 
 
-
-
-<section id="api-querying" class="level2">
-<h2 class="anchored" data-anchor-id="api-querying">API querying</h2>
-<div class="topdef">
-<p><strong>Time:</strong><br>
-9am–noon</p>
-<p><strong>Instructor:</strong><br>
-Alex Razoumov (Simon Fraser University)</p>
-<p><strong>Live notes:</strong><br>
-<a href="https://etherpad.wikimedia.org/p/dhsi26">Etherpad</a></p>
-<p><strong>Topic:</strong><br>
-We will gather internet data using APIs.</p>
-<p><strong>Materials:</strong><br>
-</p>
-<p><a href="http://folio.vastcloud.org/api">Introduction to API querying</a></p>
-<!-- And it can be visualized [here](day3_morning_completed.html){target="_blank"}. -->
+<div class="def">
+<p>The internet is a trove of information. A lot of it is publicly available and thus suitable for use in research. Extracting that information and putting it in an organized format for analysis can however be extremely tedious.</p>
+<p>Web scraping tools allow to automate parts of that process and Python is a popular language for the task.</p>
+<p>In this workshop, I will guide you through a simple example using the package <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a>.</p>
+</div>
+<section id="html-and-css" class="level2">
+<h2 class="anchored" data-anchor-id="html-and-css">HTML and CSS</h2>
+<p><a href="https://en.wikipedia.org/wiki/HTML">HyperText Markup Language</a> (HTML) is the standard markup language for websites: it encodes the information related to the formatting and structure of webpages. Additionally, some of the customization can be stored in <a href="https://en.wikipedia.org/wiki/CSS">Cascading Style Sheets</a> (CSS) files.</p>
+<p>HTML uses tags of the form:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">some_tag</span><span class="dt">&gt;</span>Your content<span class="dt">&lt;/</span><span class="kw">some_tag</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Some tags have attributes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">some_tag</span><span class="ot"> attribute_name</span><span class="op">=</span><span class="st">"attribute value"</span><span class="dt">&gt;</span>Your content<span class="dt">&lt;/</span><span class="kw">some_tag</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="example">
+<p>Examples:</p>
+</div>
+<p>Site structure:</p>
+<ul>
+<li><code>&lt;h2&gt;This is a heading of level 2&lt;/h2&gt;</code></li>
+<li><code>&lt;p&gt;This is a paragraph&lt;/p&gt;</code></li>
+</ul>
+<p>Formatting:</p>
+<ul>
+<li><code>&lt;b&gt;This is bold&lt;/b&gt;</code></li>
+<li><code>&lt;a href="https://some.url"&gt;This is the text for a link&lt;/a&gt;</code></li>
+</ul>
+</section>
+<section id="web-scrapping" class="level2">
+<h2 class="anchored" data-anchor-id="web-scrapping">Web scrapping</h2>
+<p>Web scraping is a general term for a set of tools which allow for the extraction of data from the web automatically.</p>
+<p>While most of the data on the internet is publicly available, it is illegal to scrape some sites and you should always look into the policy of a site before attempting to scrape it. Some sites will also block you if you submit too many requests in a short amount of time, so remember to scrape responsibly.</p>
+</section>
+<section id="example-for-this-workshop" class="level2">
+<h2 class="anchored" data-anchor-id="example-for-this-workshop">Example for this workshop</h2>
+<p>We will use <a href="https://onlinebooks.library.upenn.edu/">a website</a> from the <a href="https://www.upenn.edu/">University of Pennsylvania</a> that gives access to three million free online books.</p>
+<p>Our goal is get a list of books by Proust available in that database. We can go to <a href="https://onlinebooks.library.upenn.edu/authors.html">the online books author search page</a> and enter “Proust” in the search box. This shows us the data we are interested in. From here on, you could copy-paste the data one line at a time, but it is rather tedious. Instead, we will automate this task.</p>
+</section>
+<section id="load-packages" class="level2">
+<h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
+<p>Let’s load the packages that will make scraping websites with Python easier:</p>
+<div id="22a7654e" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests                 <span class="co"># To download the HTML data from a site</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup   <span class="co"># To parse the HTML data</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time                     <span class="co"># To add a delay between each requests (part of the standard library)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl             <span class="co"># To store our data in a DataFrame</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s create a string with the URL we want to scrape:</p>
+<div id="176e21aa" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://onlinebooks.library.upenn.edu/webbin/book/search?author=proust&amp;amode=words"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>First, we send a request to that URL and save the response in a variable called <code>r</code>:</p>
+<div id="d1f77267" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> requests.get(url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s see what our response looks like:</p>
+<div id="92307067" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>r</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>&lt;Response [200]&gt;</code></pre>
+</div>
+</div>
+<p>If you look in the <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">list of HTTP status codes</a>, you can see that a response with a code of <code>200</code> means that the request was successful.</p>
+</section>
+<section id="explore-the-raw-data" class="level2">
+<h2 class="anchored" data-anchor-id="explore-the-raw-data">Explore the raw data</h2>
+<p>To get the actual content of the response as unicode (text), we can use the <code>text</code> property of the response. This will give us the raw HTML markup from the webpage.</p>
+<p>Let’s print the first 400 characters:</p>
+<div id="d75412b2" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r.text[:<span class="dv">400</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;link rel="stylesheet" type="text/css" href="https://onlinebooks.library.upenn.edu/olbp.css" /&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;Search Results | The Online Books Page&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;header&gt;
+&lt;h1&gt;&lt;a href="https://onlinebooks.library.upenn.edu/" class="logolink"&gt;The Online Books Page&lt;/a</code></pre>
+</div>
 </div>
 </section>
-<section id="webscraping" class="level2">
-<h2 class="anchored" data-anchor-id="webscraping">Webscraping</h2>
-<div class="topdef">
-<p><strong>Time:</strong><br>
-1:30pm–4:00pm</p>
-<p><strong>Instructor:</strong><br>
-Marie-Hélène Burle (Simon Fraser University)</p>
-<p><strong>Live notes:</strong><br>
-<a href="https://etherpad.wikimedia.org/p/dhsi26">Etherpad</a></p>
-<!-- **Topic:** \ -->
+<section id="parse-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="parse-the-data">Parse the data</h2>
+<p>The package <a href="https://beautiful-soup-4.readthedocs.io/en/latest/">Beautiful Soup</a> transforms (parses) such HTML data into a parse tree, which will make extracting information easier.</p>
+<p>Let’s create an object called <code>mainpage</code> with the parse tree:</p>
+<div id="56451908" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> BeautifulSoup(r.text, <span class="st">"html.parser"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><br></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../img/logo_dhsi.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:12.0%" alt="frontlogo"></p>
-</figure>
+<div class="note">
+<p><code>html.parser</code> is the name of the parser that we are using here. It is better to use a specific parser to get consistent results across environments.</p>
+</div>
+<p>We can print the beginning of the parsed result:</p>
+<div id="5c4a5e62" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.prettify()[:<span class="dv">400</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+ &lt;head&gt;
+  &lt;meta charset="utf-8"/&gt;
+  &lt;link href="https://onlinebooks.library.upenn.edu/olbp.css" rel="stylesheet" type="text/css"/&gt;
+  &lt;meta content="width=device-width, initial-scale=1.0" name="viewport"/&gt;
+  &lt;title&gt;
+   Search Results | The Online Books Page
+  &lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+  &lt;header&gt;
+   &lt;h1&gt;
+    &lt;a class="logolink" href="https://onlinebooks.library.upenn</code></pre>
+</div>
+</div>
+<div class="note">
+<p>The <code>prettify</code> method turns the BeautifulSoup object we created into a string (which is needed for slicing).</p>
+</div>
+<p>It doesn’t look any more clear to us, but it is now in a format the Beautiful Soup package can work with.</p>
+<p>For instance, we can get the HTML segment containing the title of the page with three methods:</p>
+<ul>
+<li>using the title tag name:</li>
+</ul>
+<div id="859f10f0" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data.title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>&lt;title&gt;Search Results | The Online Books Page&lt;/title&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li>using <code>find</code> to look for HTML markers (tags, attributes, etc.):</li>
+</ul>
+<div id="9da12296" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data.find(<span class="st">"title"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>&lt;title&gt;Search Results | The Online Books Page&lt;/title&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li>using <code>select</code> which accepts CSS selectors:</li>
+</ul>
+<div id="8e0e5625" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>data.select(<span class="st">"title"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>[&lt;title&gt;Search Results | The Online Books Page&lt;/title&gt;]</code></pre>
+</div>
+</div>
+<p><code>find</code> will only return the first element. <code>find_all</code> will return all elements. <code>select</code> will also return all elements. Which one you chose depends on what you need to extract. There often several ways to get you there.</p>
+<p>Below are other examples of data extraction.</p>
+<p>The beginning of the parsed data:</p>
+<div id="29cda2b7" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data.head</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>&lt;head&gt;
+&lt;meta charset="utf-8"/&gt;
+&lt;link href="https://onlinebooks.library.upenn.edu/olbp.css" rel="stylesheet" type="text/css"/&gt;
+&lt;meta content="width=device-width, initial-scale=1.0" name="viewport"/&gt;
+&lt;title&gt;Search Results | The Online Books Page&lt;/title&gt;&lt;/head&gt;</code></pre>
+</div>
+</div>
+<p>The first link in the data:</p>
+<div id="d48db573" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data.a</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>&lt;a class="logolink" href="https://onlinebooks.library.upenn.edu/"&gt;The Online Books Page&lt;/a&gt;</code></pre>
+</div>
+</div>
+<p>The first 5 links (returned as a list):</p>
+<div id="e0779279" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>data.find_all(<span class="st">"a"</span>)[:<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>[&lt;a class="logolink" href="https://onlinebooks.library.upenn.edu/"&gt;The Online Books Page&lt;/a&gt;,
+ &lt;a href="https://onlinebooks.library.upenn.edu/webbin/book/browse?type=lcsubc&amp;amp;key=Proust%2c%20Marcel%2c%201871%2d1922"&gt;Online books about this author&lt;/a&gt;,
+ &lt;a href="https://en.wikipedia.org/wiki/Marcel_Proust"&gt;Wikipedia article&lt;/a&gt;,
+ &lt;a href="https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp26606"&gt;&lt;img alt="[Info]" class="info" src="https://onlinebooks.library.upenn.edu/info.gif"/&gt;&lt;/a&gt;,
+ &lt;a href="https://gutenberg.net.au/ebooks03/0300501.txt"&gt;&lt;cite&gt;The Captive&lt;/cite&gt; (English translation published 1929)&lt;/a&gt;]</code></pre>
+</div>
+</div>
+<p>or:</p>
+<div id="3582dc01" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data.select(<span class="st">"a"</span>)[:<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>[&lt;a class="logolink" href="https://onlinebooks.library.upenn.edu/"&gt;The Online Books Page&lt;/a&gt;,
+ &lt;a href="https://onlinebooks.library.upenn.edu/webbin/book/browse?type=lcsubc&amp;amp;key=Proust%2c%20Marcel%2c%201871%2d1922"&gt;Online books about this author&lt;/a&gt;,
+ &lt;a href="https://en.wikipedia.org/wiki/Marcel_Proust"&gt;Wikipedia article&lt;/a&gt;,
+ &lt;a href="https://onlinebooks.library.upenn.edu/webbin/book/lookupid?key=olbp26606"&gt;&lt;img alt="[Info]" class="info" src="https://onlinebooks.library.upenn.edu/info.gif"/&gt;&lt;/a&gt;,
+ &lt;a href="https://gutenberg.net.au/ebooks03/0300501.txt"&gt;&lt;cite&gt;The Captive&lt;/cite&gt; (English translation published 1929)&lt;/a&gt;]</code></pre>
+</div>
+</div>
+</section>
+<section id="identify-relevant-markers" class="level2">
+<h2 class="anchored" data-anchor-id="identify-relevant-markers">Identify relevant markers</h2>
+<p>The HTML code for this webpage contains the data we are interested in, but it is mixed in with a lot of HTML formatting and data we don’t care about. We need to extract the data relevant to us and turn it into a workable format.</p>
+<p>The first step is to find the HTML markers that contain our data. One option is to use a web inspector or—even easier—the <a href="https://selectorgadget.com/">SelectorGadget</a>, a JavaScript bookmarklet built by <a href="https://andrewcantino.com/">Andrew Cantino</a>.</p>
+<p>To use this tool, go to the <a href="https://selectorgadget.com/">SelectorGadget</a> website and drag the link of the bookmarklet to your bookmarks bar.</p>
+<p>Now, go to <a href="">the search result page</a> and click on the bookmarklet in your bookmarks bar. You will see a floating box at the bottom of your screen. As you move your mouse across the screen, an orange rectangle appears around each element over which you pass and it give you the HTML tag of that element.</p>
+<p>Click on one of the titles by Proust: now, <code>cite</code> appears in the box at the bottom as well as the number of elements selected. The selected elements are highlighted in yellow.</p>
+<p>Now you know that there are 125 titles (the number on the JavaScript box).</p>
+</section>
+<section id="extract-the-first-title" class="level2">
+<h2 class="anchored" data-anchor-id="extract-the-first-title">Extract the first title</h2>
+<p>It is a good idea to test things out on a single element before doing a massive batch scraping of a site, so let’s test our method for the first title.</p>
+<div id="bd170389" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(data.select(<span class="st">"cite"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>bs4.element.ResultSet</code></pre>
+</div>
+</div>
+<div id="51571714" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(data.select(<span class="st">"cite"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>125</code></pre>
+</div>
+</div>
+<p>To get the first one, we index it:</p>
+<div id="6300d4bb" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>data.select(<span class="st">"cite"</span>)[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>&lt;cite&gt;The Captive&lt;/cite&gt;</code></pre>
+</div>
+</div>
+<div id="59ea7dd4" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data.select(<span class="st">"cite"</span>)[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>&lt;cite&gt;Cities of the Plain&lt;/cite&gt;</code></pre>
+</div>
+</div>
+<div id="608fe51b" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>data.select(<span class="st">"cite"</span>)[<span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>&lt;cite&gt;Sodome et Gomorrhe&lt;/cite&gt;</code></pre>
+</div>
 </div>
 
 
