@@ -115,25 +115,25 @@ df.sample(10)
 df.columns
 ```
 
-<br>And a list of data types with:
+And a list of data types with:
 
 ```{python}
 df.dtypes
 ```
 
-<br>I can get the schema (sets the names of the variables (columns) and their data types) with:
+I can get the schema (sets the names of the variables (columns) and their data types) with:
 
 ```{python}
 df.schema
 ```
 
-<br>Finally, I can get some summary statistics for all the variables with:
+Finally, I can get some summary statistics for all the variables with:
 
 ```{python}
 df.describe()
 ```
 
-Depending on the data, this can be useful or perfectly meaningless (as is the case here) if the variables are not numerical. It does show us something useful however: the number of missing data for each variables. Missing data in Polars are of the type `polars.Null` and you can see their numbers in the statistic called `null_count`.
+<br>Depending on the data, this can be useful or perfectly meaningless (as is the case here) if the variables are not numerical. It does show us something useful however: the number of missing data for each variables. Missing data in Polars are of the type `polars.Null` and you can see their numbers in the statistic called `null_count`.
 
 ## Subsetting data
 
@@ -165,7 +165,35 @@ Create a DataFrame with the unique values of the column `Nationality`.
 
 :::
 
-You can of course select multiple columns:
+If we want to see how many artists are represented for each nationality, we can do:
+
+```{python}
+df_nat_counts = df.select(
+    pl.col("Nationality").unique(maintain_order=True).alias("Nationality"),
+    pl.col("Nationality").unique_counts().alias("Count"),
+)
+
+df_nat_counts
+```
+
+<br>And if we want to sort them by decreasing count:
+
+```{python}
+df_nat_counts = df.select(
+    pl.col("Nationality").unique(maintain_order=True).alias("Nationality"),
+    pl.col("Nationality").unique_counts().alias("Count"),
+).sort("Count", descending=True)
+
+df_nat_counts
+```
+
+<!-- ```{python} -->
+<!-- df.select( -->
+<!--     pl.col("Nationality").value_counts() -->
+<!-- ) -->
+<!-- ``` -->
+
+<br>You can of course select multiple columns:
 
 ```{python}
 df.select(
@@ -208,3 +236,9 @@ Your turn:
 How many Afghan artists are there in this dataset?
 
 :::
+
+<!-- ## Operations on groups -->
+
+<!-- ```{python} -->
+
+<!-- ``` -->
