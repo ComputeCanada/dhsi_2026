@@ -35,7 +35,7 @@ Alex Razoumov (Simon Fraser University)
 
 :::
 
-## Python packages
+## 
 
 :::{.topdef}
 
@@ -48,14 +48,8 @@ Marie-Hélène Burle (Simon Fraser University)
 **Live notes:** \
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
-**Material:** \
-<!-- [Website](https://mint.westdri.ca/python/top_llm) -->
-Link will be posted here.
-
-<!-- **Topic:** \ -->
-
-**Post course material:** \
-We will post the completed notebook after the course.
+**Topic:** \
+[Polras DataFrames with MoMA datasets.](moma.qmd)
 
 :::
 
