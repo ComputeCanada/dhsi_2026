@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Introductory Programming with Python – Coding Fundamentals for Humanists</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,14 +75,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a69a801d67a55c86e23ae4d30c39bfa1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a69a801d67a55c86e23ae4d30c39bfa1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a69a801d67a55c86e23ae4d30c39bfa1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-401b5ec36a9880bae0680d55850c41bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-c710ba3f670f9e8922d106358b01cbfc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-401b5ec36a9880bae0680d55850c41bd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-387e0866b5d26209c01a89604f9ede68.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-3254d72019a04ac5d561b713595c096c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-387e0866b5d26209c01a89604f9ede68.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -281,7 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/logo_dhsi.png" alt="DHSI logo" class="navbar-logo">
+    <img src="../img/logo_dhsi.png" alt="DHSI logo" class="navbar-logo light-content">
+    <img src="../img/logo_dhsi.png" alt="DHSI logo" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -415,7 +419,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Before we jump into analyzing data, let’s talk about one of the most powerful tools in programming: <strong><em>variables</em></strong>. Think of a variable like a storage box where you can put information that you might want to use later. This is how we make computers remember things for us!</p>
 <p>Let’s start with something simple. Imagine using Python like a calculator. You can do quick math, like this:</p>
 <div id="a0c19a35" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">8</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1042">
 <pre><code>42</code></pre>
 </div>
@@ -426,8 +430,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A variable is a name that refers to a value. In the previous example, we saw that we can use Python as an advanced calculator. However, the results of these computations are lost after we perform our operations. If we want to save and reuse any value in a code, we need to save these computations in a place in computer memory to be able to access it in the future.</p>
 <p>Variables are names that we associate with a memory location in computers. As such variables are not values themselves but they point to a memory location where the actual values are stored.</p>
 <div id="702da586" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>weight_kg <span class="op">=</span> <span class="dv">60</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>weight_kg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>weight_kg <span class="op">=</span> <span class="dv">60</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>weight_kg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1043">
 <pre><code>60</code></pre>
 </div>
@@ -455,25 +459,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>For example, let’s say we want to store a patient’s weight. If the weight is exactly 60 kilograms, we can use an integer:</p>
 <div id="bb9f85c7" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>weight_kg <span class="op">=</span> <span class="dv">75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>weight_kg <span class="op">=</span> <span class="dv">75</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>But if we want to be more precise, like 60.3 kilograms, we can use a floating point number:</p>
 <div id="86403f8b" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>weight_kg <span class="op">=</span> <span class="fl">75.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>weight_kg <span class="op">=</span> <span class="fl">75.3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here, <em>weight_kg</em> is a variable that stores a decimal number, or a <strong>float</strong>. It could represent any weight in kg measurement, which we might later use for calculations or comparisons.</p>
 <p>We can also store text:</p>
 <div id="aa686dc9" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"John Doe"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"John Doe"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Strings</strong> can store text data, which can be useful for labeling or adding metadata.</p>
 <p>And lastly, we have <strong>booleans</strong>, which are used to represent true or false values. They are helpful in logical operations or conditions:</p>
 <div id="1fbced9e" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>height_cm <span class="op">=</span> <span class="dv">165</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>height_cm <span class="op">=</span> <span class="dv">165</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>is_tall<span class="op">=</span> height_cm <span class="op">&gt;</span> <span class="dv">180</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>is_tall</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>is_tall</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1047">
 <pre><code>False</code></pre>
 </div>
@@ -487,34 +491,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="working-with-numbers-integers-and-floats">Working with Numbers: Integers and Floats</h3>
 <p><strong>Addition</strong> is one of the simplest operations. If you want to increase a value, you just add to it. For example, if you have a population measurement of 20000 and want to add 5000 more, Python gives you a new population number of 25000 like this:</p>
 <div id="e3d0241c" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span>  <span class="co"># current population of a town</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span>  <span class="co"># current population of a town</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>new_population <span class="op">=</span> population <span class="op">+</span> <span class="dv">5000</span>  <span class="co"># population increase after migration</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>new_population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>new_population</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1048">
 <pre><code>25000</code></pre>
 </div>
 </div>
 <p>Other operations are just as simple. If you want to double a temperature value, you multiply it by 2 like this:</p>
 <div id="f2b340ba" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="op">=</span> <span class="fl">4.5</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="op">=</span> <span class="fl">4.5</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>doubled_temp <span class="op">=</span> temperature <span class="op">*</span> <span class="dv">2</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>doubled_temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>doubled_temp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1049">
 <pre><code>9.0</code></pre>
 </div>
 </div>
 <p>Division also works the same way: dividing 20000 by 100 gives 200.0 like this:</p>
 <div id="011c0e5a" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>population_ratio <span class="op">=</span> population <span class="op">/</span> <span class="dv">100</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>population_ratio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>population_ratio <span class="op">=</span> population <span class="op">/</span> <span class="dv">100</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>population_ratio</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1050">
 <pre><code>200.0</code></pre>
 </div>
 </div>
 <p>Python can also handle exponents, like squaring numbers. If you want to find what 20000 times 20000 is, you can get it this way:</p>
 <div id="f3e85765" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;jupyter&quot;,&quot;value&quot;:{&quot;outputs_hidden&quot;:true}}" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>squared_population <span class="op">=</span> population <span class="op">**</span> <span class="dv">2</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>squared_population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>squared_population <span class="op">=</span> population <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>squared_population</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1051">
 <pre><code>400000000</code></pre>
 </div>
@@ -546,18 +550,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="working-with-strings">Working with Strings</h3>
 <p>With strings, one common thing we do is combine them, known as <strong>concatenation</strong>. Imagine you have two words, first name and last name, like “John” and “Doe”, and you want to make them into one full name: “John Doe.” You do this by placing them side by side with a plus sign between them, and Python combines them into one.</p>
 <div id="d7a6bcc1" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>first_name <span class="op">=</span> <span class="st">'John'</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>first_name <span class="op">=</span> <span class="st">'John'</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>last_name <span class="op">=</span> <span class="st">'Doe'</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>full_name <span class="op">=</span> first_name <span class="op">+</span> <span class="st">" "</span> <span class="op">+</span> last_name</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>full_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>full_name</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1052">
 <pre><code>'John Doe'</code></pre>
 </div>
 </div>
 <p>Another thing you can do with strings is <strong>repeat</strong> them. For instance, if you have the word “hello,” you could repeat it multiple times, like “hello hello hello” In Python, you simply tell it to multiply the word by the number of times you want it to appear like this:</p>
 <div id="1f3bace2" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>echo <span class="op">=</span> <span class="st">" hello"</span> <span class="op">*</span> <span class="dv">3</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>echo</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>echo <span class="op">=</span> <span class="st">" hello"</span> <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>echo</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1053">
 <pre><code>' hello hello hello'</code></pre>
 </div>
@@ -568,23 +572,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Booleans</strong> in Python are very straightforward: they represent only two options, <em>True or False</em>. They’re useful when you’re asking questions or checking if something meets certain conditions.</p>
 <p>For example, let’s say you want to check if a town’s population is above a certain number. Imagine the town has a population of 20,000 people, and you want to know if it’s larger than 10,000:</p>
 <div id="5a419634" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span>  <span class="co"># current population of a town</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span>  <span class="co"># current population of a town</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>is_large_town <span class="op">=</span> population <span class="op">&gt;</span> <span class="dv">10000</span>  <span class="co"># check if it's considered a large town</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>is_large_town</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>is_large_town</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1054">
 <pre><code>True</code></pre>
 </div>
 </div>
 <p>We can also ask Python to check <strong>multiple conditions</strong> at once. Maybe you want to know if a town has both a large population (over 10,000 people) and a low unemployment rate (under 5%). You can combine these two questions into one. If both are true, Python returns True; if either one isn’t, it returns False.</p>
 <div id="8f5b80ec" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>is_large <span class="op">=</span> population <span class="op">&gt;</span> <span class="dv">10000</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>unemployment_rate <span class="op">=</span> <span class="dv">4</span>  <span class="co"># in percent</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>is_low_unemployment <span class="op">=</span> unemployment_rate <span class="op">&lt;</span> <span class="dv">5</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>is_large_and_stable <span class="op">=</span> is_large <span class="kw">and</span> is_low_unemployment</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>is_large_and_stable</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>is_large_and_stable</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1055">
 <pre><code>True</code></pre>
 </div>
@@ -593,8 +597,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="mixing-types-together" class="level3">
 <h3 class="anchored" data-anchor-id="mixing-types-together">Mixing Types Together</h3>
 <p>Sometimes, Python lets us mix different types in ways that make sense. For example, in Python, <em>True is treated as 1 and False as 0</em>. So if you’re working with a number and a condition, Python might add 1 if the condition is True, or add nothing if it’s False. This can be handy for quick adjustments, like slightly increasing a value if a condition is met.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>adjusted_population <span class="op">=</span> population <span class="op">+</span> is_low_unemployment</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>adjusted_population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>adjusted_population <span class="op">=</span> population <span class="op">+</span> is_low_unemployment</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>adjusted_population</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>These simple operations let you do quite a bit in Python. With strings, you can create descriptive phrases; with numbers, you can add, multiply, and do more complex math; with booleans, you can check conditions and make decisions. This flexibility is what makes Python both powerful and beginner-friendly—it’s easy to write code that mimics real-world problem-solving, step by step.</p>
 </section>
 </section>
@@ -605,8 +609,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="lists">Lists</h3>
 <p>A <strong>list</strong> in Python is a collection of items that can be modified. This means you can add, remove, or change items in a list as needed. Lists are defined using square brackets []:</p>
 <div id="a114411c" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grades <span class="op">=</span> [<span class="fl">85.5</span>, <span class="fl">90.2</span>, <span class="fl">78.0</span>, <span class="fl">88.5</span>]  </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>grades  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>grades <span class="op">=</span> [<span class="fl">85.5</span>, <span class="fl">90.2</span>, <span class="fl">78.0</span>, <span class="fl">88.5</span>]  </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>grades  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1056">
 <pre><code>[85.5, 90.2, 78.0, 88.5]</code></pre>
 </div>
@@ -617,8 +621,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>1. Accessing Lists:</strong><br>
 Each item in a list has a position called an index, starting from 0. You can access any item using its index:</p>
 <div id="e684e1d3" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>first_grade <span class="op">=</span> grades[<span class="dv">0</span>]</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>first_grade</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>first_grade <span class="op">=</span> grades[<span class="dv">0</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>first_grade</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1057">
 <pre><code>85.5</code></pre>
 </div>
@@ -626,8 +630,8 @@ Each item in a list has a position called an index, starting from 0. You can acc
 <p><strong>2. Modifying Items:</strong><br>
 Lists are mutable, meaning you can change their contents:</p>
 <div id="96743ad7" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>grades[<span class="dv">2</span>] <span class="op">=</span> <span class="fl">93.0</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>grades[<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>grades[<span class="dv">2</span>] <span class="op">=</span> <span class="fl">93.0</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>grades[<span class="dv">2</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1058">
 <pre><code>93.0</code></pre>
 </div>
@@ -635,8 +639,8 @@ Lists are mutable, meaning you can change their contents:</p>
 <p><strong>3. Adding Items:</strong><br>
 You can add new items to the end of a list using the <strong><em>append()</em></strong> method:</p>
 <div id="c6e83138" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>grades.append(<span class="fl">65.0</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>grades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>grades.append(<span class="fl">65.0</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>grades</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1059">
 <pre><code>[85.5, 90.2, 93.0, 88.5, 65.0]</code></pre>
 </div>
@@ -644,15 +648,15 @@ You can add new items to the end of a list using the <strong><em>append()</em></
 <p><strong>4. Removing Items:</strong><br>
 You can remove items from a list using the <strong>remove()</strong> method or the <strong>pop()</strong> method:</p>
 <div id="b8cddabb" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>grades.remove(<span class="fl">65.0</span>)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>grades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>grades.remove(<span class="fl">65.0</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>grades</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1060">
 <pre><code>[85.5, 90.2, 93.0, 88.5]</code></pre>
 </div>
 </div>
 <div id="5d07b921" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>grades.pop(<span class="dv">0</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>grades</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>grades.pop(<span class="dv">0</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>grades</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1061">
 <pre><code>[90.2, 93.0, 88.5]</code></pre>
 </div>
@@ -684,8 +688,8 @@ You can remove items from a list using the <strong>remove()</strong> method or t
 <h3 class="anchored" data-anchor-id="tuples">Tuples</h3>
 <p>A <strong>tuple</strong> is a collection of items, similar to a list, but it is <strong><em>immutable</em></strong>. This means that once a tuple is created, it <em>cannot be changed</em>. Tuples are defined using parentheses ().</p>
 <div id="41871d0e" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> (<span class="fl">47.5</span>, <span class="op">-</span><span class="fl">52.3</span>) </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>coordinates</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> (<span class="fl">47.5</span>, <span class="op">-</span><span class="fl">52.3</span>) </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>coordinates</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1062">
 <pre><code>(47.5, -52.3)</code></pre>
 </div>
@@ -696,14 +700,14 @@ You can remove items from a list using the <strong>remove()</strong> method or t
 <p><strong>1. Accessing Items:</strong><br>
 Just like lists, you can access items in a tuple using their index:</p>
 <div id="e142f11b" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> coordinates[<span class="dv">0</span>]</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>latitude</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> coordinates[<span class="dv">0</span>]</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>latitude</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1063">
 <pre><code>47.5</code></pre>
 </div>
 </div>
 <div id="6ea60f62" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>coordinates[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">48.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>coordinates[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">48.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
@@ -724,13 +728,13 @@ Since tuples cannot be changed, they are useful for storing fixed data that shou
 <h3 class="anchored" data-anchor-id="dictionaries">Dictionaries</h3>
 <p>A <strong>dictionary</strong> in Python is a collection of <strong><em>key-value pairs</em></strong>, similar to how a real dictionary has words (keys) and their meanings (values). Each key in a dictionary must be unique, and you can use it to access its corresponding value. Dictionaries are defined using curly braces {}.</p>
 <div id="3a0e0cea" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>student_data <span class="op">=</span> {  </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>student_data <span class="op">=</span> {  </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"name"</span>: <span class="st">"Alex Johnson"</span>,  </span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"age"</span>: <span class="dv">20</span>,  </span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"grade"</span>: <span class="fl">88.5</span>,  </span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"major"</span>: <span class="st">"Computer Science"</span>  </span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>}  </span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>student_data  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>student_data  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1065">
 <pre><code>{'name': 'Alex Johnson', 'age': 20, 'grade': 88.5, 'major': 'Computer Science'}</code></pre>
 </div>
@@ -741,8 +745,8 @@ Since tuples cannot be changed, they are useful for storing fixed data that shou
 <p><strong>1. Accessing Values:</strong><br>
 You can retrieve a value using its corresponding key.</p>
 <div id="bc80e2eb" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>current_grade <span class="op">=</span> student_data[<span class="st">"grade"</span>]  </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>current_grade  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>current_grade <span class="op">=</span> student_data[<span class="st">"grade"</span>]  </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>current_grade  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1066">
 <pre><code>88.5</code></pre>
 </div>
@@ -750,17 +754,17 @@ You can retrieve a value using its corresponding key.</p>
 <p><strong>2. Adding or Modifying Values:</strong><br>
 You can easily add new key-value pairs or modify existing ones:</p>
 <div id="2708a4a1" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Modify Existing one</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Modify Existing one</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>student_data[<span class="st">"grade"</span>] <span class="op">=</span> <span class="fl">92.0</span>  </span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>student_data  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>student_data  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1067">
 <pre><code>{'name': 'Alex Johnson', 'age': 20, 'grade': 92.0, 'major': 'Computer Science'}</code></pre>
 </div>
 </div>
 <div id="143721c9" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding new key-value pair</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Adding new key-value pair</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>student_data[<span class="st">"attendance"</span>] <span class="op">=</span> <span class="dv">95</span>  </span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>student_data  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>student_data  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1068">
 <pre><code>{'name': 'Alex Johnson',
  'age': 20,
@@ -772,8 +776,8 @@ You can easily add new key-value pairs or modify existing ones:</p>
 <p><strong>3. Removing Key-Value Pairs:</strong><br>
 You can remove a key-value pair using the <strong>del</strong> statement:</p>
 <div id="4354b3d0" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> student_data[<span class="st">"major"</span>]  </span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>student_data  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> student_data[<span class="st">"major"</span>]  </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>student_data  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="1069">
 <pre><code>{'name': 'Alex Johnson', 'age': 20, 'grade': 92.0, 'attendance': 95}</code></pre>
 </div>
@@ -830,32 +834,32 @@ You can remove a key-value pair using the <strong>del</strong> statement:</p>
 <section id="basic-structure-of-conditionals" class="level4">
 <h4 class="anchored" data-anchor-id="basic-structure-of-conditionals">Basic Structure of Conditionals:</h4>
 <p>Here’s a simple structure for using conditionals:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition:</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb54"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> condition:</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code to execute if the condition is true</span></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> another_condition:</span>
 <span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code to execute if the first condition is false and this one is true</span></span>
 <span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code to execute if both conditions are false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code to execute if both conditions are false</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="comparison-operators" class="level4">
 <h4 class="anchored" data-anchor-id="comparison-operators">Comparison Operators</h4>
 <p>Comparison operators allow us to compare two values. Here are the most commonly used comparison operators in Python:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>==    Equal to (checks if two values are the same)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb55"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>==    Equal to (checks if two values are the same)</span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>!=    Not equal to (checks if two values are different)</span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a> &gt;    Greater than (checks if the left value is larger than the right)</span>
 <span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a> &lt;    Less than (checks if the left value is smaller than the right)</span>
 <span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>&gt;=    Greater than or equal to (checks if the left value is larger than or equal to the right)</span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>&lt;=    Less than or equal to (checks if the left value is smaller than or equal to the right)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>&lt;=    Less than or equal to (checks if the left value is smaller than or equal to the right)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Let’s say we want to categorize towns based on their population size:</p>
 <div id="f3237bbb" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>population <span class="op">=</span> <span class="dv">20000</span></span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> population <span class="op">&lt;</span> <span class="dv">5000</span>:</span>
 <span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Small town"</span>)</span>
 <span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="dv">5000</span> <span class="op">&lt;=</span> population <span class="op">&lt;=</span> <span class="dv">20000</span>:</span>
 <span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Medium-sized town"</span>)</span>
 <span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Large town"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Large town"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Medium-sized town</code></pre>
 </div>
@@ -877,12 +881,12 @@ You can remove a key-value pair using the <strong>del</strong> statement:</p>
 </ul>
 <p>Let’s say we want to check if someone’s annual income falls within the middle-income bracket:</p>
 <div id="f249a875" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="dv">45_000</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>annual_income <span class="op">=</span> <span class="dv">45_000</span></span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> annual_income <span class="op">&gt;=</span> <span class="dv">30_000</span> <span class="kw">and</span> annual_income <span class="op">&lt;=</span> <span class="dv">70_000</span>:</span>
 <span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Middle-income bracket"</span>)</span>
 <span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Outside middle-income bracket"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Outside middle-income bracket"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Middle-income bracket</code></pre>
 </div>
@@ -903,11 +907,11 @@ You can remove a key-value pair using the <strong>del</strong> statement:</p>
 <p>for item in sequence: # Code to execute for each item</p>
 <p>Let’s say we want to print out each survey response score from a list:</p>
 <div id="4ed62ff3" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>survey_scores <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>survey_scores <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>]</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> score <span class="kw">in</span> survey_scores:</span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Survey score: </span><span class="sc">{</span>score<span class="sc">}</span><span class="ss"> out of 5"</span>)</span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>score</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Survey score: 3 out of 5
 Survey score: 4 out of 5
@@ -922,14 +926,14 @@ Survey score: 4 out of 5</code></pre>
 <p>In this example, the loop goes through each item in the <strong>survey_scores</strong> list and prints it.</p>
 <p>For loops are useful for analyzing data, such as calculating the average monthly income from several months:</p>
 <div id="5ceac15a" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>monthly_incomes <span class="op">=</span> [<span class="dv">3000</span>, <span class="dv">3200</span>, <span class="dv">3100</span>, <span class="dv">2900</span>, <span class="dv">4000</span>, <span class="dv">3500</span>, <span class="dv">2500</span>, <span class="dv">2900</span>, <span class="dv">3050</span>, <span class="dv">3200</span>, <span class="dv">3500</span>, <span class="dv">2950</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>monthly_incomes <span class="op">=</span> [<span class="dv">3000</span>, <span class="dv">3200</span>, <span class="dv">3100</span>, <span class="dv">2900</span>, <span class="dv">4000</span>, <span class="dv">3500</span>, <span class="dv">2500</span>, <span class="dv">2900</span>, <span class="dv">3050</span>, <span class="dv">3200</span>, <span class="dv">3500</span>, <span class="dv">2950</span>]</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>total_income <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> income <span class="kw">in</span> monthly_incomes:</span>
 <span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>    total_income <span class="op">+=</span> income</span>
 <span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>average_income <span class="op">=</span> total_income <span class="op">/</span> <span class="bu">len</span>(monthly_incomes)</span>
-<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Monthly Income: $</span><span class="sc">{</span>average_income<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average Monthly Income: $</span><span class="sc">{</span>average_income<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Average Monthly Income: $3150.00</code></pre>
 </div>
@@ -942,7 +946,7 @@ Survey score: 4 out of 5</code></pre>
 <ol type="1">
 <li>You are given a list named populations that contains population numbers (in thousands):</li>
 </ol>
-<div class="sourceCode" id="cb65"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> [<span class="dv">2731</span>, <span class="dv">631</span>, <span class="dv">1135</span>, <span class="dv">934</span>, <span class="dv">1705</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb65"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> [<span class="dv">2731</span>, <span class="dv">631</span>, <span class="dv">1135</span>, <span class="dv">934</span>, <span class="dv">1705</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol start="2" type="1">
 <li>Use a for loop to add all the population numbers together and store the total in a variable called <code>total_population</code>.</li>
 <li>Calculate the average population by dividing the total population.</li>
@@ -959,24 +963,24 @@ Survey score: 4 out of 5</code></pre>
 <section id="while-loops" class="level4">
 <h4 class="anchored" data-anchor-id="while-loops">While Loops</h4>
 <p>A <strong>while loop</strong> continues to execute as long as a specified condition is true. The basic structure looks like this:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condition:</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code to execute while the condition is true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb66"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> condition:</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Code to execute while the condition is true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Let’s say we want to keep recording monthly expenses until we have data for five months:</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>monthly_expenses <span class="op">=</span> []</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb67"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>monthly_expenses <span class="op">=</span> []</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>max_months <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">len</span>(monthly_expenses) <span class="op">&lt;</span> max_months:</span>
 <span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>    new_expense <span class="op">=</span> <span class="bu">float</span>(<span class="bu">input</span>(<span class="st">"Enter monthly expense amount: "</span>))</span>
 <span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>    monthly_expenses.append(new_expense)</span>
 <span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Monthly expenses collected:"</span>, monthly_expenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Monthly expenses collected:"</span>, monthly_expenses)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>In this example, the loop keeps asking for monthly expenses until it has collected five amounts.</p>
 <p>The <code>while</code> loops are useful for continuous data collection, like tracking monthly donations until reaching a target amount:</p>
 <div id="b5ae0d6b" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>donations <span class="op">=</span> <span class="dv">0</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>donations <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> donations <span class="op">&lt;</span> <span class="dv">5000</span>:</span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>    donations <span class="op">+=</span> <span class="dv">500</span></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total Donations Collected: $</span><span class="sc">{</span>donations<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Total Donations Collected: $</span><span class="sc">{</span>donations<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Total Donations Collected: $500
 Total Donations Collected: $1000
@@ -997,7 +1001,7 @@ Total Donations Collected: $5000</code></pre>
 <p>Often, we will need to use both loops and conditionals together to process data effectively. For example, you might want to analyze temperature readings and categorize them within a loop.</p>
 <p>Let’s categorize a list of temperature readings as <em>“Cold,” “Warm,” or “Hot”</em>:</p>
 <div id="75334005" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>temperature_readings <span class="op">=</span> [<span class="fl">10.0</span>, <span class="fl">20.5</span>, <span class="fl">25.0</span>, <span class="fl">30.5</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>temperature_readings <span class="op">=</span> [<span class="fl">10.0</span>, <span class="fl">20.5</span>, <span class="fl">25.0</span>, <span class="fl">30.5</span>]</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> temperature <span class="kw">in</span> temperature_readings:</span>
 <span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> temperature <span class="op">&lt;</span> <span class="dv">15</span>:</span>
@@ -1005,7 +1009,7 @@ Total Donations Collected: $5000</code></pre>
 <span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="dv">15</span> <span class="op">&lt;=</span> temperature <span class="op">&lt;=</span><span class="dv">25</span>:</span>
 <span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Temperature </span><span class="sc">{</span>temperature<span class="sc">}</span><span class="ss"> C: Warm"</span>)</span>
 <span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
-<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Temperature </span><span class="sc">{</span>temperature<span class="sc">}</span><span class="ss"> C: Hot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Temperature </span><span class="sc">{</span>temperature<span class="sc">}</span><span class="ss"> C: Hot"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Temperature 10.0 C: Cold
 Temperature 20.5 C: Warm
@@ -1016,7 +1020,7 @@ Temperature 30.5 C: Hot</code></pre>
 <p>In this example, the loop goes through each temperature reading, and the conditional statements categorize each temperature accordingly.</p>
 <p>Now, let’s say we want to use a loop to analyze data stored in a dictionary. We have a dictionary of historical events and the years they happened. Using a for loop, we can go through each event and year, and use a control structure like an if statement to check whether the event happened before or after 1900.</p>
 <div id="75cba50d" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> {</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Signing of the Magna Carta"</span>: <span class="dv">1215</span>,</span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"French Revolution"</span>: <span class="dv">1789</span>,</span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Moon Landing"</span>: <span class="dv">1969</span>,</span>
@@ -1030,7 +1034,7 @@ Temperature 30.5 C: Hot</code></pre>
 <span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> year <span class="op">&lt;</span> <span class="dv">1900</span>:</span>
 <span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"This event happened before 1900.</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"This event happened in or after 1900.</span><span class="ch">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"This event happened in or after 1900.</span><span class="ch">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Signing of the Magna Carta
 This event happened before 1900.
@@ -1053,7 +1057,7 @@ This event happened in or after 1900.
 <section id="exercise-5" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
 <p>You are given a dictionary of universities worldwide with their average graduation rates (in percentages):</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>universities <span class="op">=</span> {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb74"><pre class="sourceCode py code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>universities <span class="op">=</span> {</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Harvard University"</span>: <span class="dv">98</span>,</span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Oxford"</span>: <span class="dv">92</span>,</span>
 <span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Stanford University"</span>: <span class="dv">94</span>,</span>
@@ -1064,7 +1068,7 @@ This event happened in or after 1900.
 <span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of Cape Town"</span>: <span class="dv">68</span>,</span>
 <span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"University of São Paulo"</span>: <span class="dv">65</span>,</span>
 <span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"National University of Singapore"</span>: <span class="dv">80</span></span>
-<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ol type="1">
 <li>Loop through each university and its graduation rate.</li>
 <li>Print the university name and its graduation rate.</li>
@@ -1167,13 +1171,14 @@ This event happened in or after 1900.
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
