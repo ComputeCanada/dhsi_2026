@@ -558,7 +558,7 @@ img[alt=frontlogo] {
 }
 
 .codelike {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-family: monospace;
   background-color: $grey-blue;
 }
@@ -720,9 +720,9 @@ li code {
   background-color: rgba(0,0,0,0) !important;
 }
 
-// inline code only
+// inline code + code output
 code:not(.sourceCode) {
-    background-color: $white !important;
+  background-color: $white !important;
 }
 
 pre {
