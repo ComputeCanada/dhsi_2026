@@ -3,7 +3,6 @@ title: Introductory Programming with Python
 jupyter: python3
 ---
 
-
 ## Variables
 
 Before we jump into analyzing data, let’s talk about one of the most powerful tools in programming: ***variables***. Think of a variable like a storage box where you can put information that you might want to use later. This is how we make computers remember things for us!
@@ -121,30 +120,29 @@ squared_population
 
  This is useful for calculating things like squared distances or other exponential relationships.
 
- ### Exercise 1:
+### Exercise 1
+
 You are studying urban growth in a geography class. City A had a population of 1,500,000 people in the year 2000, and it grew to 2,100,000 people by the year 2020.
 
 Your task is to write a Python program that:
-- Stores the population values in variables.
-- Calculates how much the population has grown.
-- Displays the result using print().
 
-```{python}
-population_2000 = 1500000
-population_2020 = 2100000
-growth = population_2020 - population_2000
+1. Stores the population values in variables.
+1. Calculates how much the population has grown.
+1. Displays the result using `print()`.
 
-print("Population growth over 20 years:", growth)
-```
+<!-- ```{python} -->
+<!-- population_2000 = 1500000 -->
+<!-- population_2020 = 2100000 -->
+<!-- growth = population_2020 - population_2000 -->
+<!-- print("Population growth over 20 years:", growth) -->
+<!-- ``` -->
 
-```{python}
-population_2000 = 1500000
-population_2020 = 2100000
-
-growth_percentage = ((population_2020 - population_2000) / population_2000) * 100
-
-print("Population growth over 20 years: {:.2f}%".format(growth_percentage))
-```
+<!-- ```{python} -->
+<!-- population_2000 = 1500000 -->
+<!-- population_2020 = 2100000 -->
+<!-- growth_percentage = ((population_2020 - population_2000) / population_2000) * 100 -->
+<!-- print("Population growth over 20 years: {:.2f}%".format(growth_percentage)) -->
+<!-- ``` -->
 
 ### Working with Strings
 With strings, one common thing we do is combine them, known as **concatenation**. Imagine you have two words, first name and last name, like "John" and "Doe", and you want to make them into one full name: "John Doe." You do this by placing them side by side with a plus sign between them, and Python combines them into one.
@@ -250,27 +248,23 @@ grades
 Consider a scenario where you are recording student test scores for a class. You can store these scores in a list. As new test results come in, you can easily update the list by adding new scores or modifying existing ones.
 
 ### Exercise 2
-- Create a list named *philosophers* that contains these names as strings:
-*"Plato", "Aristotle", "Confucius",* and *"Socrates"*.
-- Add the philosopher *"Descartes"* to the end of the list.
-- Remove "Confucius" from the list.
-- Print the updated list to see the changes.
 
-```{python}
-philosophers = ["Plato", "Aristotle", "Confucius", "Socrates"]
+1. Create a list named *philosophers* that contains these names as strings: *"Plato", "Aristotle", "Confucius",* and *"Socrates"*.
+1. Add the philosopher *"Descartes"* to the end of the list.
+1. Remove "Confucius" from the list.
+1. Print the updated list to see the changes.
 
-# Add "Descartes" to the list
-philosophers.append("Descartes")
-
-# Remove "Confucius" from the list
-# Option 1:
-# philosophers.remove("Confucius")
-
-# Option 2 (remove by index):
-# philosophers.pop(2)
-
-print(philosophers)
-```
+<!-- ```{python} -->
+<!-- philosophers = ["Plato", "Aristotle", "Confucius", "Socrates"] -->
+<!-- # Add "Descartes" to the list -->
+<!-- philosophers.append("Descartes") -->
+<!-- # Remove "Confucius" from the list -->
+<!-- # Option 1: -->
+<!-- # philosophers.remove("Confucius") -->
+<!-- # Option 2 (remove by index): -->
+<!-- # philosophers.pop(2) -->
+<!-- print(philosophers) -->
+<!-- ``` -->
 
 ### Tuples
 A **tuple** is a collection of items, similar to a list, but it is ***immutable***. This means that once a tuple is created, it *cannot be changed*. Tuples are defined using parentheses ().
@@ -345,35 +339,31 @@ student_data
 ```
 
 ### Exercise 3
-1. Create a dictionary named countries with these key-value pairs:
-- "United States" : "English"
-- "Mexico" : "Spanish"
-- "France" : "French"
-- "Canada" : "English and French"
 
+1. Create a dictionary named countries with these key-value pairs:
+    - "United States" : "English"
+    - "Mexico" : "Spanish"
+    - "France" : "French"
+    - "Canada" : "English and French"
 2. Add a new entry to the dictionary: "Brazil" : "Portuguese"
 3. Remove the key "France" and its value using the del statement.
 4. Print the updated dictionary every time.
 
-```{python}
-countries = {
-    "United States": "English",
-    "Mexico": "Spanish",
-    "France": "French",
-    "Canada": "English and French"
-}
-
-print(countries)
-
-# Add Brazil
-countries["Brazil"] = "Portuguese"
-print(countries)
-
-# Remove France using del
-del countries["France"]
-
-print(countries)
-```
+<!-- ```{python} -->
+<!-- countries = { -->
+<!--     "United States": "English", -->
+<!--     "Mexico": "Spanish", -->
+<!--     "France": "French", -->
+<!--     "Canada": "English and French" -->
+<!-- } -->
+<!-- print(countries) -->
+<!-- # Add Brazil -->
+<!-- countries["Brazil"] = "Portuguese" -->
+<!-- print(countries) -->
+<!-- # Remove France using del -->
+<!-- del countries["France"] -->
+<!-- print(countries) -->
+<!-- ``` -->
 
 #### Choosing the Right Data Structure
 
@@ -397,23 +387,27 @@ Choosing the right data structure will make your data management more efficient 
 
 Here’s a simple structure for using conditionals:
 
+```py
 if condition:
     # Code to execute if the condition is true
 elif another_condition:
     # Code to execute if the first condition is false and this one is true
 else:
     # Code to execute if both conditions are false
+```
 
 #### Comparison Operators
 
 Comparison operators allow us to compare two values. Here are the most commonly used comparison operators in Python:
 
-==:  Equal to (checks if two values are the same)
-!=:  Not equal to (checks if two values are different)
- >:  Greater than (checks if the left value is larger than the right)
- <:  Less than (checks if the left value is smaller than the right)
->=:  Greater than or equal to (checks if the left value is larger than or equal to the right)
-<=:  Less than or equal to (checks if the left value is smaller than or equal to the right)
+```txt
+==    Equal to (checks if two values are the same)
+!=    Not equal to (checks if two values are different)
+ >    Greater than (checks if the left value is larger than the right)
+ <    Less than (checks if the left value is smaller than the right)
+>=    Greater than or equal to (checks if the left value is larger than or equal to the right)
+<=    Less than or equal to (checks if the left value is smaller than or equal to the right)
+```
 
 Let’s say we want to categorize towns based on their population size:
 
@@ -494,26 +488,27 @@ print(f"Average Monthly Income: ${average_income:.2f}")
 
 In this case, the loop adds up all the monthly incomes and then finds the average by dividing by the number of months.
 
-### Exercise 4 
-1. You are given a list named populations that contains population numbers (in thousands).
-2. Use a for loop to add all the population numbers together and store the total in a variable called total_population.
+### Exercise 4
+
+1. You are given a list named populations that contains population numbers (in thousands):
+```py
+populations = [2731, 631, 1135, 934, 1705]
+```
+2. Use a for loop to add all the population numbers together and store the total in a variable called `total_population`.
 3. Calculate the average population by dividing the total population.
 4. Print the average population rounded to the nearest whole number.
 
-```{python}
-populations = [2731, 631, 1135, 934, 1705]
-
-total_population = 0
-
-for pop in populations:
-    total_population += pop
-
-average_population = total_population / len(populations)
-
-print("Average population (in thousands):", round(average_population))
-```
+<!-- ```{python} -->
+<!-- populations = [2731, 631, 1135, 934, 1705] -->
+<!-- total_population = 0 -->
+<!-- for pop in populations: -->
+<!--     total_population += pop -->
+<!-- average_population = total_population / len(populations) -->
+<!-- print("Average population (in thousands):", round(average_population)) -->
+<!-- ``` -->
 
 #### While Loops
+
 A while loop continues to execute as long as a specified condition is true. The basic structure looks like this:
 
 while condition:
@@ -584,31 +579,23 @@ for event, year in events.items():
 ```
 
 ### Exercise 5
+
 You are given a dictionary of universities worldwide with their average graduation rates (in percentages):
 
+```py
 universities = {
     "Harvard University": 98,
-    
     "University of Oxford": 92,
-    
     "Stanford University": 94,
-    
     "Massachusetts Institute of Technology (MIT)": 92,
-    
     "University of Cambridge": 93,
-    
     "University of Tokyo": 70,
-    
     "University of Melbourne": 79,
-    
     "University of Cape Town": 68,
-    
     "University of São Paulo": 65,
-    
     "National University of Singapore": 80
 }
-
-**Task:**
+```
 
 1. Loop through each university and its graduation rate.
 2. Print the university name and its graduation rate.
@@ -617,28 +604,26 @@ universities = {
     - Between 75% and 89% (inclusive): print "Good graduation rate".
     - Below 75%: print "Needs improvement".
 
-```{python}
-universities = {
-    "Harvard University": 98,
-    "University of Oxford": 92,
-    "Stanford University": 94,
-    "Massachusetts Institute of Technology (MIT)": 92,
-    "University of Cambridge": 93,
-    "University of Tokyo": 70,
-    "University of Melbourne": 79,
-    "University of Cape Town": 68,
-    "University of São Paulo": 65,
-    "National University of Singapore": 80
-}
-
-for university, rate in universities.items():
-    print(university + " has a graduation rate of " + str(rate) + "%.")
-    
-    if rate >= 90:
-        print("Excellent graduation rate\n")
-    elif 75 <= rate < 90:
-        print("Good graduation rate\n")
-    else:
-        print("Needs improvement\n")
-```
+<!-- ```{python} -->
+<!-- universities = { -->
+<!--     "Harvard University": 98, -->
+<!--     "University of Oxford": 92, -->
+<!--     "Stanford University": 94, -->
+<!--     "Massachusetts Institute of Technology (MIT)": 92, -->
+<!--     "University of Cambridge": 93, -->
+<!--     "University of Tokyo": 70, -->
+<!--     "University of Melbourne": 79, -->
+<!--     "University of Cape Town": 68, -->
+<!--     "University of São Paulo": 65, -->
+<!--     "National University of Singapore": 80 -->
+<!-- } -->
+<!-- for university, rate in universities.items(): -->
+<!--     print(university + " has a graduation rate of " + str(rate) + "%.") -->
+<!--     if rate >= 90: -->
+<!--         print("Excellent graduation rate\n") -->
+<!--     elif 75 <= rate < 90: -->
+<!--         print("Good graduation rate\n") -->
+<!--     else: -->
+<!--         print("Needs improvement\n") -->
+<!-- ``` -->
 

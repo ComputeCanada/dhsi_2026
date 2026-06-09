@@ -20,18 +20,18 @@ Alex Razoumov (Simon Fraser University)
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
 **Material:** \
-Download the Jupyter notebook for this morning: {{< downloadthis day2_morning.ipynb dname="day2_morning" label="Download" >}}
+- [Introductory Programming with Python](day2_morning_completed.html){target="_blank"} \
+- [Plotly notes](https://folio.vastcloud.org/plotly-menu.html)
 
-You will open this notebook on your computer and work in it.
+<!-- Download the Jupyter notebook for this morning: {{< downloadthis day2_morning.ipynb dname="day2_morning" label="Download" >}} -->
 
-You can see (but not edit) the content of the notebook [here](day2_morning.html){target="_blank"}. \
-After the end of today's class, we will publish a completed notebook at the link above so that you don't have to worry about missing something during the class: just focus on learning.
+<!-- You can also preview (but not edit) the content of the notebook [here](day2_morning.html){target="_blank"}. We -->
+<!-- will post the completed notebook here after the course. -->
 
-**Post course material:** \
-We will post the completed notebook after the course.
+<!-- After the end of today's class, we will publish a completed notebook at the link above so that you don't have -->
+<!-- to worry about missing something during the class: just focus on learning. -->
+
 <!-- Here is the completed notebook: {{< downloadthis day2_morning_completed.ipynb dname="day2_morning_completed" label="Download" >}} -->
-
-<!-- And it can be visualized [here](day2_morning_completed.html){target="_blank"}. -->
 
 :::
 
