@@ -340,7 +340,7 @@
     "href": "monday/index.html#jupyterlab-python",
     "title": "Programming fundamentals",
     "section": "JupyterLab & Python",
-    "text": "JupyterLab & Python\n\nTime:\n1:30pm–4:00pm\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nMaterial:\n- Introduction to Python for Digital Humanities\n- Here is the original completed notebook for this material:  Download"
+    "text": "JupyterLab & Python\n\nTime:\n1:30pm–4:00pm\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nMaterial:\n- Introduction to Python for Digital Humanities.\n- Here is the original completed notebook for this material:  Download"
   },
   {
     "objectID": "monday/wb_hss_prog_slides.html#computer-programming",
@@ -571,21 +571,21 @@
     "href": "tuesday/index.html",
     "title": "Basics of Python",
     "section": "",
-    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nMaterial:\n- Introductory Programming with Python\n- Plotly notes"
+    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nMaterial:\n- Introductory Programming with Python.\n- Plotly notes."
   },
   {
     "objectID": "tuesday/index.html#dive-into-python",
     "href": "tuesday/index.html#dive-into-python",
     "title": "Basics of Python",
     "section": "",
-    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nMaterial:\n- Introductory Programming with Python\n- Plotly notes"
+    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nMaterial:\n- Introductory Programming with Python.\n- Plotly notes."
   },
   {
     "objectID": "tuesday/index.html#section",
     "href": "tuesday/index.html#section",
     "title": "Basics of Python",
     "section": "",
-    "text": "Time:\n1:30pm–4:00pm\nInstructor:\nMarie-Hélène Burle (Simon Fraser University)\nLive notes:\nEtherpad\nTopic:\nPolras DataFrames with MoMA datasets."
+    "text": "Time:\n1:30pm–4:00pm\nInstructor:\nMarie-Hélène Burle (Simon Fraser University)\nLive notes:\nEtherpad\nTopic:\nPolars DataFrames with MoMA datasets."
   },
   {
     "objectID": "wednesday/day3_morning.html",
@@ -620,14 +620,14 @@
     "href": "wednesday/index.html",
     "title": "Python for the humanities",
     "section": "",
-    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nTopic:\nWe will gather internet data using APIs.\nMaterials:\n\nIntroduction to API querying"
+    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nTopic:\nWe will gather internet data using APIs.\nMaterials:\nIntroduction to API querying."
   },
   {
     "objectID": "wednesday/index.html#api-querying",
     "href": "wednesday/index.html#api-querying",
     "title": "Python for the humanities",
     "section": "",
-    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nTopic:\nWe will gather internet data using APIs.\nMaterials:\n\nIntroduction to API querying"
+    "text": "Time:\n9am–noon\nInstructor:\nAlex Razoumov (Simon Fraser University)\nLive notes:\nEtherpad\nTopic:\nWe will gather internet data using APIs.\nMaterials:\nIntroduction to API querying."
   },
   {
     "objectID": "wednesday/index.html#webscraping",
