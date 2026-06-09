@@ -34,32 +34,60 @@ We will teach Python using JupyterLab, a programming environment that runs in a 
 ### MacOS users
 
 <!-- 1. Open [this link](https://www.anaconda.com/products/individual#download-section). -->
-
 <!-- 2. Click on the "Download" button which will then download the Anaconda Installer with Python 3 for macOS (you can either use the Graphical or the Command Line Installer). -->
-
 <!-- 3. Install Python 3 by running the Anaconda Installer using all the defaults. -->
 
-Install using the Terminal:
+(1) First step: open the Terminal.
+
+If you have an Apple Silicon Mac, download and install the command-line `conda`:
 
 ```sh
 curl -O https://repo.anaconda.com/archive/Anaconda3-2025.12-2-MacOSX-arm64.sh
 bash ./Anaconda3-2025.12-2-MacOSX-arm64.sh
-/bin/rm Anaconda3-2025.12-2-MacOSX-arm64.sh
-source $HOME/anaconda3/etc/profile.d/conda.sh
+echo "source \$HOME/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
 ```
 
-Create a new virtual environment:
+On an older Intel Mac, the commands are:
+
+```sh
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+bash Miniconda3-latest-MacOSX-x86_64.sh
+```
+
+(2) Once the installation is done, you can delete the installer -- run one of the two lines below:
+
+```sh
+/bin/rm Miniconda3-latest-MacOSX-x86_64.sh
+/bin/rm Anaconda3-2025.12-2-MacOSX-arm64.sh
+```
+
+(3) Now, restart the Terminal, and try typing `conda` -- it should be able to find the command.
+
+(4) Next, create a new virtual environment (you might need to downgrade your Python to 3.13 on Intel Macs):
 
 ```sh
 conda create --name env-conda-dhsi python=3.14
 ```
 
-And the activate and use it:
+(5) Then activate the environment and install the packages:
 
 ```sh
 conda activate env-conda-dhsi
 conda install requests plotly numpy jupyter
-...
+```
+
+To install `polars` package, use one of these lines:
+
+```sh
+conda install polars
+conda install -c conda-forge polars
+```
+
+(6) To start JupyterLab, type `jupyter lab`.
+
+(7) Finally, to deactivate the environment:
+
+```sh
 conda deactivate
 ```
 

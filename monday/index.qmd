@@ -41,18 +41,8 @@ Alex Razoumov (Simon Fraser University)
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
 **Material:** \
-Download the Jupyter notebook for this afternoon: {{< downloadthis day1_afternoon.ipynb dname="day1_afternoon" label="Download" >}}
-
-You will open this notebook on your computer and work in it.
-
-You can see (but not edit) the content of the notebook [here](day1_afternoon.html){target="_blank"}. \
-After the end of today's class, we will publish a completed notebook at the link above so that you don't have to worry about missing something during the class: just focus on learning.
-
-**Post course material:** \
-We will post the completed notebook after the course.
-<!-- Here is the completed notebook: {{< downloadthis day1_afternoon_completed.ipynb dname="day1_afternoon_completed" label="Download" >}} -->
-
-<!-- And it can be visualized [here](day1_afternoon_completed.html){target="_blank"}. -->
+- [Introduction to Python for Digital Humanities](day1_afternoon_completed.html){target="_blank"} \
+- Here is the original completed notebook for this material: {{< downloadthis day1_afternoon_completed.ipynb dname="day1_afternoon_completed" label="Download" >}}
 
 :::
 
