@@ -1,0 +1,210 @@
+---
+title: Playing with MoMA datasets
+subtitle: An introduction to Polars DataFrames
+author: Marie-Hélène Burle
+---
+
+:::{.def}
+
+[The Museum of Modern Art (MoMA)](https://www.moma.org/) in New York created [a collection of GitHub repositories](https://github.com/MuseumofModernArt) to access information about their collections. We will play with some of these to learn how to deal with tabular data in Python.
+
+:::
+
+## Tabular data
+
+Many fields of data science and the humanities rely on tabular data where:
+
+- columns hold variables and are homogeneous (same data type),
+- rows contain observations and can be heterogeneous.
+
+Tabular data is the kind of data you would store in [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet) (e.g. Microsoft Excel).
+
+DataFrames (data frames or dataframes) are two dimensional objects that bring tabular data to programming.
+
+## Polars
+
+If you read a little about Python, you will hear about [pandas](https://github.com/pandas-dev/pandas). It is everywhere (including in the Anaconda set of packages). That's because pandas was, for the longest time, the only package to deal with DataFrames in Python.
+
+In recent years however, a much better library called [Polars](https://github.com/pola-rs/polars) has been developed. It is faster, has a better syntax, handles missing data much better, and allows to work with larger datasets on the same hardware. In this section, we will learn how to use it.
+
+## Reading in data
+
+Load the Polars package as the alias `pl` (this is the standard way to load Polars):
+
+```{python}
+import polars as pl
+```
+
+Create a DataFrame that we call `df` with data from the [MoMA collection project](https://github.com/MuseumofModernArt/collection) on artists:
+
+```{python}
+df = pl.read_csv("https://github.com/MuseumofModernArt/collection/raw/refs/heads/main/Artists.csv")
+```
+
+As you can see, Polars can read in data from a URL. To get that URL however, I had to click on the [Artists.csv]{.codelike} link in [the main collection project](https://github.com/MuseumofModernArt/collection), right-click on [Raw]{.codelike}, and copy the link. That's the link that I used in the code above.
+
+Of course Polars can also read in files that you have in your computer.
+
+Here, the file is a CSV file, so I am using the function `polars.read_csv`. There are other functions for other file formats (e.g. `polars.read_json`, `polars.read_parquet`).
+
+## Exploring the data
+
+Now, I can print the DataFrame:
+
+```{python}
+df
+```
+
+<br>It has 15,908 rows and 9 columns. This means that there are 15,908 different artists in this dataset and that there are 9 variables (or distinct types of information) for each artist.
+
+You can also see the data type for each column (variable).
+
+I can print the first 5 rows:
+
+```{python}
+df.head()
+```
+
+<br>Or the first 3 rows:
+
+```{python}
+df.head(3)
+```
+
+<br>Or the last 5 rows:
+
+```{python}
+df.tail()
+```
+
+:::{.exo}
+
+:::{.yourturn}
+
+Your turn:
+
+:::
+
+Print the last 15 rows of this DataFrame.
+
+:::
+
+I can get a random sample of rows. This is very useful if you want to have an idea of what is going on in the data and not focus on the first or last elements which are likely to look similar.
+
+For this, I first need to load the `random` module from Python's standard library:
+
+```{python}
+import random
+```
+
+Then I can draw a single random samples with:
+
+```{python}
+df.sample()
+```
+
+<br>Or I can draw any number of samples:
+
+```{python}
+df.sample(10)
+```
+
+<br>I can get a list of columns with:
+
+```{python}
+df.columns
+```
+
+<br>And a list of data types with:
+
+```{python}
+df.dtypes
+```
+
+<br>I can get the schema (sets the names of the variables (columns) and their data types) with:
+
+```{python}
+df.schema
+```
+
+<br>Finally, I can get some summary statistics for all the variables with:
+
+```{python}
+df.describe()
+```
+
+Depending on the data, this can be useful or perfectly meaningless (as is the case here) if the variables are not numerical. It does show us something useful however: the number of missing data for each variables. Missing data in Polars are of the type `polars.Null` and you can see their numbers in the statistic called `null_count`.
+
+## Subsetting data
+
+Selecting subsets of data is very useful to run analyses, create graphs, get some statistics, create new datasets, etc.
+
+### Selecting columns
+
+In Polars, you can select a column with the function `select`:
+
+```{python}
+df.select(pl.col("Gender"))
+```
+
+<br>Now, if you want to see the unique entries for this column you can run:
+
+```{python}
+df.select(pl.col("Gender")).unique()
+```
+
+:::{.exo}
+
+:::{.yourturn}
+
+Your turn:
+
+:::
+
+Create a DataFrame with the unique values of the column `Nationality`.
+
+:::
+
+You can of course select multiple columns:
+
+```{python}
+df.select(
+    pl.col("Gender"),
+    pl.col("Nationality")
+)
+```
+
+### Selecting row
+
+You can select all the rows matching some condition with the function `filter`:
+
+```{python}
+df_transwoman = df.filter(pl.col("Gender") == "transgender woman")
+
+df_transwoman
+```
+
+<br>Not a very represented group!
+
+You can combine conditions:
+
+```{python}
+df_female_American = df.filter(
+    pl.col("Gender") == "female",
+    pl.col("Nationality") == "American",
+)
+
+df_female_American
+```
+
+:::{.exo}
+
+:::{.yourturn}
+
+Your turn:
+
+:::
+
+How many Afghan artists are there in this dataset?
+
+:::
