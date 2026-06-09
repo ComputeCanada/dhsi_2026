@@ -35,10 +35,10 @@ Load the Polars package as the alias `pl` (this is the standard way to load Pola
 import polars as pl
 ```
 
-Create a DataFrame that we call `df` with data from the [MoMA collection project](https://github.com/MuseumofModernArt/collection) on artists:
+Create a DataFrame that we call `artists` with data from the [MoMA collection project](https://github.com/MuseumofModernArt/collection) on artists:
 
 ```{python}
-df = pl.read_csv("https://github.com/MuseumofModernArt/collection/raw/refs/heads/main/Artists.csv")
+artists = pl.read_csv("https://github.com/MuseumofModernArt/collection/raw/refs/heads/main/Artists.csv")
 ```
 
 As you can see, Polars can read in data from a URL. To get that URL however, I had to click on the [Artists.csv]{.codelike} link in [the main collection project](https://github.com/MuseumofModernArt/collection), right-click on [Raw]{.codelike}, and copy the link. That's the link that I used in the code above.
@@ -52,7 +52,7 @@ Here, the file is a CSV file, so I am using the function `polars.read_csv`. Ther
 Now, I can print the DataFrame:
 
 ```{python}
-df
+artists
 ```
 
 <br>It has 15,908 rows and 9 columns. This means that there are 15,908 different artists in this dataset and that there are 9 variables (or distinct types of information) for each artist.
@@ -62,19 +62,19 @@ You can also see the data type for each column (variable).
 I can print the first 5 rows:
 
 ```{python}
-df.head()
+artists.head()
 ```
 
 <br>Or the first 3 rows:
 
 ```{python}
-df.head(3)
+artists.head(3)
 ```
 
 <br>Or the last 5 rows:
 
 ```{python}
-df.tail()
+artists.tail()
 ```
 
 :::{.exo}
@@ -100,37 +100,37 @@ import random
 Then I can draw a single random samples with:
 
 ```{python}
-df.sample()
+artists.sample()
 ```
 
 <br>Or I can draw any number of samples:
 
 ```{python}
-df.sample(10)
+artists.sample(10)
 ```
 
 <br>I can get a list of columns with:
 
 ```{python}
-df.columns
+artists.columns
 ```
 
 And a list of data types with:
 
 ```{python}
-df.dtypes
+artists.dtypes
 ```
 
 I can get the schema (sets the names of the variables (columns) and their data types) with:
 
 ```{python}
-df.schema
+artists.schema
 ```
 
 Finally, I can get some summary statistics for all the variables with:
 
 ```{python}
-df.describe()
+artists.describe()
 ```
 
 <br>Depending on the data, this can be useful or perfectly meaningless (as is the case here) if the variables are not numerical. It does show us something useful however: the number of missing data for each variables. Missing data in Polars are of the type `polars.Null` and you can see their numbers in the statistic called `null_count`.
@@ -144,13 +144,25 @@ Selecting subsets of data is very useful to run analyses, create graphs, get som
 In Polars, you can select a column with the function `select`:
 
 ```{python}
-df.select(pl.col("Gender"))
+artists.select(pl.col("Gender"))
+```
+
+Note that this prints the result, but it does not save the new DataFrame. If you want to create a new DataFrame with the result you need to assign that result to a new variable. Let's call this new variable `artists_gender`:
+
+```{python}
+artists_gender = artists.select(pl.col("Gender"))
+```
+
+As you can see, when you do that, it does not print the new DataFrame. If you want to print it, you now need to call it:
+
+```{python}
+artists_gender
 ```
 
 <br>Now, if you want to see the unique entries for this column you can run:
 
 ```{python}
-df.select(pl.col("Gender")).unique()
+artists.select(pl.col("Gender")).unique()
 ```
 
 :::{.exo}
@@ -168,27 +180,23 @@ Create a DataFrame with the unique values of the column `Nationality`.
 If we want to see how many artists are represented for each nationality, we can do:
 
 ```{python}
-df_nat_counts = df.select(
+artists.select(
     pl.col("Nationality").unique(maintain_order=True).alias("Nationality"),
     pl.col("Nationality").unique_counts().alias("Count"),
 )
-
-df_nat_counts
 ```
 
 <br>And if we want to sort them by decreasing count:
 
 ```{python}
-df_nat_counts = df.select(
+artists.select(
     pl.col("Nationality").unique(maintain_order=True).alias("Nationality"),
     pl.col("Nationality").unique_counts().alias("Count"),
 ).sort("Count", descending=True)
-
-df_nat_counts
 ```
 
 <!-- ```{python} -->
-<!-- df.select( -->
+<!-- artists.select( -->
 <!--     pl.col("Nationality").value_counts() -->
 <!-- ) -->
 <!-- ``` -->
@@ -196,7 +204,7 @@ df_nat_counts
 <br>You can of course select multiple columns:
 
 ```{python}
-df.select(
+artists.select(
     pl.col("Gender"),
     pl.col("Nationality")
 )
@@ -207,9 +215,7 @@ df.select(
 You can select all the rows matching some condition with the function `filter`:
 
 ```{python}
-df_transwoman = df.filter(pl.col("Gender") == "transgender woman")
-
-df_transwoman
+artists.filter(pl.col("Gender") == "transgender woman")
 ```
 
 <br>Not a very represented group!
@@ -217,12 +223,10 @@ df_transwoman
 You can combine conditions:
 
 ```{python}
-df_female_American = df.filter(
+artists.filter(
     pl.col("Gender") == "female",
     pl.col("Nationality") == "American",
 )
-
-df_female_American
 ```
 
 :::{.exo}
@@ -235,10 +239,37 @@ Your turn:
 
 How many Afghan artists are there in this dataset?
 
+Based on what we learnt, there are 2 different ways to get to that info. Can you come up with both of them?
+
 :::
 
-<!-- ## Operations on groups -->
+## Switching to a new dataset
+
+Looking at [this repository from the MoMA](https://github.com/MuseumofModernArt/collection) again, try to load in Python the data for the artworks and print it.
 
 <!-- ```{python} -->
+<!-- artworks = pl.read_csv("https://github.com/MuseumofModernArt/collection/raw/refs/heads/main/Artworks.csv") -->
 
+<!-- artworks -->
+<!-- ``` -->
+
+How many nationalities are represented in this dataset?
+
+<!-- ```{python} -->
+<!-- artworks.select(pl.col("Nationality")).unique() -->
+<!-- ``` -->
+
+<!-- ```{python} -->
+<!-- artworks.select(pl.col("Nationality")).unique().select(pl.len()) -->
+<!-- ``` -->
+
+Create a new DataFrame showing the years and the number of artworks for each year.
+
+<!-- ```{python} -->
+<!-- artworks_year_counts = artworks.select( -->
+<!--     pl.col("Date").unique(maintain_order=True).alias("Date"), -->
+<!--     pl.col("Date").unique_counts().alias("Count"), -->
+<!-- ) -->
+
+<!-- artworks_year_counts -->
 <!-- ``` -->
