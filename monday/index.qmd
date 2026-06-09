@@ -23,7 +23,7 @@ Feel free to use the [etherpad](https://etherpad.wikimedia.org/p/dhsi26) for thi
 - Website and program for the week. \
 - [An introduction to the core concepts of programming languages.](wb_hss_prog_slides.html) \
 - Python installation. \
-- [Python packages](packages.qmd).
+- [Python packages.](packages.qmd)
 
 :::
 
