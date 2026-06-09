@@ -41,7 +41,7 @@ Alex Razoumov (Simon Fraser University)
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
 **Material:** \
-- [Introduction to Python for Digital Humanities](day1_afternoon_completed.html){target="_blank"} \
+- [Introduction to Python for Digital Humanities.](day1_afternoon_completed.html){target="_blank"} \
 - Here is the original completed notebook for this material: {{< downloadthis day1_afternoon_completed.ipynb dname="day1_afternoon_completed" label="Download" >}}
 
 :::

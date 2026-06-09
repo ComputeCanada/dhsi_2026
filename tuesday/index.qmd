@@ -20,8 +20,8 @@ Alex Razoumov (Simon Fraser University)
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
 **Material:** \
-- [Introductory Programming with Python](day2_morning_completed.html){target="_blank"} \
-- [Plotly notes](https://folio.vastcloud.org/plotly-menu.html)
+- [Introductory Programming with Python.](day2_morning_completed.html){target="_blank"} \
+- [Plotly notes.](https://folio.vastcloud.org/plotly-menu.html)
 
 <!-- Download the Jupyter notebook for this morning: {{< downloadthis day2_morning.ipynb dname="day2_morning" label="Download" >}} -->
 
@@ -49,7 +49,7 @@ Marie-Hélène Burle (Simon Fraser University)
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
 **Topic:** \
-[Polras DataFrames with MoMA datasets.](moma.qmd)
+[Polars DataFrames with MoMA datasets.](moma.qmd)
 
 :::
 

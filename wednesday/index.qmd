@@ -23,8 +23,7 @@ Alex Razoumov (Simon Fraser University)
 We will gather internet data using APIs.
 
 **Materials:** \
-
-[Introduction to API querying](http://folio.vastcloud.org/api)
+[Introduction to API querying.](http://folio.vastcloud.org/api)
 
 <!-- And it can be visualized [here](day3_morning_completed.html){target="_blank"}. -->
 
