@@ -43,11 +43,7 @@ Marie-Hélène Burle (Simon Fraser University)
 **Live notes:** \
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
-**Material:** \
-[Website](https://mint.westdri.ca/python/llm_webscraping)
-
 <!-- **Topic:** \ -->
-
 :::
 
 <br>
