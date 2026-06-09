@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-387e0866b5d26209c01a89604f9ede68.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-3254d72019a04ac5d561b713595c096c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-387e0866b5d26209c01a89604f9ede68.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-9a55068d1f954940faf55623347723bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-8f0fed1671e253c073db6ee382d94abf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-9a55068d1f954940faf55623347723bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -403,11 +403,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reading-in-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-in-data">Reading in data</h2>
 <p>Load the Polars package as the alias <code>pl</code> (this is the standard way to load Polars):</p>
-<div id="59e22243" class="cell" data-execution_count="2">
+<div id="034de5a9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Create a DataFrame that we call <code>df</code> with data from the <a href="https://github.com/MuseumofModernArt/collection">MoMA collection project</a> on artists:</p>
-<div id="640687d9" class="cell" data-execution_count="3">
+<div id="83a59e04" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pl.read_csv(<span class="st">"https://github.com/MuseumofModernArt/collection/raw/refs/heads/main/Artists.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>As you can see, Polars can read in data from a URL. To get that URL however, I had to click on the <span class="codelike">Artists.csv</span> link in <a href="https://github.com/MuseumofModernArt/collection">the main collection project</a>, right-click on <span class="codelike">Raw</span>, and copy the link. That’s the link that I used in the code above.</p>
@@ -417,9 +417,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="exploring-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-the-data">Exploring the data</h2>
 <p>Now, I can print the DataFrame:</p>
-<div id="b86d851f" class="cell" data-execution_count="4">
+<div id="fabc8310" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="66">
+<div class="cell-output cell-output-display" data-execution_count="156">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -583,9 +583,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><br>It has 15,908 rows and 9 columns. This means that there are 15,908 different artists in this dataset and that there are 9 variables (or distinct types of information) for each artist.</p>
 <p>You can also see the data type for each column (variable).</p>
 <p>I can print the first 5 rows:</p>
-<div id="dc05b38c" class="cell" data-execution_count="5">
+<div id="0cc0f221" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="67">
+<div class="cell-output cell-output-display" data-execution_count="157">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -681,9 +681,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><br>Or the first 3 rows:</p>
-<div id="cd65625c" class="cell" data-execution_count="6">
+<div id="ad7d032f" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="68">
+<div class="cell-output cell-output-display" data-execution_count="158">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -757,9 +757,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><br>Or the last 5 rows:</p>
-<div id="0f51a774" class="cell" data-execution_count="7">
+<div id="da6e77f5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="69">
+<div class="cell-output cell-output-display" data-execution_count="159">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -862,13 +862,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>I can get a random sample of rows. This is very useful if you want to have an idea of what is going on in the data and not focus on the first or last elements which are likely to look similar.</p>
 <p>For this, I first need to load the <code>random</code> module from Python’s standard library:</p>
-<div id="2f6c2d97" class="cell" data-execution_count="8">
+<div id="577b49f8" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Then I can draw a single random samples with:</p>
-<div id="2cbcd347" class="cell" data-execution_count="9">
+<div id="302d8131" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.sample()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
+<div class="cell-output cell-output-display" data-execution_count="161">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -904,13 +904,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>1650</td>
-<td>"Henri Dumont"</td>
-<td>"French, 1859–1921"</td>
-<td>"French"</td>
-<td>"male"</td>
-<td>1859</td>
-<td>1921</td>
+<td>201</td>
+<td>"Aoki Toshio"</td>
+<td>null</td>
+<td>null</td>
+<td>null</td>
+<td>1854</td>
+<td>1912</td>
 <td>null</td>
 <td>null</td>
 </tr>
@@ -920,9 +920,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><br>Or I can draw any number of samples:</p>
-<div id="411e783b" class="cell" data-execution_count="10">
+<div id="88f11ed1" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.sample(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div class="cell-output cell-output-display" data-execution_count="162">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -958,112 +958,112 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>107</td>
-<td>"Pierre Alechinsky"</td>
-<td>"Belgian, born 1927"</td>
-<td>"Belgian"</td>
-<td>"male"</td>
-<td>1927</td>
-<td>0</td>
-<td>"Q328248"</td>
-<td>500027985</td>
-</tr>
-<tr class="even">
-<td>1025</td>
-<td>"Enrico Castellani"</td>
-<td>"Italian, born 1930"</td>
-<td>"Italian"</td>
-<td>"male"</td>
-<td>1930</td>
-<td>0</td>
-<td>"Q560134"</td>
-<td>500010925</td>
-</tr>
-<tr class="odd">
-<td>4785</td>
-<td>"Franz Radziwill"</td>
-<td>"German, 1895–1983"</td>
-<td>"German"</td>
-<td>"male"</td>
-<td>1895</td>
-<td>1983</td>
-<td>null</td>
-<td>null</td>
-</tr>
-<tr class="even">
-<td>10505</td>
-<td>"R. Kirsch, Germany"</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>0</td>
-<td>0</td>
-<td>null</td>
-<td>null</td>
-</tr>
-<tr class="odd">
-<td>23736</td>
-<td>"Adol'f Strakhov"</td>
-<td>null</td>
-<td>null</td>
-<td>"male"</td>
-<td>0</td>
-<td>0</td>
-<td>null</td>
-<td>null</td>
-</tr>
-<tr class="even">
-<td>24391</td>
-<td>"M. Kraian"</td>
-<td>null</td>
-<td>null</td>
-<td>null</td>
-<td>0</td>
-<td>0</td>
-<td>null</td>
-<td>null</td>
-</tr>
-<tr class="odd">
-<td>28787</td>
-<td>"Sam Salisbury"</td>
-<td>"American, born 1977"</td>
+<td>1265</td>
+<td>"John Costigan"</td>
+<td>"American, 1888–1972"</td>
 <td>"American"</td>
 <td>"male"</td>
+<td>1888</td>
+<td>1972</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr class="even">
+<td>6426</td>
+<td>"Marion Post Wolcott"</td>
+<td>"American, 1910–1990"</td>
+<td>"American"</td>
+<td>"female"</td>
+<td>1910</td>
+<td>1990</td>
+<td>"Q436687"</td>
+<td>500002522</td>
+</tr>
+<tr class="odd">
+<td>6582</td>
+<td>"William Zorach"</td>
+<td>"American, born Lithuania. 1889…</td>
+<td>"American"</td>
+<td>"male"</td>
+<td>1889</td>
+<td>1966</td>
+<td>"Q385941"</td>
+<td>500003603</td>
+</tr>
+<tr class="even">
+<td>7884</td>
+<td>"Nancy Manter"</td>
+<td>"American"</td>
+<td>"American"</td>
+<td>"female"</td>
+<td>0</td>
+<td>0</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr class="odd">
+<td>28382</td>
+<td>"Mia Ferrara"</td>
+<td>"American, born 1977"</td>
+<td>"American"</td>
+<td>null</td>
 <td>1977</td>
 <td>0</td>
 <td>null</td>
 <td>null</td>
 </tr>
 <tr class="even">
-<td>38070</td>
-<td>"Frédéric Druot"</td>
-<td>"French, born 1958"</td>
-<td>"French"</td>
-<td>"male"</td>
-<td>1958</td>
+<td>30910</td>
+<td>"Andrea Fraser"</td>
+<td>"American, born 1965"</td>
+<td>"American"</td>
+<td>"female"</td>
+<td>1965</td>
 <td>0</td>
 <td>null</td>
 <td>null</td>
 </tr>
 <tr class="odd">
-<td>63994</td>
-<td>"John Smith"</td>
-<td>"British, born 1952"</td>
-<td>"British"</td>
+<td>37946</td>
+<td>"Qiu Anxiong"</td>
+<td>"Chinese, born 1972"</td>
+<td>"Chinese"</td>
 <td>"male"</td>
-<td>1952</td>
+<td>1972</td>
 <td>0</td>
 <td>null</td>
 <td>null</td>
 </tr>
 <tr class="even">
-<td>133264</td>
-<td>"Bertha Evelyn Jaques"</td>
-<td>"American, 1863–1941"</td>
-<td>"American"</td>
+<td>48321</td>
+<td>"Ian McKeever"</td>
+<td>"British, born 1946"</td>
+<td>"British"</td>
+<td>"male"</td>
+<td>0</td>
+<td>0</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr class="odd">
+<td>50083</td>
+<td>"Richard Learoyd"</td>
+<td>"British, born 1966"</td>
+<td>"British"</td>
+<td>"male"</td>
+<td>1966</td>
+<td>0</td>
+<td>null</td>
+<td>null</td>
+</tr>
+<tr class="even">
+<td>136051</td>
+<td>"Huiyi Lin"</td>
+<td>"Singaporean, born 1980"</td>
+<td>"Singaporean"</td>
 <td>"female"</td>
-<td>1863</td>
-<td>1941</td>
+<td>1980</td>
+<td>0</td>
 <td>null</td>
 <td>null</td>
 </tr>
@@ -1073,9 +1073,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><br>I can get a list of columns with:</p>
-<div id="89f0c7fa" class="cell" data-execution_count="11">
+<div id="d6e720c7" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="73">
+<div class="cell-output cell-output-display" data-execution_count="163">
 <pre><code>['ConstituentID',
  'DisplayName',
  'ArtistBio',
@@ -1087,17 +1087,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  'ULAN']</code></pre>
 </div>
 </div>
-<p><br>And a list of data types with:</p>
-<div id="9b2e5185" class="cell" data-execution_count="12">
+<p>And a list of data types with:</p>
+<div id="c615fae7" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
+<div class="cell-output cell-output-display" data-execution_count="164">
 <pre><code>[Int64, String, String, String, String, Int64, Int64, String, Int64]</code></pre>
 </div>
 </div>
-<p><br>I can get the schema (sets the names of the variables (columns) and their data types) with:</p>
-<div id="baf54cfb" class="cell" data-execution_count="13">
+<p>I can get the schema (sets the names of the variables (columns) and their data types) with:</p>
+<div id="8da04841" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.schema</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="75">
+<div class="cell-output cell-output-display" data-execution_count="165">
 <pre><code>Schema([('ConstituentID', Int64),
         ('DisplayName', String),
         ('ArtistBio', String),
@@ -1109,10 +1109,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         ('ULAN', Int64)])</code></pre>
 </div>
 </div>
-<p><br>Finally, I can get some summary statistics for all the variables with:</p>
-<div id="65710eb5" class="cell" data-execution_count="14">
+<p>Finally, I can get some summary statistics for all the variables with:</p>
+<div id="38271f5a" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="76">
+<div class="cell-output cell-output-display" data-execution_count="166">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1262,7 +1262,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Depending on the data, this can be useful or perfectly meaningless (as is the case here) if the variables are not numerical. It does show us something useful however: the number of missing data for each variables. Missing data in Polars are of the type <code>polars.Null</code> and you can see their numbers in the statistic called <code>null_count</code>.</p>
+<p><br>Depending on the data, this can be useful or perfectly meaningless (as is the case here) if the variables are not numerical. It does show us something useful however: the number of missing data for each variables. Missing data in Polars are of the type <code>polars.Null</code> and you can see their numbers in the statistic called <code>null_count</code>.</p>
 </section>
 <section id="subsetting-data" class="level2">
 <h2 class="anchored" data-anchor-id="subsetting-data">Subsetting data</h2>
@@ -1270,9 +1270,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="selecting-columns" class="level3">
 <h3 class="anchored" data-anchor-id="selecting-columns">Selecting columns</h3>
 <p>In Polars, you can select a column with the function <code>select</code>:</p>
-<div id="282d3a37" class="cell" data-execution_count="15">
+<div id="8689a4f9" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"Gender"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="77">
+<div class="cell-output cell-output-display" data-execution_count="167">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1330,9 +1330,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><br>Now, if you want to see the unique entries for this column you can run:</p>
-<div id="9ef704ef" class="cell" data-execution_count="16">
+<div id="1fa23236" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df.select(pl.col(<span class="st">"Gender"</span>)).unique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="78">
+<div class="cell-output cell-output-display" data-execution_count="168">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1352,28 +1352,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>"male"</td>
-</tr>
-<tr class="even">
-<td>"gender non-conforming"</td>
-</tr>
-<tr class="odd">
-<td>"transgender woman"</td>
-</tr>
-<tr class="even">
-<td>"male (trans? ftm?)"</td>
-</tr>
-<tr class="odd">
-<td>"female"</td>
+<td>null</td>
 </tr>
 <tr class="even">
 <td>"female (transwoman)"</td>
 </tr>
 <tr class="odd">
-<td>null</td>
+<td>"non-binary"</td>
 </tr>
 <tr class="even">
-<td>"non-binary"</td>
+<td>"female"</td>
+</tr>
+<tr class="odd">
+<td>"male"</td>
+</tr>
+<tr class="even">
+<td>"male (trans? ftm?)"</td>
+</tr>
+<tr class="odd">
+<td>"gender non-conforming"</td>
+</tr>
+<tr class="even">
+<td>"transgender woman"</td>
 </tr>
 </tbody>
 </table>
@@ -1386,13 +1386,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Create a DataFrame with the unique values of the column <code>Nationality</code>.</p>
 </div>
-<p>You can of course select multiple columns:</p>
-<div id="7b71fded" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df.select(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Gender"</span>),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="79">
+<p>If we want to see how many artists are represented for each nationality, we can do:</p>
+<div id="5c258390" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df_nat_counts <span class="op">=</span> df.select(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>).unique(maintain_order<span class="op">=</span><span class="va">True</span>).alias(<span class="st">"Nationality"</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>).unique_counts().alias(<span class="st">"Count"</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>df_nat_counts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="169">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (137, 2)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Nationality</th>
+<th data-quarto-table-cell-role="th">Count</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>u64</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"American"</td>
+<td>5434</td>
+</tr>
+<tr class="even">
+<td>"Spanish"</td>
+<td>160</td>
+</tr>
+<tr class="odd">
+<td>"Danish"</td>
+<td>123</td>
+</tr>
+<tr class="even">
+<td>"Italian"</td>
+<td>550</td>
+</tr>
+<tr class="odd">
+<td>"French"</td>
+<td>876</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>"Ivatan"</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>"Nepali"</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>"Oneida"</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>"Spirit Lake Dakota/Cheyenne Ri…</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>"British and Nigerian"</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p><br>And if we want to sort them by decreasing count:</p>
+<div id="21fbc02c" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_nat_counts <span class="op">=</span> df.select(</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>).unique(maintain_order<span class="op">=</span><span class="va">True</span>).alias(<span class="st">"Nationality"</span>),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>).unique_counts().alias(<span class="st">"Count"</span>),</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>).sort(<span class="st">"Count"</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>df_nat_counts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="170">
+<div><style>
+.dataframe > thead > tr,
+.dataframe > tbody > tr {
+  text-align: right;
+  white-space: pre-wrap;
+}
+</style>
+<small>shape: (137, 2)</small>
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Nationality</th>
+<th data-quarto-table-cell-role="th">Count</th>
+</tr>
+<tr class="even">
+<td>str</td>
+<td>u64</td>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"American"</td>
+<td>5434</td>
+</tr>
+<tr class="even">
+<td>null</td>
+<td>2482</td>
+</tr>
+<tr class="odd">
+<td>"German"</td>
+<td>999</td>
+</tr>
+<tr class="even">
+<td>"French"</td>
+<td>876</td>
+</tr>
+<tr class="odd">
+<td>"British"</td>
+<td>875</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>"Ivatan"</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>"Nepali"</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>"Oneida"</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>"Spirit Lake Dakota/Cheyenne Ri…</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>"British and Nigerian"</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- ```{python} -->
+<!-- df.select( -->
+<!--     pl.col("Nationality").value_counts() -->
+<!-- ) -->
+<!-- ``` -->
+<p><br>You can of course select multiple columns:</p>
+<div id="5abe4502" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df.select(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Gender"</span>),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="171">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1466,11 +1627,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="selecting-row" class="level3">
 <h3 class="anchored" data-anchor-id="selecting-row">Selecting row</h3>
 <p>You can select all the rows matching some condition with the function <code>filter</code>:</p>
-<div id="0b229202" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_transwoman <span class="op">=</span> df.<span class="bu">filter</span>(pl.col(<span class="st">"Gender"</span>) <span class="op">==</span> <span class="st">"transgender woman"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>df_transwoman</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="80">
+<div id="f4965a6f" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df_transwoman <span class="op">=</span> df.<span class="bu">filter</span>(pl.col(<span class="st">"Gender"</span>) <span class="op">==</span> <span class="st">"transgender woman"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>df_transwoman</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="172">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1523,14 +1684,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><br>Not a very represented group!</p>
 <p>You can combine conditions:</p>
-<div id="77039f0f" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df_female_American <span class="op">=</span> df.<span class="bu">filter</span>(</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Gender"</span>) <span class="op">==</span> <span class="st">"female"</span>,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>) <span class="op">==</span> <span class="st">"American"</span>,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>df_female_American</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="81">
+<div id="d1cc85d0" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df_female_American <span class="op">=</span> df.<span class="bu">filter</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Gender"</span>) <span class="op">==</span> <span class="st">"female"</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    pl.col(<span class="st">"Nationality"</span>) <span class="op">==</span> <span class="st">"American"</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>df_female_American</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="173">
 <div><style>
 .dataframe > thead > tr,
 .dataframe > tbody > tr {
@@ -1697,6 +1858,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>How many Afghan artists are there in this dataset?</p>
 </div>
+<!-- ## Operations on groups -->
+<!-- ```{python} -->
+<!-- ``` -->
 
 
 </section>
