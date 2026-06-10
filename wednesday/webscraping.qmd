@@ -75,29 +75,15 @@ For this section, you need to install the following packages in a virtual enviro
 - `beautifulsoup4`
 - `polars`
 
-:::{layout="[20, 80]"}
+This is why we need these packages:
 
-:::{.col1}
+| Package | Usage |
+|--|--|
+| [requests](https://github.com/psf/requests) | Allows you to send commands to a web server. In our case, we use it to get the HTML of the page we are interested in. |
+| [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) | Makes it easy to pull data out of HTML files. |
+| [polars](https://github.com/pola-rs/polars) | The DataFrame library that we will use to store our data. |
 
-[requests](https://github.com/psf/requests)
-
-[beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
-
-[polars](https://github.com/pola-rs/polars)
-
-:::
-
-:::{.col2}
-
-allows you to send commands to a web server. In our case, we use it to get the HTML of the page we are interested in.
-
-makes it easy to pull data out of HTML files.
-
-is the DataFrame library that we will use to store our data.
-
-:::
-
-:::
+: {tbl-colwidths="[20, 80]"}
 
 ## Explore the site carefully
 
@@ -617,8 +603,20 @@ result
 
 ## Save results to file
 
-As a final step, we will save our data to a CSV file:
+As a final step, we will save our data to a parquet file:
 
 ```{.python}
 result.write_parquet('god_data.parquet')
 ```
+
+:::{.notenoit}
+
+You could save the data as a CSV file if you wanted. As the data here is small, that would be suitable too:
+
+```{.python}
+result.write_csv('god_data.csv')
+```
+
+*Because parquet is so much more efficient and the right format to use for large datasets, I like using it all the time everywhere.*
+
+:::
