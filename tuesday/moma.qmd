@@ -49,7 +49,7 @@ Here, the file is a CSV file, so I am using the function `polars.read_csv`. Ther
 
 ## Exploring the data
 
-Now, I can print the DataFrame:
+Now, you can print the DataFrame:
 
 ```{python}
 artists
@@ -59,7 +59,7 @@ artists
 
 You can also see the data type for each column (variable).
 
-I can print the first 5 rows:
+You can print the first 5 rows:
 
 ```{python}
 artists.head()
@@ -89,27 +89,29 @@ Print the last 15 rows of this DataFrame.
 
 :::
 
-I can get a random sample of rows. This is very useful if you want to have an idea of what is going on in the data and not focus on the first or last elements which are likely to look similar.
-
-For this, I first need to load the `random` module from Python's standard library:
-
-```{python}
-import random
-```
-
-Then I can draw a single random samples with:
+You can get a random sample of rows. This is very useful if you want to have an idea of what is going on in the data and not focus on the first or last elements which are likely to look similar:
 
 ```{python}
 artists.sample()
 ```
 
-<br>Or I can draw any number of samples:
+<br>Or you can draw any number of samples:
 
 ```{python}
 artists.sample(10)
 ```
 
-<br>I can get a list of columns with:
+:::{.notenoit}
+
+If you want to make the sample reproducible, you need to set a seed with:
+
+```{python}
+artists.sample(10, seed=123)
+```
+
+:::
+
+You can get a list of columns with:
 
 ```{python}
 artists.columns
@@ -121,13 +123,13 @@ And a list of data types with:
 artists.dtypes
 ```
 
-I can get the schema (sets the names of the variables (columns) and their data types) with:
+You can get the schema (sets the names of the variables (columns) and their data types) with:
 
 ```{python}
 artists.schema
 ```
 
-Finally, I can get some summary statistics for all the variables with:
+Finally, you can get some summary statistics for all the variables with:
 
 ```{python}
 artists.describe()
