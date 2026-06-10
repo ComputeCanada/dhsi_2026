@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Introduction to API Querying – Coding Fundamentals for Humanists</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -75,14 +72,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-09c1074280bb1d7de6cd6f01dcbd208a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a69a801d67a55c86e23ae4d30c39bfa1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a69a801d67a55c86e23ae4d30c39bfa1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a69a801d67a55c86e23ae4d30c39bfa1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-9a55068d1f954940faf55623347723bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-8f0fed1671e253c073db6ee382d94abf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-9a55068d1f954940faf55623347723bb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ad04100b69221fc9d2835ad5246d2cf6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-252c18a165aa4c5c6efc697ca77371cc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-ad04100b69221fc9d2835ad5246d2cf6.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -284,8 +281,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/logo_dhsi.png" alt="DHSI logo" class="navbar-logo light-content">
-    <img src="../img/logo_dhsi.png" alt="DHSI logo" class="navbar-logo dark-content">
+    <img src="../img/logo_dhsi.png" alt="DHSI logo" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -367,13 +363,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>In today’s digital world, being able to access and work with online data is a valuable skill, even in the Humanities and Social Sciences. This session is all about getting comfortable with APIs (Application Programming Interfaces) and understanding why they’re useful for research. You’ll learn how APIs compare to other ways of getting data, like text mining and web scraping, and how to tell if a website has an API you can use. We’ll walk through how to make a request to an API, use parameters to get the exact data you want, and understand the responses you get back (usually in JSON format). By the end, you’ll have hands-on experience using APIs to gather and explore data for your own projects.</p>
 <p>Let’s get started by importing the libraries that we will be using:</p>
-<div id="225b1d80" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="304cb173" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s explore the requests and json libraries using the Help function:</p>
-<div id="62aa01b3" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(requests)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="57ce82b0" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(requests)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on package requests:
 
@@ -446,10 +442,8 @@ CLASSES
             requests.exceptions.URLRequired
     builtins.object
         requests.models.Response
-    json.decoder.JSONDecodeError(builtins.ValueError)
-        requests.exceptions.JSONDecodeError(requests.exceptions.InvalidJSONError, json.decoder.JSONDecodeError)
     requests.exceptions.InvalidJSONError(requests.exceptions.RequestException)
-        requests.exceptions.JSONDecodeError(requests.exceptions.InvalidJSONError, json.decoder.JSONDecodeError)
+        requests.exceptions.JSONDecodeError(requests.exceptions.InvalidJSONError, simplejson.errors.JSONDecodeError)
     requests.models.RequestEncodingMixin(builtins.object)
         requests.models.PreparedRequest(requests.models.RequestEncodingMixin, requests.models.RequestHooksMixin)
     requests.models.RequestHooksMixin(builtins.object)
@@ -457,9 +451,11 @@ CLASSES
         requests.models.Request
     requests.sessions.SessionRedirectMixin(builtins.object)
         requests.sessions.Session
+    simplejson.errors.JSONDecodeError(builtins.ValueError)
+        requests.exceptions.JSONDecodeError(requests.exceptions.InvalidJSONError, simplejson.errors.JSONDecodeError)
 
     class ConnectTimeout(ConnectionError, Timeout)
-     |  ConnectTimeout(*args: Any, **kwargs: Any) -&gt; None
+     |  ConnectTimeout(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  The request timed out while trying to connect to the remote server.
      |
@@ -475,9 +471,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -487,14 +488,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -526,23 +522,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -553,7 +556,7 @@ CLASSES
      |  args
 
     class ConnectionError(RequestException)
-     |  ConnectionError(*args: Any, **kwargs: Any) -&gt; None
+     |  ConnectionError(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  A Connection error occurred.
      |
@@ -565,9 +568,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -577,14 +585,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -616,23 +619,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -643,7 +653,7 @@ CLASSES
      |  args
 
     class HTTPError(RequestException)
-     |  HTTPError(*args: Any, **kwargs: Any) -&gt; None
+     |  HTTPError(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  An HTTP error occurred.
      |
@@ -655,9 +665,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -667,14 +682,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -706,23 +716,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -732,8 +749,8 @@ CLASSES
      |
      |  args
 
-    class JSONDecodeError(InvalidJSONError, json.decoder.JSONDecodeError)
-     |  JSONDecodeError(*args: Any, **kwargs: Any) -&gt; None
+    class JSONDecodeError(InvalidJSONError, simplejson.errors.JSONDecodeError)
+     |  JSONDecodeError(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  Couldn't decode the text into json
      |
@@ -742,7 +759,7 @@ CLASSES
      |      InvalidJSONError
      |      RequestException
      |      builtins.OSError
-     |      json.decoder.JSONDecodeError
+     |      simplejson.errors.JSONDecodeError
      |      builtins.ValueError
      |      builtins.Exception
      |      builtins.BaseException
@@ -750,13 +767,13 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Construct the JSONDecodeError instance first with all
      |      args. Then use it's args to construct the IOError so that
      |      the json specific args aren't used as IOError specific args
      |      and the error message from JSONDecodeError is preserved.
      |
-     |  __reduce__(self) -&gt; tuple[Any, ...] | str
+     |  __reduce__(self) -&gt; 'tuple[Any, ...] | str'
      |      The __reduce__ method called when pickling the object must
      |      be the one from the JSONDecodeError (be it json/simplejson)
      |      as it expects all the arguments for instantiation, not just
@@ -764,15 +781,15 @@ CLASSES
      |      __reduce__ method from the IOError due to the inheritance order.
      |
      |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Data descriptors inherited from RequestException:
      |
      |  __weakref__
      |      list of weak references to the object
-     |
-     |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
      |
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
@@ -806,23 +823,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -833,7 +857,7 @@ CLASSES
      |  args
 
     class PreparedRequest(RequestEncodingMixin, RequestHooksMixin)
-     |  PreparedRequest() -&gt; None
+     |  PreparedRequest() -&gt; 'None'
      |
      |  The fully mutable :class:`PreparedRequest &lt;PreparedRequest&gt;` object,
      |  containing the exact bytes that will be sent to the server.
@@ -862,47 +886,27 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __init__(self) -&gt; None
+     |  __init__(self) -&gt; 'None'
      |      Initialize self.  See help(type(self)) for accurate signature.
      |
-     |  __repr__(self) -&gt; str
+     |  __repr__(self) -&gt; 'str'
      |      Return repr(self).
      |
-     |  copy(self) -&gt; PreparedRequest
+     |  copy(self) -&gt; 'PreparedRequest'
      |
-     |  prepare(
-     |      self,
-     |      method: str | None = None,
-     |      url: _t.UriType | None = None,
-     |      headers: Mapping[str, str | bytes] | None = None,
-     |      files: _t.FilesType = None,
-     |      data: _t.DataType = None,
-     |      params: _t.ParamsType = None,
-     |      auth: _t.AuthType = None,
-     |      cookies: RequestsCookieJar | CookieJar | dict[str, str] | None = None,
-     |      hooks: _t.HooksInputType | None = None,
-     |      json: _t.JsonType = None
-     |  ) -&gt; None
+     |  prepare(self, method: 'str | None' = None, url: '_t.UriType | None' = None, headers: 'Mapping[str, str | bytes] | None' = None, files: '_t.FilesType' = None, data: '_t.DataType' = None, params: '_t.ParamsType' = None, auth: '_t.AuthType' = None, cookies: 'RequestsCookieJar | CookieJar | dict[str, str] | None' = None, hooks: '_t.HooksInputType | None' = None, json: '_t.JsonType' = None) -&gt; 'None'
      |      Prepares the entire request with the given parameters.
      |
-     |  prepare_auth(self, auth: _t.AuthType, url: _t.UriType = '') -&gt; None
+     |  prepare_auth(self, auth: '_t.AuthType', url: '_t.UriType' = '') -&gt; 'None'
      |      Prepares the given HTTP auth data.
      |
-     |  prepare_body(
-     |      self,
-     |      data: _t.DataType,
-     |      files: _t.FilesType,
-     |      json: _t.JsonType = None
-     |  ) -&gt; None
+     |  prepare_body(self, data: '_t.DataType', files: '_t.FilesType', json: '_t.JsonType' = None) -&gt; 'None'
      |      Prepares the given HTTP body data.
      |
-     |  prepare_content_length(self, body: _t.BodyType) -&gt; None
+     |  prepare_content_length(self, body: '_t.BodyType') -&gt; 'None'
      |      Prepare Content-Length header based on request method and body
      |
-     |  prepare_cookies(
-     |      self,
-     |      cookies: RequestsCookieJar | CookieJar | dict[str, str] | None
-     |  ) -&gt; None
+     |  prepare_cookies(self, cookies: 'RequestsCookieJar | CookieJar | dict[str, str] | None') -&gt; 'None'
      |      Prepares the given HTTP cookie data.
      |
      |      This function eventually generates a ``Cookie`` header from the
@@ -913,16 +917,16 @@ CLASSES
      |      to ``prepare_cookies`` will have no actual effect, unless the "Cookie"
      |      header is removed beforehand.
      |
-     |  prepare_headers(self, headers: Mapping[str, str | bytes] | None) -&gt; None
+     |  prepare_headers(self, headers: 'Mapping[str, str | bytes] | None') -&gt; 'None'
      |      Prepares the given HTTP headers.
      |
-     |  prepare_hooks(self, hooks: _t.HooksInputType | None) -&gt; None
+     |  prepare_hooks(self, hooks: '_t.HooksInputType | None') -&gt; 'None'
      |      Prepares the given hooks.
      |
-     |  prepare_method(self, method: str | None) -&gt; None
+     |  prepare_method(self, method: 'str | None') -&gt; 'None'
      |      Prepares the given HTTP method.
      |
-     |  prepare_url(self, url: _t.UriType, params: _t.ParamsType) -&gt; None
+     |  prepare_url(self, url: '_t.UriType', params: '_t.ParamsType') -&gt; 'None'
      |      Prepares the given HTTP URL.
      |
      |  ----------------------------------------------------------------------
@@ -948,15 +952,15 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from RequestHooksMixin:
      |
-     |  deregister_hook(self, event: str, hook: _t.HookType) -&gt; bool
+     |  deregister_hook(self, event: 'str', hook: '_t.HookType') -&gt; 'bool'
      |      Deregister a previously registered hook.
      |      Returns True if the hook existed, False if not.
      |
-     |  register_hook(self, event: str, hook: Iterable[_t.HookType] | _t.HookType) -&gt; None
+     |  register_hook(self, event: 'str', hook: 'Iterable[_t.HookType] | _t.HookType') -&gt; 'None'
      |      Properly register a hook.
 
     class ReadTimeout(Timeout)
-     |  ReadTimeout(*args: Any, **kwargs: Any) -&gt; None
+     |  ReadTimeout(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  The server did not send any data in the allotted amount of time.
      |
@@ -969,9 +973,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -981,14 +990,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -1020,23 +1024,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -1047,18 +1058,7 @@ CLASSES
      |  args
 
     class Request(RequestHooksMixin)
-     |  Request(
-     |      method: str | None = None,
-     |      url: _t.UriType | None = None,
-     |      headers: _t.HeadersType = None,
-     |      files: _t.FilesType = None,
-     |      data: _t.DataType = None,
-     |      params: _t.ParamsType = None,
-     |      auth: _t.AuthType = None,
-     |      cookies: RequestsCookieJar | CookieJar | dict[str, str] | None = None,
-     |      hooks: _t.HooksInputType | None = None,
-     |      json: _t.JsonType = None
-     |  ) -&gt; None
+     |  Request(method: 'str | None' = None, url: '_t.UriType | None' = None, headers: '_t.HeadersType' = None, files: '_t.FilesType' = None, data: '_t.DataType' = None, params: '_t.ParamsType' = None, auth: '_t.AuthType' = None, cookies: 'RequestsCookieJar | CookieJar | dict[str, str] | None' = None, hooks: '_t.HooksInputType | None' = None, json: '_t.JsonType' = None) -&gt; 'None'
      |
      |  A user-created :class:`Request &lt;Request&gt;` object.
      |
@@ -1093,25 +1093,13 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __init__(
-     |      self,
-     |      method: str | None = None,
-     |      url: _t.UriType | None = None,
-     |      headers: _t.HeadersType = None,
-     |      files: _t.FilesType = None,
-     |      data: _t.DataType = None,
-     |      params: _t.ParamsType = None,
-     |      auth: _t.AuthType = None,
-     |      cookies: RequestsCookieJar | CookieJar | dict[str, str] | None = None,
-     |      hooks: _t.HooksInputType | None = None,
-     |      json: _t.JsonType = None
-     |  ) -&gt; None
+     |  __init__(self, method: 'str | None' = None, url: '_t.UriType | None' = None, headers: '_t.HeadersType' = None, files: '_t.FilesType' = None, data: '_t.DataType' = None, params: '_t.ParamsType' = None, auth: '_t.AuthType' = None, cookies: 'RequestsCookieJar | CookieJar | dict[str, str] | None' = None, hooks: '_t.HooksInputType | None' = None, json: '_t.JsonType' = None) -&gt; 'None'
      |      Initialize self.  See help(type(self)) for accurate signature.
      |
-     |  __repr__(self) -&gt; str
+     |  __repr__(self) -&gt; 'str'
      |      Return repr(self).
      |
-     |  prepare(self) -&gt; PreparedRequest
+     |  prepare(self) -&gt; 'PreparedRequest'
      |      Constructs a :class:`PreparedRequest &lt;PreparedRequest&gt;` for transmission and returns it.
      |
      |  ----------------------------------------------------------------------
@@ -1122,11 +1110,11 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from RequestHooksMixin:
      |
-     |  deregister_hook(self, event: str, hook: _t.HookType) -&gt; bool
+     |  deregister_hook(self, event: 'str', hook: '_t.HookType') -&gt; 'bool'
      |      Deregister a previously registered hook.
      |      Returns True if the hook existed, False if not.
      |
-     |  register_hook(self, event: str, hook: Iterable[_t.HookType] | _t.HookType) -&gt; None
+     |  register_hook(self, event: 'str', hook: 'Iterable[_t.HookType] | _t.HookType') -&gt; 'None'
      |      Properly register a hook.
      |
      |  ----------------------------------------------------------------------
@@ -1139,7 +1127,7 @@ CLASSES
      |      list of weak references to the object
 
     class RequestException(builtins.OSError)
-     |  RequestException(*args: Any, **kwargs: Any) -&gt; None
+     |  RequestException(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  There was an ambiguous exception that occurred while handling your
      |  request.
@@ -1153,7 +1141,7 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -1170,7 +1158,7 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -1202,23 +1190,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -1229,14 +1224,14 @@ CLASSES
      |  args
 
     class Response(builtins.object)
-     |  Response() -&gt; None
+     |  Response() -&gt; 'None'
      |
      |  The :class:`Response &lt;Response&gt;` object, which contains a
      |  server's response to an HTTP request.
      |
      |  Methods defined here:
      |
-     |  __bool__(self) -&gt; bool
+     |  __bool__(self) -&gt; 'bool'
      |      Returns True if :attr:`status_code` is less than 400.
      |
      |      This attribute checks if the status code of the response is between
@@ -1244,20 +1239,20 @@ CLASSES
      |      the status code, is between 200 and 400, this will return True. This
      |      is **not** a check to see if the response code is ``200 OK``.
      |
-     |  __enter__(self) -&gt; Self
+     |  __enter__(self) -&gt; 'Self'
      |
-     |  __exit__(self, *args: Any) -&gt; None
+     |  __exit__(self, *args: 'Any') -&gt; 'None'
      |
-     |  __getstate__(self) -&gt; dict[str, Any]
+     |  __getstate__(self) -&gt; 'dict[str, Any]'
      |      Helper for pickle.
      |
-     |  __init__(self) -&gt; None
+     |  __init__(self) -&gt; 'None'
      |      Initialize self.  See help(type(self)) for accurate signature.
      |
-     |  __iter__(self) -&gt; Iterator[bytes]
+     |  __iter__(self) -&gt; 'Iterator[bytes]'
      |      Allows you to use a response as an iterator.
      |
-     |  __nonzero__(self) -&gt; bool
+     |  __nonzero__(self) -&gt; 'bool'
      |      Returns True if :attr:`status_code` is less than 400.
      |
      |      This attribute checks if the status code of the response is between
@@ -1265,18 +1260,18 @@ CLASSES
      |      the status code, is between 200 and 400, this will return True. This
      |      is **not** a check to see if the response code is ``200 OK``.
      |
-     |  __repr__(self) -&gt; str
+     |  __repr__(self) -&gt; 'str'
      |      Return repr(self).
      |
-     |  __setstate__(self, state: dict[str, Any]) -&gt; None
+     |  __setstate__(self, state: 'dict[str, Any]') -&gt; 'None'
      |
-     |  close(self) -&gt; None
+     |  close(self) -&gt; 'None'
      |      Releases the connection back to the pool. Once this method has been
      |      called the underlying ``raw`` object must not be accessed again.
      |
      |      *Note: Should not normally need to be called explicitly.*
      |
-     |  iter_content(self, chunk_size: int | None = 1, decode_unicode: bool = False) -&gt; Iterator[str | bytes]
+     |  iter_content(self, chunk_size: 'int | None' = 1, decode_unicode: 'bool' = False) -&gt; 'Iterator[str | bytes]'
      |      Iterates over the response data.  When stream=True is set on the
      |      request, this avoids reading the content at once into memory for
      |      large responses.  The chunk size is the number of bytes it should
@@ -1294,12 +1289,7 @@ CLASSES
      |      bytes will be returned. This can be bypassed by manually setting
      |      `encoding` on the response.
      |
-     |  iter_lines(
-     |      self,
-     |      chunk_size: int = 512,
-     |      decode_unicode: bool = False,
-     |      delimiter: str | bytes | None = None
-     |  ) -&gt; Iterator[str | bytes]
+     |  iter_lines(self, chunk_size: 'int' = 512, decode_unicode: 'bool' = False, delimiter: 'str | bytes | None' = None) -&gt; 'Iterator[str | bytes]'
      |      Iterates over the response data, one line at a time.  When
      |      stream=True is set on the request, this avoids reading the
      |      content at once into memory for large responses.
@@ -1309,7 +1299,7 @@ CLASSES
      |
      |      .. note:: This method is not reentrant safe.
      |
-     |  json(self, **kwargs: Any) -&gt; Any
+     |  json(self, **kwargs: 'Any') -&gt; 'Any'
      |      Decodes the JSON response body (if any) as a Python object.
      |
      |      This may return a dictionary, list, etc. depending on what is in the response.
@@ -1318,7 +1308,7 @@ CLASSES
      |      :raises requests.exceptions.JSONDecodeError: If the response body does not
      |          contain valid json.
      |
-     |  raise_for_status(self) -&gt; None
+     |  raise_for_status(self) -&gt; 'None'
      |      Raises :class:`HTTPError`, if one occurred.
      |
      |  ----------------------------------------------------------------------
@@ -1379,7 +1369,7 @@ CLASSES
      |  __attrs__ = ['_content', 'status_code', 'headers', 'url', 'history', '...
 
     class Session(SessionRedirectMixin)
-     |  Session() -&gt; None
+     |  Session() -&gt; 'None'
      |
      |  A Requests session.
      |
@@ -1405,34 +1395,29 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __enter__(self) -&gt; Self
+     |  __enter__(self) -&gt; 'Self'
      |
-     |  __exit__(self, *args: Any) -&gt; None
+     |  __exit__(self, *args: 'Any') -&gt; 'None'
      |
-     |  __getstate__(self) -&gt; dict[str, Any]
+     |  __getstate__(self) -&gt; 'dict[str, Any]'
      |      Helper for pickle.
      |
-     |  __init__(self) -&gt; None
+     |  __init__(self) -&gt; 'None'
      |      Initialize self.  See help(type(self)) for accurate signature.
      |
-     |  __setstate__(self, state: dict[str, Any]) -&gt; None
+     |  __setstate__(self, state: 'dict[str, Any]') -&gt; 'None'
      |
-     |  close(self) -&gt; None
+     |  close(self) -&gt; 'None'
      |      Closes all adapters and as such the session
      |
-     |  delete(self, url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+     |  delete(self, url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
      |      Sends a DELETE request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  get(
-     |      self,
-     |      url: _t.UriType,
-     |      params: _t.ParamsType = None,
-     |      **kwargs: Unpack[_t.GetKwargs]
-     |  ) -&gt; Response
+     |  get(self, url: '_t.UriType', params: '_t.ParamsType' = None, **kwargs: 'Unpack[_t.GetKwargs]') -&gt; 'Response'
      |      Sends a GET request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
@@ -1441,48 +1426,36 @@ CLASSES
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  get_adapter(self, url: str) -&gt; BaseAdapter
+     |  get_adapter(self, url: 'str') -&gt; 'BaseAdapter'
      |      Returns the appropriate connection adapter for the given URL.
      |
      |      :rtype: requests.adapters.BaseAdapter
      |
-     |  head(self, url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+     |  head(self, url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
      |      Sends a HEAD request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  merge_environment_settings(
-     |      self,
-     |      url: str,
-     |      proxies: dict[str, str] | None,
-     |      stream: bool | None,
-     |      verify: _t.VerifyType | None,
-     |      cert: _t.CertType
-     |  ) -&gt; dict[str, Any]
+     |  merge_environment_settings(self, url: 'str', proxies: 'dict[str, str] | None', stream: 'bool | None', verify: '_t.VerifyType | None', cert: '_t.CertType') -&gt; 'dict[str, Any]'
      |      Check the environment and merge it with some settings.
      |
      |      :rtype: dict
      |
-     |  mount(self, prefix: str, adapter: BaseAdapter) -&gt; None
+     |  mount(self, prefix: 'str', adapter: 'BaseAdapter') -&gt; 'None'
      |      Registers a connection adapter to a prefix.
      |
      |      Adapters are sorted in descending order by prefix length.
      |
-     |  options(self, url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+     |  options(self, url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
      |      Sends a OPTIONS request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  patch(
-     |      self,
-     |      url: _t.UriType,
-     |      data: _t.DataType = None,
-     |      **kwargs: Unpack[_t.DataKwargs]
-     |  ) -&gt; Response
+     |  patch(self, url: '_t.UriType', data: '_t.DataType' = None, **kwargs: 'Unpack[_t.DataKwargs]') -&gt; 'Response'
      |      Sends a PATCH request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
@@ -1491,13 +1464,7 @@ CLASSES
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  post(
-     |      self,
-     |      url: _t.UriType,
-     |      data: _t.DataType = None,
-     |      json: _t.JsonType = None,
-     |      **kwargs: Unpack[_t.PostKwargs]
-     |  ) -&gt; Response
+     |  post(self, url: '_t.UriType', data: '_t.DataType' = None, json: '_t.JsonType' = None, **kwargs: 'Unpack[_t.PostKwargs]') -&gt; 'Response'
      |      Sends a POST request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
@@ -1507,7 +1474,7 @@ CLASSES
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  prepare_request(self, request: Request) -&gt; PreparedRequest
+     |  prepare_request(self, request: 'Request') -&gt; 'PreparedRequest'
      |      Constructs a :class:`PreparedRequest &lt;PreparedRequest&gt;` for
      |      transmission and returns it. The :class:`PreparedRequest` has settings
      |      merged from the :class:`Request &lt;Request&gt;` instance and those of the
@@ -1517,12 +1484,7 @@ CLASSES
      |          session's settings.
      |      :rtype: requests.PreparedRequest
      |
-     |  put(
-     |      self,
-     |      url: _t.UriType,
-     |      data: _t.DataType = None,
-     |      **kwargs: Unpack[_t.DataKwargs]
-     |  ) -&gt; Response
+     |  put(self, url: '_t.UriType', data: '_t.DataType' = None, **kwargs: 'Unpack[_t.DataKwargs]') -&gt; 'Response'
      |      Sends a PUT request. Returns :class:`Response` object.
      |
      |      :param url: URL for the new :class:`Request` object.
@@ -1531,25 +1493,7 @@ CLASSES
      |      :param \*\*kwargs: Optional arguments that ``request`` takes.
      |      :rtype: requests.Response
      |
-     |  request(
-     |      self,
-     |      method: str,
-     |      url: _t.UriType,
-     |      params: _t.ParamsType = None,
-     |      data: _t.DataType = None,
-     |      headers: _t.HeadersType = None,
-     |      cookies: RequestsCookieJar | CookieJar | dict[str, str] | None = None,
-     |      files: _t.FilesType = None,
-     |      auth: _t.AuthType = None,
-     |      timeout: _t.TimeoutType = None,
-     |      allow_redirects: bool = True,
-     |      proxies: dict[str, str] | None = None,
-     |      hooks: _t.HooksInputType | None = None,
-     |      stream: bool | None = None,
-     |      verify: _t.VerifyType | None = None,
-     |      cert: _t.CertType = None,
-     |      json: _t.JsonType = None
-     |  ) -&gt; Response
+     |  request(self, method: 'str', url: '_t.UriType', params: '_t.ParamsType' = None, data: '_t.DataType' = None, headers: '_t.HeadersType' = None, cookies: 'RequestsCookieJar | CookieJar | dict[str, str] | None' = None, files: '_t.FilesType' = None, auth: '_t.AuthType' = None, timeout: '_t.TimeoutType' = None, allow_redirects: 'bool' = True, proxies: 'dict[str, str] | None' = None, hooks: '_t.HooksInputType | None' = None, stream: 'bool | None' = None, verify: '_t.VerifyType | None' = None, cert: '_t.CertType' = None, json: '_t.JsonType' = None) -&gt; 'Response'
      |      Constructs a :class:`Request &lt;Request&gt;`, prepares it and sends it.
      |      Returns :class:`Response &lt;Response&gt;` object.
      |
@@ -1593,7 +1537,7 @@ CLASSES
      |          If Tuple, ('cert', 'key') pair.
      |      :rtype: requests.Response
      |
-     |  send(self, request: PreparedRequest, **kwargs: Any) -&gt; Response
+     |  send(self, request: 'PreparedRequest', **kwargs: 'Any') -&gt; 'Response'
      |      Send a given PreparedRequest.
      |
      |      :rtype: requests.Response
@@ -1608,23 +1552,19 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from SessionRedirectMixin:
      |
-     |  get_redirect_target(self, resp: Response) -&gt; str | None
+     |  get_redirect_target(self, resp: 'Response') -&gt; 'str | None'
      |      Receives a Response. Returns a redirect URI or ``None``
      |
-     |  rebuild_auth(self, prepared_request: PreparedRequest, response: Response) -&gt; None
+     |  rebuild_auth(self, prepared_request: 'PreparedRequest', response: 'Response') -&gt; 'None'
      |      When being redirected we may want to strip authentication from the
      |      request to avoid leaking credentials. This method intelligently removes
      |      and reapplies authentication where possible to avoid credential loss.
      |
-     |  rebuild_method(self, prepared_request: PreparedRequest, response: Response) -&gt; None
+     |  rebuild_method(self, prepared_request: 'PreparedRequest', response: 'Response') -&gt; 'None'
      |      When being redirected we may want to change the method of the request
      |      based on certain specs or browser behavior.
      |
-     |  rebuild_proxies(
-     |      self,
-     |      prepared_request: PreparedRequest,
-     |      proxies: dict[str, str] | None
-     |  ) -&gt; dict[str, str]
+     |  rebuild_proxies(self, prepared_request: 'PreparedRequest', proxies: 'dict[str, str] | None') -&gt; 'dict[str, str]'
      |      This method re-evaluates the proxy configuration by considering the
      |      environment variables. If we are redirected to a URL covered by
      |      NO_PROXY, we strip the proxy configuration. Otherwise, we set missing
@@ -1636,21 +1576,10 @@ CLASSES
      |
      |      :rtype: dict
      |
-     |  resolve_redirects(
-     |      self,
-     |      resp: Response,
-     |      req: PreparedRequest,
-     |      stream: bool = False,
-     |      timeout: _t.TimeoutType = None,
-     |      verify: _t.VerifyType = True,
-     |      cert: _t.CertType = None,
-     |      proxies: dict[str, str] | None = None,
-     |      yield_requests: bool = False,
-     |      **adapter_kwargs: Any
-     |  ) -&gt; Generator[Response, None, None]
+     |  resolve_redirects(self, resp: 'Response', req: 'PreparedRequest', stream: 'bool' = False, timeout: '_t.TimeoutType' = None, verify: '_t.VerifyType' = True, cert: '_t.CertType' = None, proxies: 'dict[str, str] | None' = None, yield_requests: 'bool' = False, **adapter_kwargs: 'Any') -&gt; 'Generator[Response, None, None]'
      |      Receives a Response. Returns a generator of Responses or Requests.
      |
-     |  should_strip_auth(self, old_url: str, new_url: str) -&gt; bool
+     |  should_strip_auth(self, old_url: 'str', new_url: 'str') -&gt; 'bool'
      |      Decide whether Authorization header should be removed when redirecting
      |
      |  ----------------------------------------------------------------------
@@ -1663,7 +1592,7 @@ CLASSES
      |      list of weak references to the object
 
     class Timeout(RequestException)
-     |  Timeout(*args: Any, **kwargs: Any) -&gt; None
+     |  Timeout(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  The request timed out.
      |
@@ -1679,9 +1608,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -1691,14 +1625,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -1730,23 +1659,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -1757,7 +1693,7 @@ CLASSES
      |  args
 
     class TooManyRedirects(RequestException)
-     |  TooManyRedirects(*args: Any, **kwargs: Any) -&gt; None
+     |  TooManyRedirects(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  Too many redirects.
      |
@@ -1769,9 +1705,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -1781,14 +1722,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -1820,23 +1756,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -1847,7 +1790,7 @@ CLASSES
      |  args
 
     class URLRequired(RequestException)
-     |  URLRequired(*args: Any, **kwargs: Any) -&gt; None
+     |  URLRequired(*args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |
      |  A valid URL is required to make a request.
      |
@@ -1859,9 +1802,14 @@ CLASSES
      |      builtins.BaseException
      |      builtins.object
      |
+     |  Data and other attributes defined here:
+     |
+     |  __annotations__ = {}
+     |
+     |  ----------------------------------------------------------------------
      |  Methods inherited from RequestException:
      |
-     |  __init__(self, *args: Any, **kwargs: Any) -&gt; None
+     |  __init__(self, *args: 'Any', **kwargs: 'Any') -&gt; 'None'
      |      Initialize RequestException with `request` and `response` objects.
      |
      |  ----------------------------------------------------------------------
@@ -1871,14 +1819,9 @@ CLASSES
      |      list of weak references to the object
      |
      |  ----------------------------------------------------------------------
-     |  Data and other attributes inherited from RequestException:
-     |
-     |  __annotations__ = {}
-     |
-     |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.OSError:
      |
-     |  __reduce__(self, /)
+     |  __reduce__(...)
      |      Helper for pickle.
      |
      |  __str__(self, /)
@@ -1910,23 +1853,30 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -1937,7 +1887,7 @@ CLASSES
      |  args
 
 FUNCTIONS
-    delete(url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+    delete(url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
         Sends a DELETE request.
 
         :param url: URL for the new :class:`Request` object.
@@ -1945,11 +1895,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    get(
-        url: _t.UriType,
-        params: _t.ParamsType = None,
-        **kwargs: Unpack[_t.GetKwargs]
-    ) -&gt; Response
+    get(url: '_t.UriType', params: '_t.ParamsType' = None, **kwargs: 'Unpack[_t.GetKwargs]') -&gt; 'Response'
         Sends a GET request.
 
         :param url: URL for the new :class:`Request` object.
@@ -1959,7 +1905,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    head(url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+    head(url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
         Sends a HEAD request.
 
         :param url: URL for the new :class:`Request` object.
@@ -1969,7 +1915,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    options(url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+    options(url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
         Sends an OPTIONS request.
 
         :param url: URL for the new :class:`Request` object.
@@ -1977,11 +1923,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    patch(
-        url: _t.UriType,
-        data: _t.DataType = None,
-        **kwargs: Unpack[_t.DataKwargs]
-    ) -&gt; Response
+    patch(url: '_t.UriType', data: '_t.DataType' = None, **kwargs: 'Unpack[_t.DataKwargs]') -&gt; 'Response'
         Sends a PATCH request.
 
         :param url: URL for the new :class:`Request` object.
@@ -1992,12 +1934,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    post(
-        url: _t.UriType,
-        data: _t.DataType = None,
-        json: _t.JsonType = None,
-        **kwargs: Unpack[_t.PostKwargs]
-    ) -&gt; Response
+    post(url: '_t.UriType', data: '_t.DataType' = None, json: '_t.JsonType' = None, **kwargs: 'Unpack[_t.PostKwargs]') -&gt; 'Response'
         Sends a POST request.
 
         :param url: URL for the new :class:`Request` object.
@@ -2008,7 +1945,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    put(url: _t.UriType, data: _t.DataType = None, **kwargs: Unpack[_t.DataKwargs]) -&gt; Response
+    put(url: '_t.UriType', data: '_t.DataType' = None, **kwargs: 'Unpack[_t.DataKwargs]') -&gt; 'Response'
         Sends a PUT request.
 
         :param url: URL for the new :class:`Request` object.
@@ -2019,7 +1956,7 @@ FUNCTIONS
         :return: :class:`Response &lt;Response&gt;` object
         :rtype: requests.Response
 
-    request(method: str, url: _t.UriType, **kwargs: Unpack[_t.RequestKwargs]) -&gt; Response
+    request(method: 'str', url: '_t.UriType', **kwargs: 'Unpack[_t.RequestKwargs]') -&gt; 'Response'
         Constructs and sends a :class:`Request &lt;Request&gt;`.
 
         :param method: method for the new :class:`Request` object: ``GET``, ``OPTIONS``, ``HEAD``, ``POST``, ``PUT``, ``PATCH``, or ``DELETE``.
@@ -2059,7 +1996,7 @@ FUNCTIONS
           &gt;&gt;&gt; req
           &lt;Response [200]&gt;
 
-    session() -&gt; Session
+    session() -&gt; 'Session'
         Returns a :class:`Session` for context-management.
 
         .. deprecated:: 1.0.0
@@ -2089,13 +2026,13 @@ AUTHOR
     Kenneth Reitz
 
 FILE
-    /usr/lib/python3.14/site-packages/requests/__init__.py
+    /Users/razoumov/env-main/lib/python3.12/site-packages/requests/__init__.py
 
 </code></pre>
 </div>
 </div>
-<div id="c25c0f5b" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(json)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="4b06691f" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(json)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on package json:
 
@@ -2103,7 +2040,7 @@ NAME
     json
 
 MODULE REFERENCE
-    https://docs.python.org/3.14/library/json#module-json
+    https://docs.python.org/3.12/library/json.html
 
     The following documentation is automatically generated from the Python
     source files.  It may be incomplete, incorrect or include features that
@@ -2200,17 +2137,16 @@ DESCRIPTION
         '[2.0, 1.0]'
 
 
-    Using json from the shell to validate and pretty-print::
+    Using json.tool from the shell to validate and pretty-print::
 
-        $ echo '{"json":"obj"}' | python -m json
+        $ echo '{"json":"obj"}' | python -m json.tool
         {
             "json": "obj"
         }
-        $ echo '{ 1.2:3.4}' | python -m json
+        $ echo '{ 1.2:3.4}' | python -m json.tool
         Expecting property name enclosed in double quotes: line 1 column 3 (char 2)
 
 PACKAGE CONTENTS
-    __main__
     decoder
     encoder
     scanner
@@ -2264,26 +2200,33 @@ CLASSES
      |  ----------------------------------------------------------------------
      |  Methods inherited from builtins.BaseException:
      |
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |
      |  __repr__(self, /)
      |      Return repr(self).
      |
-     |  __setstate__(self, state, /)
+     |  __setstate__(...)
      |
      |  __str__(self, /)
      |      Return str(self).
      |
-     |  add_note(self, note, /)
-     |      Add a note to the exception
+     |  add_note(...)
+     |      Exception.add_note(note) --
+     |      add a note to the exception
      |
-     |  with_traceback(self, tb, /)
-     |      Set self.__traceback__ to tb and return self.
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
      |
      |  ----------------------------------------------------------------------
      |  Data descriptors inherited from builtins.BaseException:
      |
      |  __cause__
+     |      exception cause
      |
      |  __context__
+     |      exception context
      |
      |  __dict__
      |
@@ -2294,15 +2237,7 @@ CLASSES
      |  args
 
     class JSONDecoder(builtins.object)
-     |  JSONDecoder(
-     |      *,
-     |      object_hook=None,
-     |      parse_float=None,
-     |      parse_int=None,
-     |      parse_constant=None,
-     |      strict=True,
-     |      object_pairs_hook=None
-     |  )
+     |  JSONDecoder(*, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)
      |
      |  Simple JSON &lt;https://json.org&gt; decoder
      |
@@ -2333,25 +2268,16 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __init__(
-     |      self,
-     |      *,
-     |      object_hook=None,
-     |      parse_float=None,
-     |      parse_int=None,
-     |      parse_constant=None,
-     |      strict=True,
-     |      object_pairs_hook=None
-     |  )
+     |  __init__(self, *, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, strict=True, object_pairs_hook=None)
      |      ``object_hook``, if specified, will be called with the result
      |      of every JSON object decoded and its return value will be used in
      |      place of the given ``dict``.  This can be used to provide custom
      |      deserializations (e.g. to support JSON-RPC class hinting).
      |
-     |      ``object_pairs_hook``, if specified will be called with the result
-     |      of every JSON object decoded with an ordered list of pairs.  The
-     |      return value of ``object_pairs_hook`` will be used instead of the
-     |      ``dict``.  This feature can be used to implement custom decoders.
+     |      ``object_pairs_hook``, if specified will be called with the result of
+     |      every JSON object decoded with an ordered list of pairs.  The return
+     |      value of ``object_pairs_hook`` will be used instead of the ``dict``.
+     |      This feature can be used to implement custom decoders.
      |      If ``object_hook`` is also defined, the ``object_pairs_hook`` takes
      |      priority.
      |
@@ -2375,11 +2301,7 @@ CLASSES
      |      this context are those with character codes in the 0-31 range,
      |      including ``'\t'`` (tab), ``'\n'``, ``'\r'`` and ``'\0'``.
      |
-     |  decode(
-     |      self,
-     |      s,
-     |      _w=&lt;built-in method match of re.Pattern object at 0x7fd40fce0a00&gt;
-     |  )
+     |  decode(self, s, _w=&lt;built-in method match of re.Pattern object at 0x100ef2670&gt;)
      |      Return the Python representation of ``s`` (a ``str`` instance
      |      containing a JSON document).
      |
@@ -2401,17 +2323,7 @@ CLASSES
      |      list of weak references to the object
 
     class JSONEncoder(builtins.object)
-     |  JSONEncoder(
-     |      *,
-     |      skipkeys=False,
-     |      ensure_ascii=True,
-     |      check_circular=True,
-     |      allow_nan=True,
-     |      sort_keys=False,
-     |      indent=None,
-     |      separators=None,
-     |      default=None
-     |  )
+     |  JSONEncoder(*, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)
      |
      |  Extensible JSON &lt;https://json.org&gt; encoder for Python data structures.
      |
@@ -2442,28 +2354,16 @@ CLASSES
      |
      |  Methods defined here:
      |
-     |  __init__(
-     |      self,
-     |      *,
-     |      skipkeys=False,
-     |      ensure_ascii=True,
-     |      check_circular=True,
-     |      allow_nan=True,
-     |      sort_keys=False,
-     |      indent=None,
-     |      separators=None,
-     |      default=None
-     |  )
+     |  __init__(self, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, sort_keys=False, indent=None, separators=None, default=None)
      |      Constructor for JSONEncoder, with sensible defaults.
      |
      |      If skipkeys is false, then it is a TypeError to attempt
      |      encoding of keys that are not str, int, float, bool or None.
      |      If skipkeys is True, such items are simply skipped.
      |
-     |      If ensure_ascii is true, the output is guaranteed to be str objects
-     |      with all incoming non-ASCII and non-printable characters escaped.
-     |      If ensure_ascii is false, the output can contain non-ASCII and
-     |      non-printable characters.
+     |      If ensure_ascii is true, the output is guaranteed to be str
+     |      objects with all incoming non-ASCII characters escaped.  If
+     |      ensure_ascii is false, the output can contain non-ASCII characters.
      |
      |      If check_circular is true, then lists, dicts, and custom encoded
      |      objects will be checked for circular references during encoding to
@@ -2484,15 +2384,14 @@ CLASSES
      |      indent level.  An indent level of 0 will only insert newlines.
      |      None is the most compact representation.
      |
-     |      If specified, separators should be an (item_separator,
-     |      key_separator) tuple.  The default is (', ', ': ') if *indent* is
-     |      ``None`` and (',', ': ') otherwise.  To get the most compact JSON
-     |      representation, you should specify (',', ':') to eliminate
-     |      whitespace.
+     |      If specified, separators should be an (item_separator, key_separator)
+     |      tuple.  The default is (', ', ': ') if *indent* is ``None`` and
+     |      (',', ': ') otherwise.  To get the most compact JSON representation,
+     |      you should specify (',', ':') to eliminate whitespace.
      |
      |      If specified, default is a function that gets called for objects
-     |      that can't otherwise be serialized.  It should return a JSON
-     |      encodable version of the object or raise a ``TypeError``.
+     |      that can't otherwise be serialized.  It should return a JSON encodable
+     |      version of the object or raise a ``TypeError``.
      |
      |  default(self, o)
      |      Implement this method in a subclass such that it returns
@@ -2545,21 +2444,7 @@ CLASSES
      |  key_separator = ': '
 
 FUNCTIONS
-    dump(
-        obj,
-        fp,
-        *,
-        skipkeys=False,
-        ensure_ascii=True,
-        check_circular=True,
-        allow_nan=True,
-        cls=None,
-        indent=None,
-        separators=None,
-        default=None,
-        sort_keys=False,
-        **kw
-    )
+    dump(obj, fp, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)
         Serialize ``obj`` as a JSON formatted stream to ``fp`` (a
         ``.write()``-supporting file-like object).
 
@@ -2568,9 +2453,8 @@ FUNCTIONS
         instead of raising a ``TypeError``.
 
         If ``ensure_ascii`` is false, then the strings written to ``fp`` can
-        contain non-ASCII and non-printable characters if they appear in strings
-        contained in ``obj``. Otherwise, all such characters are escaped in JSON
-        strings.
+        contain non-ASCII characters if they appear in strings contained in
+        ``obj``. Otherwise, all such characters are escaped in JSON strings.
 
         If ``check_circular`` is false, then the circular reference check
         for container types will be skipped and a circular reference will
@@ -2586,11 +2470,10 @@ FUNCTIONS
         level of 0 will only insert newlines. ``None`` is the most compact
         representation.
 
-        If specified, ``separators`` should be an ``(item_separator,
-        key_separator)`` tuple.  The default is ``(', ', ': ')`` if *indent* is
-        ``None`` and ``(',', ': ')`` otherwise.  To get the most compact JSON
-        representation, you should specify ``(',', ':')`` to eliminate
-        whitespace.
+        If specified, ``separators`` should be an ``(item_separator, key_separator)``
+        tuple.  The default is ``(', ', ': ')`` if *indent* is ``None`` and
+        ``(',', ': ')`` otherwise.  To get the most compact JSON representation,
+        you should specify ``(',', ':')`` to eliminate whitespace.
 
         ``default(obj)`` is a function that should return a serializable version
         of obj or raise TypeError. The default simply raises TypeError.
@@ -2602,30 +2485,16 @@ FUNCTIONS
         ``.default()`` method to serialize additional types), specify it with
         the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
 
-    dumps(
-        obj,
-        *,
-        skipkeys=False,
-        ensure_ascii=True,
-        check_circular=True,
-        allow_nan=True,
-        cls=None,
-        indent=None,
-        separators=None,
-        default=None,
-        sort_keys=False,
-        **kw
-    )
+    dumps(obj, *, skipkeys=False, ensure_ascii=True, check_circular=True, allow_nan=True, cls=None, indent=None, separators=None, default=None, sort_keys=False, **kw)
         Serialize ``obj`` to a JSON formatted ``str``.
 
         If ``skipkeys`` is true then ``dict`` keys that are not basic types
         (``str``, ``int``, ``float``, ``bool``, ``None``) will be skipped
         instead of raising a ``TypeError``.
 
-        If ``ensure_ascii`` is false, then the return value can contain
-        non-ASCII and non-printable characters if they appear in strings
-        contained in ``obj``.  Otherwise, all such characters are escaped in
-        JSON strings.
+        If ``ensure_ascii`` is false, then the return value can contain non-ASCII
+        characters if they appear in strings contained in ``obj``. Otherwise, all
+        such characters are escaped in JSON strings.
 
         If ``check_circular`` is false, then the circular reference check
         for container types will be skipped and a circular reference will
@@ -2641,11 +2510,10 @@ FUNCTIONS
         level of 0 will only insert newlines. ``None`` is the most compact
         representation.
 
-        If specified, ``separators`` should be an ``(item_separator,
-        key_separator)`` tuple.  The default is ``(', ', ': ')`` if *indent* is
-        ``None`` and ``(',', ': ')`` otherwise.  To get the most compact JSON
-        representation, you should specify ``(',', ':')`` to eliminate
-        whitespace.
+        If specified, ``separators`` should be an ``(item_separator, key_separator)``
+        tuple.  The default is ``(', ', ': ')`` if *indent* is ``None`` and
+        ``(',', ': ')`` otherwise.  To get the most compact JSON representation,
+        you should specify ``(',', ':')`` to eliminate whitespace.
 
         ``default(obj)`` is a function that should return a serializable version
         of obj or raise TypeError. The default simply raises TypeError.
@@ -2657,17 +2525,7 @@ FUNCTIONS
         ``.default()`` method to serialize additional types), specify it with
         the ``cls`` kwarg; otherwise ``JSONEncoder`` is used.
 
-    load(
-        fp,
-        *,
-        cls=None,
-        object_hook=None,
-        parse_float=None,
-        parse_int=None,
-        parse_constant=None,
-        object_pairs_hook=None,
-        **kw
-    )
+    load(fp, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)
         Deserialize ``fp`` (a ``.read()``-supporting file-like object containing
         a JSON document) to a Python object.
 
@@ -2676,27 +2534,16 @@ FUNCTIONS
         ``object_hook`` will be used instead of the ``dict``. This feature
         can be used to implement custom decoders (e.g. JSON-RPC class hinting).
 
-        ``object_pairs_hook`` is an optional function that will be called with
-        the result of any object literal decoded with an ordered list of pairs.
-        The return value of ``object_pairs_hook`` will be used instead of the
-        ``dict``.  This feature can be used to implement custom decoders.  If
-        ``object_hook`` is also defined, the ``object_pairs_hook`` takes
-        priority.
+        ``object_pairs_hook`` is an optional function that will be called with the
+        result of any object literal decoded with an ordered list of pairs.  The
+        return value of ``object_pairs_hook`` will be used instead of the ``dict``.
+        This feature can be used to implement custom decoders.  If ``object_hook``
+        is also defined, the ``object_pairs_hook`` takes priority.
 
         To use a custom ``JSONDecoder`` subclass, specify it with the ``cls``
         kwarg; otherwise ``JSONDecoder`` is used.
 
-    loads(
-        s,
-        *,
-        cls=None,
-        object_hook=None,
-        parse_float=None,
-        parse_int=None,
-        parse_constant=None,
-        object_pairs_hook=None,
-        **kw
-    )
+    loads(s, *, cls=None, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None, **kw)
         Deserialize ``s`` (a ``str``, ``bytes`` or ``bytearray`` instance
         containing a JSON document) to a Python object.
 
@@ -2705,12 +2552,11 @@ FUNCTIONS
         ``object_hook`` will be used instead of the ``dict``. This feature
         can be used to implement custom decoders (e.g. JSON-RPC class hinting).
 
-        ``object_pairs_hook`` is an optional function that will be called with
-        the result of any object literal decoded with an ordered list of pairs.
-        The return value of ``object_pairs_hook`` will be used instead of the
-        ``dict``.  This feature can be used to implement custom decoders.  If
-        ``object_hook`` is also defined, the ``object_pairs_hook`` takes
-        priority.
+        ``object_pairs_hook`` is an optional function that will be called with the
+        result of any object literal decoded with an ordered list of pairs.  The
+        return value of ``object_pairs_hook`` will be used instead of the ``dict``.
+        This feature can be used to implement custom decoders.  If ``object_hook``
+        is also defined, the ``object_pairs_hook`` takes priority.
 
         ``parse_float``, if specified, will be called with the string
         of every JSON float to be decoded. By default this is equivalent to
@@ -2740,7 +2586,7 @@ AUTHOR
     Bob Ippolito &lt;bob@redivi.com&gt;
 
 FILE
-    /usr/lib/python3.14/json/__init__.py
+    /Users/razoumov/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/json/__init__.py
 
 </code></pre>
 </div>
@@ -2749,33 +2595,33 @@ FILE
 <p>For our first example, we’ll use an easy-to-understand API from <a href="https://catfact.ninja">catfact.ninja</a>, a site that serves up random cat facts, perfect for learning the basics in a fun way.</p>
 <p><strong>1. Create a variable for base URL</strong></p>
 <p>Let’s do a simple request and see what we get:</p>
-<div id="1bdd76c6" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">'https://catfact.ninja/facts'</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>requests.get(base_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="98dae613" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>base_url <span class="op">=</span> <span class="st">'https://catfact.ninja/facts'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>requests.get(base_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
 <p><strong>2. Create a variable for the cat facts response</strong></p>
-<div id="633a020d" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cat_facts <span class="op">=</span> requests.get(base_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="c1cb5f3e" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cat_facts <span class="op">=</span> requests.get(base_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s explore the ‘responses’ library:</p>
-<div id="80a32910" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cat_facts.status_code</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="aacccfd1" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cat_facts.status_code</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>200</code></pre>
 </div>
 </div>
-<div id="7529dd86" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cat_facts.text</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="55ea41e0" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cat_facts.text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>'{"current_page":1,"data":[{"fact":"Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.","length":114},{"fact":"When a cat chases its prey, it keeps its head level. Dogs and humans bob their heads up and down.","length":97},{"fact":"The technical term for a cat\\u2019s hairball is a \\u201cbezoar.\\u201d","length":54},{"fact":"A group of cats is called a \\u201cclowder.\\u201d","length":38},{"fact":"A cat can\\u2019t climb head first down a tree because every claw on a cat\\u2019s paw points the same way. To get down from a tree, a cat must back down.","length":142},{"fact":"Cats make about 100 different sounds. Dogs make only about 10.","length":62},{"fact":"Every year, nearly four million cats are eaten in Asia.","length":55},{"fact":"There are more than 500 million domestic cats in the world, with approximately 40 recognized breeds.","length":100},{"fact":"Approximately 24 cat skins can make a coat.","length":43},{"fact":"While it is commonly thought that the ancient Egyptians were the first to domesticate cats, the oldest known pet cat was recently found in a 9,500-year-old grave on the Mediterranean island of Cyprus. This grave predates early Egyptian art depicting cats by 4,000 years or more.","length":278}],"first_page_url":"https:\\/\\/catfact.ninja\\/facts?page=1","from":1,"last_page":34,"last_page_url":"https:\\/\\/catfact.ninja\\/facts?page=34","links":[{"url":null,"label":"Previous","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=1","label":"1","active":true},{"url":"https:\\/\\/catfact.ninja\\/facts?page=2","label":"2","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=3","label":"3","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=4","label":"4","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=5","label":"5","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=6","label":"6","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=7","label":"7","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=8","label":"8","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=9","label":"9","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=10","label":"10","active":false},{"url":null,"label":"...","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=33","label":"33","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=34","label":"34","active":false},{"url":"https:\\/\\/catfact.ninja\\/facts?page=2","label":"Next","active":false}],"next_page_url":"https:\\/\\/catfact.ninja\\/facts?page=2","path":"https:\\/\\/catfact.ninja\\/facts","per_page":10,"prev_page_url":null,"to":10,"total":332}'</code></pre>
 </div>
 </div>
 <p>The output for the .text function is actually JSON (Javascript object notation). If we apply a JSON method we can export this as a dictionary, which will be much easier for us to work with:</p>
-<div id="e45f92a4" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cat_facts.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="9fa29ad8" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cat_facts.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>{'current_page': 1,
  'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.',
@@ -2832,16 +2678,16 @@ FILE
 </div>
 </div>
 <p><strong>3. Querying parameters</strong></p>
-<div id="9eae08e9" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>requests.get(base_url<span class="op">+</span><span class="st">"?limit=50"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="e3100415" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>requests.get(base_url<span class="op">+</span><span class="st">"?limit=50"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
 <p>Let’s create a variable to save this parameter:</p>
-<div id="5df765f1" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>many_cat_facts <span class="op">=</span> requests.get(base_url<span class="op">+</span><span class="st">"?limit=5"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>many_cat_facts.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ceaa7ea0" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>many_cat_facts <span class="op">=</span> requests.get(base_url<span class="op">+</span><span class="st">"?limit=5"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>many_cat_facts.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>{'current_page': 1,
  'data': [{'fact': 'Unlike dogs, cats do not have a sweet tooth. Scientists believe this is due to a mutation in a key taste receptor.',
@@ -2891,17 +2737,17 @@ FILE
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1:</h2>
 <p>Query the /breeds attribute and limit our results to 10.</p>
-<div id="acbce1fb" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>base_url_breeds <span class="op">=</span> <span class="st">"https://catfact.ninja/breeds"</span></span>
+<div id="3009d600" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>base_url_breeds <span class="op">=</span> <span class="st">"https://catfact.ninja/breeds"</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cat_breeds <span class="op">=</span> requests.get(base_url_breeds)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>cat_breeds</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>cat_breeds</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
-<div id="12019050" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cat_breeds_limit <span class="op">=</span> requests.get(base_url_breeds<span class="op">+</span><span class="st">"?limit=1"</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cat_breeds_limit.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="28ce0714" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cat_breeds_limit <span class="op">=</span> requests.get(base_url_breeds<span class="op">+</span><span class="st">"?limit=1"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cat_breeds_limit.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>{'current_page': 1,
  'data': [{'breed': 'Abyssinian',
@@ -2963,10 +2809,10 @@ FILE
 <p>Let’s try another example of API querying—this time with a sci-fi twist!</p>
 <p>We’ll be using <a href="https://swapi.info/">swapi.info</a>, an API built specifically for exploring data from the Star Wars universe. It’s a great way to practice working with structured data while having a bit of fun with characters, planets, and starships.</p>
 <p>Let’s create a variable for the people attributes URL and do a simple request to it:</p>
-<div id="aa452873" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>people_url <span class="op">=</span> <span class="st">"https://swapi.info/api/people"</span></span>
+<div id="eb1d3121" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>people_url <span class="op">=</span> <span class="st">"https://swapi.info/api/people"</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>all_people_api <span class="op">=</span> requests.get(people_url)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>all_people_api.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>all_people_api.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>[{'name': 'Luke Skywalker',
   'height': '172',
@@ -4376,32 +4222,32 @@ FILE
 </div>
 </div>
 <p>Let’s query the People attribute ID 1 by creating a variable</p>
-<div id="5728b299" class="cell" data-execution_count="14">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>requests.get(people_url<span class="op">+</span><span class="st">"/1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="1782a531" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>requests.get(people_url<span class="op">+</span><span class="st">"/1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
-<div id="362df5fd" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>first_person_url <span class="op">=</span> <span class="st">"https://swapi.info/api/people/1"</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>requests.get(first_person_url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="d8de6095" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>first_person_url <span class="op">=</span> <span class="st">"https://swapi.info/api/people/1"</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>requests.get(first_person_url)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
 <p>Let’s declare a second variable, called api_url_response:</p>
-<div id="2c7dc4c3" class="cell" data-execution_count="16">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>first_person_response <span class="op">=</span> requests.get(first_person_url)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>first_person_info <span class="op">=</span> first_person_response.json()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="7195032a" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>first_person_response <span class="op">=</span> requests.get(first_person_url)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>first_person_info <span class="op">=</span> first_person_response.json()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>JSON Format</strong></p>
 <p>JSON data is formatted in <em>key-value</em> pairs. If you refer to the JSON data, you’ll see that it’s actually a list of keys and their corresponding values. For example, there’s a “birth_year” key whose value is “19BBY” as well as an “eye_color” key whose value is “blue.”</p>
 <p>We can refer to the JSON data by its key:</p>
-<div id="96c9ab12" class="cell" data-execution_count="17">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>hair <span class="op">=</span> first_person_info[<span class="st">"hair_color"</span>]</span>
+<div id="d1605061" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>hair <span class="op">=</span> first_person_info[<span class="st">"hair_color"</span>]</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> first_person_info[<span class="st">"name"</span>]</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> </span><span class="ch">\'</span><span class="ss">s hair is: </span><span class="sc">{</span>hair<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss"> </span><span class="ch">\'</span><span class="ss">s hair is: </span><span class="sc">{</span>hair<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Luke Skywalker 's hair is: blond</code></pre>
 </div>
@@ -4412,9 +4258,9 @@ FILE
 <section id="exercise-2" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-2">Exercise 2</h2>
 <p>Write some code that uses the API to tell us Luke Skywalker’s eye color.</p>
-<div id="381a8d5d" class="cell" data-execution_count="18">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="op">=</span> first_person_info[<span class="st">"eye_color"</span>]</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'s eye color is </span><span class="sc">{</span>eye_color<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="32c47ce3" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="op">=</span> first_person_info[<span class="st">"eye_color"</span>]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">'s eye color is </span><span class="sc">{</span>eye_color<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Luke Skywalker's eye color is blue</code></pre>
 </div>
@@ -4424,29 +4270,29 @@ FILE
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
 <p>Let’s try a different attribute! Choose one from the documentation: <a href="https://swapi.info/">swapi.info</a></p>
 <p>Try choosing a specific endpoint associated with an attribute to create a full string.</p>
-<div id="f5049861" class="cell" data-execution_count="19">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>films_url <span class="op">=</span> <span class="st">"https://swapi.info/api/films"</span></span>
+<div id="21bcbaca" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>films_url <span class="op">=</span> <span class="st">"https://swapi.info/api/films"</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>films_response <span class="op">=</span> requests.get(films_url)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>films_response</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>films_response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>&lt;Response [200]&gt;</code></pre>
 </div>
 </div>
-<div id="884393c7" class="cell" data-execution_count="20">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>films</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="259a7735" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>films</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
-<pre><span class="ansi-bright-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-bright-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-bright-cyan-fg">Cell</span><span class="ansi-bright-cyan-fg"> </span><span class="ansi-green-fg">In[20]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-bright-green-fg">----&gt; </span><span class="ansi-bright-green-fg">1</span> <span style="color:rgb(238,238,238)">films</span>
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[20]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> <span class="ansi-yellow-bg">films</span>
 
-<span class="ansi-bright-red-fg">NameError</span>: name 'films' is not defined</pre>
+<span class="ansi-red-fg">NameError</span>: name 'films' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="fb27fe17" class="cell" data-execution_count="21">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>films <span class="op">=</span> films_response.json()</span>
+<div id="293cdc2f" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>films <span class="op">=</span> films_response.json()</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>film_names <span class="op">=</span> <span class="bu">list</span>()</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> film <span class="kw">in</span> films:</span>
@@ -4458,7 +4304,7 @@ FILE
 <span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name <span class="kw">in</span> film_names:</span>
 <span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>count<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The Star Wars films are:
 
@@ -4539,14 +4385,13 @@ FILE
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
