@@ -262,21 +262,13 @@ This gives you the full hyperlink code. What you want out of it is the URL. You 
 mainpage_captions[0].get("href")
 ```
 
-Unfortunately, this is not a full URL and you need to prepend "https://www.theoi.com/greek-mythology/" to it:
+Unfortunately, this is not a full URL and you need to prepend `https://www.theoi.com/greek-mythology/` to it:
 
 ```{python}
-subcat_url_test = "https://www.theoi.com/greek-mythology/" + mainpage_captions[
-    0
-].get("href")
+"https://www.theoi.com/greek-mythology/" + mainpage_captions[0].get("href")
 ```
 
-Let's see whether we got the first URL:
-
-```{python}
-subcat_url_test
-```
-
-That looks good!
+That looks good! We got the first URL.
 
 :::{.exo}
 
@@ -292,7 +284,7 @@ How would you get the second URL?
 
 Of course, we need to do this on all the elements of `captions`. For this we use a for loop.
 
-First, we create an empty list that we will fill with the URLs as the loops runs:
+First, we create an empty list that we will fill with the URLs as the loop runs:
 
 ```{python}
 subcats_urls = []
