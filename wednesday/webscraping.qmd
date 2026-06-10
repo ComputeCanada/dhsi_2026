@@ -595,9 +595,8 @@ for god_url in gods_urls:
             gods_info.append((name, parents))
 ```
 
-As you can see, a single god is causing this index error: Soteria. That's because it does not have parents. Let's ignore that god.
-
-But we have another error because one of the requests returns a 404 due to a problem in the website. Let's ignore this for now.
+As you can see, a number of gods (their names printed) do not have parents. Also, some `requests.get()` calls
+return 404, so we process only those that return 200.
 
 We now have a list of tuples with our result. Here are the first 5 tuples:
 
