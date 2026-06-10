@@ -509,7 +509,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="understanding-and-1-in-jupyter-cells" class="level4">
 <h4 class="anchored" data-anchor-id="understanding-and-1-in-jupyter-cells">Understanding [ ], [*], and [1] in Jupyter Cells</h4>
 <p>Every time you run a code cell, you’ll see a number appear inside square brackets next to the cell, like this:</p>
-<div id="f42d4119" class="cell" data-execution_count="1">
+<div id="89b0f223" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello</code></pre>
@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>sorted()</strong>: Returns a new list containing all items from the iterable in ascending order.</li>
 <li><strong>max()</strong> / <strong>min()</strong>: Finds the largest or smallest value in a dataset.</li>
 </ul>
-<div id="cb05ab5e" class="cell" data-execution_count="2">
+<div id="8446206a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1: Basic text output</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Welcome to Digital Humanities"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -585,7 +585,7 @@ Sum from 1 to 5: 15</code></pre>
 <h3 class="anchored" data-anchor-id="exploring-python-documentation">Exploring Python Documentation</h3>
 <p>Learning how to explore the documentation is key to becoming self-sufficient in Python.</p>
 <p><strong>Python provides tools for this:</strong> - help() function - The ? syntax in Jupyter Notebooks</p>
-<div id="45d62e7c" class="cell" data-execution_count="3">
+<div id="54ce18ce" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">str</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on class str in module builtins:
@@ -992,12 +992,12 @@ class str(object)
 </div>
 </div>
 <p>This gives detailed information about how to work with strings.</p>
-<div id="904da02c" class="cell" data-execution_count="4">
+<div id="d5d5973a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This brings up a quick help popup describing the str class.</p>
 <p>You can also combine help with other functions:</p>
-<div id="bb55fc50" class="cell" data-execution_count="5">
+<div id="17c45855" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">len</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Help on built-in function len in module builtins:
@@ -1020,7 +1020,7 @@ len(obj, /)
 <section id="importing-modules" class="level3">
 <h3 class="anchored" data-anchor-id="importing-modules">Importing Modules</h3>
 <p>To use a module, you import it into your Python script:</p>
-<div id="39b79c26" class="cell" data-execution_count="6">
+<div id="40d03381" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">16</span>))  <span class="co"># Output: 4.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1028,7 +1028,7 @@ len(obj, /)
 </div>
 </div>
 <p>You can also import specific functions or classes:</p>
-<div id="cbdc1f88" class="cell" data-execution_count="7">
+<div id="b3f491a4" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi, sin</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi)         <span class="co"># Output: 3.141592653589793</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sin(pi<span class="op">/</span><span class="dv">2</span>))  <span class="co"># Output: 1.0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1038,7 +1038,7 @@ len(obj, /)
 </div>
 </div>
 <p>Or give a library module an alias:</p>
-<div id="3180a9ec" class="cell" data-execution_count="8">
+<div id="10ff91c8" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>array <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>array</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1053,30 +1053,30 @@ len(obj, /)
 <section id="random-generate-random-numbers" class="level4">
 <h4 class="anchored" data-anchor-id="random-generate-random-numbers"><em>random</em> : Generate random numbers</h4>
 <p>Useful for creating random data, games, simulations, or selecting random elements.</p>
-<div id="7e8a6381" class="cell" data-execution_count="9">
+<div id="de7ad7fa" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(random.randint(<span class="dv">1</span>, <span class="dv">10</span>))  <span class="co"># Random number between 1 and 10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>7</code></pre>
+<pre><code>3</code></pre>
 </div>
 </div>
 </section>
 <section id="datetime-work-with-dates-and-times" class="level4">
 <h4 class="anchored" data-anchor-id="datetime-work-with-dates-and-times"><em>datetime</em> — Work with dates and times</h4>
 <p>Easily get the current date/time or perform date calculations.</p>
-<div id="a4dfcbc8" class="cell" data-execution_count="10">
+<div id="b867dd6f" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>now <span class="op">=</span> datetime.datetime.now()</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(now.strftime(<span class="st">"%Y-%m-</span><span class="sc">%d</span><span class="st"> %H:%M:%S"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>2026-06-08 13:17:43</code></pre>
+<pre><code>2026-06-10 11:27:46</code></pre>
 </div>
 </div>
 </section>
 <section id="os-interact-with-your-computers-operating-system" class="level4">
 <h4 class="anchored" data-anchor-id="os-interact-with-your-computers-operating-system"><em>os</em> — Interact with your computer’s operating system</h4>
 <p>Get info about files, directories, environment variables, or execute system commands.</p>
-<div id="15ac96ed" class="cell" data-execution_count="11">
+<div id="b25a0370" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(os.getcwd())  <span class="co"># Current working directory</span></span>
@@ -1112,7 +1112,7 @@ len(obj, /)
 <section id="numpy-fast-numerical-computing" class="level4">
 <h4 class="anchored" data-anchor-id="numpy-fast-numerical-computing"><em>numpy</em> — Fast numerical computing</h4>
 <p>Provides powerful arrays and mathematical functions.</p>
-<div id="c19fbe50" class="cell" data-execution_count="12">
+<div id="12c95684" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
@@ -1125,7 +1125,7 @@ len(obj, /)
 <section id="pandas-data-manipulation-and-analysis" class="level4">
 <h4 class="anchored" data-anchor-id="pandas-data-manipulation-and-analysis"><em>pandas</em> — Data manipulation and analysis</h4>
 <p>Makes working with tabular data easy.</p>
-<div id="8dac691f" class="cell" data-execution_count="13">
+<div id="ba9ea54d" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Name'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>], <span class="st">'Age'</span>: [<span class="dv">25</span>, <span class="dv">30</span>]}</span>
@@ -1141,7 +1141,7 @@ len(obj, /)
 <section id="matplotlib-data-visualization" class="level4">
 <h4 class="anchored" data-anchor-id="matplotlib-data-visualization"><em>matplotlib</em> — Data visualization</h4>
 <p>Create charts and graphs.</p>
-<div id="a6290dd1" class="cell" data-execution_count="14">
+<div id="b1773ef9" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
