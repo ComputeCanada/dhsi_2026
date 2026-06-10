@@ -1,0 +1,295 @@
+---
+title: Web scraping with Beautiful Soup
+author: Marie-Hélène Burle
+---
+
+:::{.def}
+
+The internet is a trove of information. A lot of it is publicly available and thus suitable for use in research. Extracting that information and putting it in an organized format for analysis can however be extremely tedious.
+
+Web scraping tools allow to automate parts of that process and Python is a popular language for the task.
+
+In this workshop, I will guide you through a simple example using the package [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/).
+
+:::
+
+## HTML and CSS
+
+[HyperText Markup Language](https://en.wikipedia.org/wiki/HTML) (HTML) is the standard markup language for websites: it encodes the information related to the formatting and structure of webpages. Additionally, some of the customization can be stored in [Cascading Style Sheets](https://en.wikipedia.org/wiki/CSS) (CSS) files.
+
+HTML uses tags of the form:
+
+```{.html}
+<some_tag>Your content</some_tag>
+```
+
+Some tags have attributes:
+
+```{.html}
+<some_tag attribute_name="attribute value">Your content</some_tag>
+```
+
+:::{.example}
+
+Examples:
+
+:::
+
+Site structure:
+
+- `<h2>This is a heading of level 2</h2>`
+- `<p>This is a paragraph</p>`
+
+Formatting:
+
+- `<b>This is bold</b>`
+- `<a href="https://some.url">This is the text for a link</a>`
+
+## Web scrapping
+
+Web scraping is a general term for a set of tools which allow for the extraction of data from the web automatically.
+
+While most of the data on the internet is publicly available, it is illegal to scrape some sites and you should always look into the policy of a site before attempting to scrape it. Some sites will also block you if you submit too many requests in a short amount of time, so remember to scrape responsibly.
+
+## Example for this workshop
+
+We will use [a website](https://onlinebooks.library.upenn.edu/) from the [University of Pennsylvania](https://www.upenn.edu/) that gives access to three million free online books.
+
+Our goal is get a list of books by Proust available in that database. We can go to [the online books author search page](https://onlinebooks.library.upenn.edu/authors.html) and enter "Proust" in the search box. This shows us the data we are interested in. From here on, you could copy-paste the data one line at a time, but it is rather tedious. Instead, we will automate this task.
+
+## Install packages
+
+For this section, you need to install the following packages in a virtual environment (you can create a new one or activate the one you used in the previous days):
+
+- `requests`
+- `beautifulsoup4`
+
+[requests](https://github.com/psf/requests) allows you to send commands to a web server. In our case, we use it to get the HTML of the page we are interested in.
+
+[beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) makes it easy to pull data out of HTML files.
+
+## Load packages
+
+Let's load the packages that will make scraping websites with Python easier:
+
+```{python}
+import requests                 # To download the HTML data from a site
+from bs4 import BeautifulSoup   # To parse the HTML data
+```
+
+Let's create a string with the URL we want to scrape:
+
+```{python}
+url = "https://onlinebooks.library.upenn.edu/webbin/book/search?author=proust&amode=words"
+```
+
+First, we send a request to that URL and save the response in a variable called `r`:
+
+```{python}
+r = requests.get(url)
+```
+
+Let's see what our response looks like:
+
+```{python}
+r
+```
+
+If you look in the [list of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), you can see that a response with a code of `200` means that the request was successful.
+
+## Explore the raw data
+
+To get the actual content of the response as unicode (text), we can use the `text` property of the response. This will give us the raw HTML markup from the webpage.
+
+Let's print the first 400 characters:
+
+```{python}
+print(r.text[:400])
+```
+
+## Parse the data
+
+The package [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/) transforms (parses) such HTML data into a parse tree, which will make extracting information easier.
+
+Let's create an object called `mainpage` with the parse tree:
+
+```{python}
+data = BeautifulSoup(r.text, "html.parser")
+```
+
+:::{.note}
+
+`html.parser` is the name of the parser that we are using here. It is better to use a specific parser to get consistent results across environments.
+
+:::
+
+We can print the beginning of the parsed result:
+
+```{python}
+print(data.prettify()[:400])
+```
+
+:::{.note}
+
+The `prettify` method turns the BeautifulSoup object we created into a string (which is needed for slicing).
+
+:::
+
+It doesn't look any more clear to us, but it is now in a format the Beautiful Soup package can work with.
+
+For instance, we can get the HTML segment containing the title of the page with three methods:
+
+- using the title tag name:
+
+```{python}
+data.title
+```
+
+- using `find` to look for HTML markers (tags, attributes, etc.):
+
+```{python}
+data.find("title")
+```
+
+- using `select` which accepts CSS selectors:
+
+```{python}
+data.select("title")
+```
+
+`find` will only return the first element. `find_all` will return all elements. `select` will also return all elements. Which one you chose depends on what you need to extract. There often several ways to get you there.
+
+Below are other examples of data extraction.
+
+The beginning of the parsed data:
+
+```{python}
+data.head
+```
+
+The first link in the data:
+
+```{python}
+data.a
+```
+
+The first 5 links (returned as a list):
+
+```{python}
+data.find_all("a")[:5]
+```
+
+or:
+
+```{python}
+data.select("a")[:5]
+```
+
+## Identify relevant markers
+
+The HTML code for this webpage contains the data we are interested in, but it is mixed in with a lot of HTML formatting and data we don't care about. We need to extract the data relevant to us and turn it into a workable format.
+
+The first step is to find the HTML markers that contain our data. One option is to use a web inspector or—even easier—the [SelectorGadget](https://selectorgadget.com/), a JavaScript bookmarklet built by [Andrew Cantino](https://andrewcantino.com/).
+
+To use this tool, go to the [SelectorGadget](https://selectorgadget.com/) website and drag the link of the bookmarklet to your bookmarks bar.
+
+Now, go to [the search result page]() and click on the bookmarklet in your bookmarks bar. You will see a floating box at the bottom of your screen. As you move your mouse across the screen, an orange rectangle appears around each element over which you pass and it give you the HTML tag of that element.
+
+Click on one of the titles by Proust: now, `cite` appears in the box at the bottom as well as the number of elements selected. The selected elements are highlighted in yellow.
+
+Now you know that there are 125 titles (the number on the JavaScript box).
+
+The `cite` HTML tag is a semantic element used to define titles of creative work (books, movies, songs, research papers, paintings, plays, websites). It tells search engines and assistive technologies that the wrapped text is a formal reference or attribution to a work.
+
+By default, browsers display the content inside a `cite` tag in italics.
+
+:::{.note}
+
+Look at the page with our search results and notice that the book titles are indeed in italic.
+
+:::
+
+## Extract the first title
+
+Now we can use `select` with the CSS selector `cite` to extract all the titles.
+
+Let's create a variable that we call `titles`:
+
+```{python}
+titles = data.select("cite")
+```
+
+We can confirm that we do indeed have 125 titles:
+
+```{python}
+len(titles)
+```
+
+To get the first one, we index it:
+
+```{python}
+titles[0]
+```
+
+:::{.exo}
+
+:::{.yourturn}
+
+Your turn:
+
+:::
+
+- How would you get the second title? \
+- How about the first five titles? \
+- What is the type of the `titles` object?
+
+:::
+
+Now, our titles are in those `cite` tags. To remove them, we can use the `get_text` method:
+
+```{python}
+titles[0].get_text()
+```
+
+```{python}
+type(titles[0].get_text())
+```
+
+:::{.note}
+
+As you can see, we get a string (which is what we want).
+
+:::
+
+Now, we need to apply the `get_text` method on all the elements of the list `titles`. For this, we use a for loop.
+
+First, we create an empty list that we can fill with the cleaned titles as the loop runs:
+
+```{python}
+cleaned_titles = []
+
+print(f"cleaned_titles is a {type(cleaned_titles)} of length {len(cleaned_titles)}")
+```
+
+Now we run the loop and fill in our empty list with `append`:
+
+```{python}
+for title in titles:
+    cleaned_titles.append(title.get_text())
+```
+
+:::{.exo}
+
+:::{.yourturn}
+
+Your turn:
+
+:::
+
+Print the last 10 cleaned titles.
+
+:::
+
+```{python}
+cleaned_titles[-10:]
+```
