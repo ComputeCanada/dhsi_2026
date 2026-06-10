@@ -42,7 +42,9 @@ Marie-Hélène Burle (Simon Fraser University)
 **Live notes:** \
 [Etherpad](https://etherpad.wikimedia.org/p/dhsi26)
 
-<!-- **Topic:** \ -->
+**Topic:** \
+[Web scraping with Beautiful Soup.](webscraping.qmd)
+
 :::
 
 <br>
