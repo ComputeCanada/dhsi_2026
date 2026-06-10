@@ -487,7 +487,7 @@ len(gods_urls)
 gods_urls[80:85]
 ```
 
-## Get data from gods URLs
+## Get gods info
 
 Remember that our goal was to get the gods names and their parents names. As always, we test the code on a single element (here one god URL). Let's extract the first gods URL from the list:
 
@@ -579,15 +579,15 @@ I don't know why I am getting this error message. The code obviously works and i
 
 :::
 
-We now have a list of tuples with our results. Here are the first 5 tuples:
+We now have a list of tuples with our result. Here are the first 5 tuples:
 
 ```{python}
 gods_info[:5]
 ```
 
-## Store results in DataFrame
+## Store result in DataFrame
 
-A DataFrame would be a lot more convenient than a list of tuples to hold our results. Let's create one with Polars:
+A DataFrame would be a lot more convenient than a list of tuples to hold our result. Let's create one with Polars:
 
 ```{python}
 result = pl.DataFrame(
@@ -601,7 +601,7 @@ result = pl.DataFrame(
 result
 ```
 
-## Save results to file
+## Save result to file
 
 As a final step, we will save our data to a parquet file:
 
