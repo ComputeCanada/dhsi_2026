@@ -575,23 +575,24 @@ for god_url in gods_urls:
 
 We are getting an error message because the site has inconsistencies so the code works for most, but not all gods' pages (and the error message is triggered when the loop runs for this (or these) page(s).
 
-Let's add an if statement that will print which god(s) are creating problem for us:
+Let's add some `if` statements to get rid of the problems:
 
 ```{python}
 gods_info = []
 
 for god_url in gods_urls:
     r = requests.get(god_url)
-    god = BeautifulSoup(r.text, "html.parser")
-    title = god.title.get_text()
-    god_name = re.sub(r"\s*-.*$", "", title)
-    name = god_name.capitalize()
-    god_parents = god.select("tr:nth-child(1) td")
-    if not god_parents:
-        print(f"No parents found for {god_url}")
-        continue
-    parents = god_parents[0].get_text()
-    gods_info.append((name, parents))
+    if r.status_code == 200:
+        god = BeautifulSoup(r.text, "html.parser")
+        title = god.title.get_text()
+        god_name = re.sub(r"\s*-.*$", "", title)
+        name = god_name.capitalize()
+        god_parents = god.select("tr:nth-child(1) td")
+        if len(god_parents) == 0:
+            print(god_url)
+        else:
+            parents = god_parents[0].get_text()
+            gods_info.append((name, parents))
 ```
 
 As you can see, a single god is causing this index error: Soteria. That's because it does not have parents. Let's ignore that god.
