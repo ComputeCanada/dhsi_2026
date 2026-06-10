@@ -418,41 +418,6 @@ len(gods_urls)
 
 There are 174 Greek gods in the Theoi project.
 
-As another sanity check, let's check the last 5:
-
-```{python}
-gods_urls[-5:]
-```
-
-There is a good news and a bad news... The good news is that we have the right gods. The bad news is that the URLs are different for each subcategory of gods. This shows you the importance of doing many sanity checks.
-
-We need to fix our code.
-
-Instead of removing `../Olympios/` as we did previously (which is a form of hard-coding), we will use [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) to make our code more broadly applicable.
-
-First we need to import the regular expression module from the standard library:
-
-```{python}
-import re
-```
-
-Then we need to replace the content of our nested for loops to remove `../` from all the extracted gods URLs and we then need to prepend a shorter URL (`https://www.theoi.com/`) so that the subcategory of the god in the URL is replaced by the proper one:
-
-```{python}
-gods_urls = []
-
-for subcats_url in subcats_urls:
-    r = requests.get(subcats_url)
-    subcat = BeautifulSoup(r.text, "html.parser")
-    subcat_captions = subcat.select(".caption a")
-    for caption in subcat_captions:
-        href = caption.get("href")
-        href = re.sub(r"\.\./", "", href)
-        gods_urls.append("https://www.theoi.com/" + href)
-    # Add a delay at each iteration
-    time.sleep(0.1)
-```
-
 Let's do a few sanity checks.
 
 First 5 URLs:
@@ -478,6 +443,8 @@ len(gods_urls)
 ```{python}
 gods_urls[80:85]
 ```
+
+The URLs look suspicious and are different from what you would see if you were browsing the site. However, via some alias or redirect implemented within the site, they actually work fine.
 
 ## Get gods info
 
