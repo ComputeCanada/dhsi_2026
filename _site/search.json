@@ -676,7 +676,7 @@
     "href": "wednesday/webscraping.html#install-packages",
     "title": "Web scraping with Beautiful Soup",
     "section": "Install packages",
-    "text": "Install packages\nFor this section, you need to install the following packages in a virtual environment (you can create a new one or activate the one you used in the previous days):\n\nrequests\nbeautifulsoup4\npolars\n\n\n\n\nrequests\nbeautifulsoup4\npolars\n\n\nallows you to send commands to a web server. In our case, we use it to get the HTML of the page we are interested in.\nmakes it easy to pull data out of HTML files.\nis the DataFrame library that we will use to store our data."
+    "text": "Install packages\nFor this section, you need to install the following packages in a virtual environment (you can create a new one or activate the one you used in the previous days):\n\nrequests\nbeautifulsoup4\npolars\n\nThis is why we need these packages:\n\n\n\n\n\n\n\nPackage\nUsage\n\n\n\n\nrequests\nAllows you to send commands to a web server. In our case, we use it to get the HTML of the page we are interested in.\n\n\nbeautifulsoup4\nMakes it easy to pull data out of HTML files.\n\n\npolars\nThe DataFrame library that we will use to store our data."
   },
   {
     "objectID": "wednesday/webscraping.html#explore-the-site-carefully",
@@ -746,6 +746,6 @@
     "href": "wednesday/webscraping.html#save-results-to-file",
     "title": "Web scraping with Beautiful Soup",
     "section": "Save results to file",
-    "text": "Save results to file\nAs a final step, we will save our data to a CSV file:\nresult.write_parquet('god_data.parquet')"
+    "text": "Save results to file\nAs a final step, we will save our data to a parquet file:\nresult.write_parquet('god_data.parquet')\n\nYou could save the data as a CSV file if you wanted. As the data here is small, that would be suitable too:\nresult.write_csv('god_data.csv')\nBecause parquet is so much more efficient and the right format to use for large datasets, I like using it all the time everywhere."
   }
 ]
