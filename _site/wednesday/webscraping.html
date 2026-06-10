@@ -351,9 +351,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#identify-relevant-markers" id="toc-identify-relevant-markers" class="nav-link" data-scroll-target="#identify-relevant-markers">Identify relevant markers</a></li>
   <li><a href="#get-the-sub-categories-urls" id="toc-get-the-sub-categories-urls" class="nav-link" data-scroll-target="#get-the-sub-categories-urls">Get the sub-categories URLs</a></li>
   <li><a href="#get-the-gods-urls" id="toc-get-the-gods-urls" class="nav-link" data-scroll-target="#get-the-gods-urls">Get the gods URLs</a></li>
-  <li><a href="#get-data-from-gods-urls" id="toc-get-data-from-gods-urls" class="nav-link" data-scroll-target="#get-data-from-gods-urls">Get data from gods URLs</a></li>
-  <li><a href="#store-results-in-dataframe" id="toc-store-results-in-dataframe" class="nav-link" data-scroll-target="#store-results-in-dataframe">Store results in DataFrame</a></li>
-  <li><a href="#save-results-to-file" id="toc-save-results-to-file" class="nav-link" data-scroll-target="#save-results-to-file">Save results to file</a></li>
+  <li><a href="#get-gods-info" id="toc-get-gods-info" class="nav-link" data-scroll-target="#get-gods-info">Get gods info</a></li>
+  <li><a href="#store-result-in-dataframe" id="toc-store-result-in-dataframe" class="nav-link" data-scroll-target="#store-result-in-dataframe">Store result in DataFrame</a></li>
+  <li><a href="#save-result-to-file" id="toc-save-result-to-file" class="nav-link" data-scroll-target="#save-result-to-file">Save result to file</a></li>
   </ul>
 </nav>
     </div>
@@ -884,8 +884,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="get-data-from-gods-urls" class="level2">
-<h2 class="anchored" data-anchor-id="get-data-from-gods-urls">Get data from gods URLs</h2>
+<section id="get-gods-info" class="level2">
+<h2 class="anchored" data-anchor-id="get-gods-info">Get gods info</h2>
 <p>Remember that our goal was to get the gods names and their parents names. As always, we test the code on a single element (here one god URL). Let’s extract the first gods URL from the list:</p>
 <div id="a2de2d2c" class="cell" data-execution_count="43">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>gods_urls0 <span class="op">=</span> gods_urls[<span class="dv">0</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -986,7 +986,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="note">
 <p>I don’t know why I am getting this error message. The code obviously works and is correct, so let’s just ignore it.</p>
 </div>
-<p>We now have a list of tuples with our results. Here are the first 5 tuples:</p>
+<p>We now have a list of tuples with our result. Here are the first 5 tuples:</p>
 <div id="68ad158c" class="cell" data-execution_count="53">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>gods_info[:<span class="dv">5</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
@@ -998,9 +998,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="store-results-in-dataframe" class="level2">
-<h2 class="anchored" data-anchor-id="store-results-in-dataframe">Store results in DataFrame</h2>
-<p>A DataFrame would be a lot more convenient than a list of tuples to hold our results. Let’s create one with Polars:</p>
+<section id="store-result-in-dataframe" class="level2">
+<h2 class="anchored" data-anchor-id="store-result-in-dataframe">Store result in DataFrame</h2>
+<p>A DataFrame would be a lot more convenient than a list of tuples to hold our result. Let’s create one with Polars:</p>
 <div id="fcce5eb1" class="cell" data-execution_count="54">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> pl.DataFrame(</span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>     data<span class="op">=</span>gods_info,</span>
@@ -1081,8 +1081,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="save-results-to-file" class="level2">
-<h2 class="anchored" data-anchor-id="save-results-to-file">Save results to file</h2>
+<section id="save-result-to-file" class="level2">
+<h2 class="anchored" data-anchor-id="save-result-to-file">Save result to file</h2>
 <p>As a final step, we will save our data to a parquet file:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>result.write_parquet(<span class="st">'god_data.parquet'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="notenoit">
