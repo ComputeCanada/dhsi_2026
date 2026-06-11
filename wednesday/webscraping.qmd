@@ -206,19 +206,32 @@ mainpage.select_one("a")
 
 If you want to extract all elements, you need to use instead:
 
-- for HTML markers
+- `find_all` for HTML markers
 
 ```{python}
 mainpage.find_all("a")[:5]  # let's only print the first 5
 ```
 
-- CSS selectors:
+- `select` for CSS selectors:
 
 ```{python}
 mainpage.select("a")[:5]    # let's only print the first 5
 ```
 
-This returns a BeautifulSoup `ResultSet` object which behaves like a list.
+Both methods return a BeautifulSoup `ResultSet` object which behaves like a list.
+
+:::{.info}
+
+|              | Python objects | CSS selectors                                           |
+|--------------|----------------|---------------------------------------------------------|
+| Single match | `find()`       | `select_one()`                                          |
+| All matches  | `find_all()`   | `select()`                                              |
+| Dependency   | None           | [Soup Sieve](https://github.com/facelessuser/soupsieve) |
+| Performance  | Faster         | Slower due to CSS parsing                               |
+
+: Difference between methods
+
+:::
 
 ## Identify relevant markers
 
@@ -258,7 +271,7 @@ Now we can use `select` with the CSS selector `.caption a` to extract the URLs o
 mainpage_captions = mainpage.select(".caption a")
 ```
 
-But things are a bit more complicated in this case than it sometimes is. Let's try things on the first link:
+Let's first prototype our code on the first link:
 
 ```{python}
 mainpage_captions[0]
@@ -374,11 +387,7 @@ This URL might look peculiar to you but it is actually totally valid: `..` repre
 
 :::
 
-Now that we checked that the code works on a single entry, we can do it on all elements of the list:
-
-```{python}
-type(subcat0_captions)
-```
+Now that we checked that the code works on a single entry, we can do it on all elements of the ResultSet:
 
 ```{python}
 gods_urls0 = []
@@ -506,26 +515,19 @@ god_name0.capitalize()
 We now have the god's name which is the first thing we want for each god. The second thing we want is the names of the parents of that god. As we are now trying to extract a very type of element from the site, we have to go back to the SelectorGadget. This shows us that the element we need is under the HTML tag `tr:nth-child(1) td`. Let's extract that element:
 
 ```{python}
-god0_parents = god0.select("tr:nth-child(1) td")
+god0_parents = god0.select_one("tr:nth-child(1) td")
 god0_parents
 ```
 
-It worked, but our element is in a list like object (as you can see it is in square brackets), so we need to index it out of that objects:
+Our element is in a `td` tag so we extract it with the `get_text` method:
 
 ```{python}
-god0_parents_item = god0_parents[0]
-god0_parents_item
-```
-
-Now our element is in a `td` tag so we extract it with the `get_text` method:
-
-```{python}
-god0_parents_item.get_text()
+god0_parents.get_text()
 ```
 
 🥳
 
-We can now create a loop to run this code on all the elements of the result set:
+We can now create a loop to run this code on all the elements of the ResultSet:
 
 ```{python}
 gods_info = []
@@ -536,8 +538,8 @@ for god_url in gods_urls:
     title = god.title.get_text()
     god_name = re.sub(r"\s*-.*$", "", title)
     name = god_name.capitalize()
-    god_parents = god.select("tr:nth-child(1) td")
-    parents = god_parents[0].get_text()
+    god_parents = god.select_one("tr:nth-child(1) td")
+    parents = god_parents.get_text()
     # Save the god name and its parents names in a tuple
     gods_info.append((name, parents))
 ```
@@ -555,15 +557,23 @@ for god_url in gods_urls:
     title = god.title.get_text()
     god_name = re.sub(r"\s*-.*$", "", title)
     name = god_name.capitalize()
-    god_parents = god.select("tr:nth-child(1) td")
+    god_parents = god.select_one("tr:nth-child(1) td")
     if len(god_parents) == 0:
         print(f"{god_url} does not have data about parents")
     else:
-        parents = god_parents[0].get_text()
+        parents = god_parents.get_text()
         gods_info.append((name, parents))
 ```
 
-As you can see, a number of gods do not have data about their parents in the format we are scraping. We are excluding them from the results and we now have a list of tuples. Here are the first 5 tuples:
+As you can see, a number of gods URLs do not have data about their parents in the format we are scraping.
+
+<https://www.theoi.com/greek-mythology/../Daimon/Soteria.html> is an inconsistent page because her parentage is uncertain.
+
+<https://www.theoi.com/greek-mythology/heracles.html> is a totally different page, probably because he started as a demi-god.
+
+The remaining URLs are actually not gods URLs (the website is really inconsistent there) but pages about cults of those gods. We already have links to the pages of the gods in question in our list.
+
+We are excluding all those bad entries from the results and we now have a list of tuples. Here are the first 5 tuples:
 
 ```{python}
 gods_info[:5]
