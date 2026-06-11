@@ -289,6 +289,8 @@ Unfortunately, this is not a full URL and you need to prepend `https://www.theoi
 base_url = "https://www.theoi.com/greek-mythology/"
 ```
 
+We can now concatenate it with our code to get the full URL:
+
 ```{python}
 base_url + mainpage_captions[0].get("href")
 ```
