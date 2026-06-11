@@ -551,22 +551,19 @@ gods_info = []
 
 for god_url in gods_urls:
     r = requests.get(god_url)
-    if r.status_code != 200:
-        print(f"{god_url} has a status code of {r.status_code}")
+    god = BeautifulSoup(r.text, "html.parser")
+    title = god.title.get_text()
+    god_name = re.sub(r"\s*-.*$", "", title)
+    name = god_name.capitalize()
+    god_parents = god.select("tr:nth-child(1) td")
+    if len(god_parents) == 0:
+        print(f"{god_url} does not have data about parents")
     else:
-        god = BeautifulSoup(r.text, "html.parser")
-        title = god.title.get_text()
-        god_name = re.sub(r"\s*-.*$", "", title)
-        name = god_name.capitalize()
-        god_parents = god.select("tr:nth-child(1) td")
-        if len(god_parents) == 0:
-            print(f"{god_url} does not have data about parents")
-        else:
-            parents = god_parents[0].get_text()
-            gods_info.append((name, parents))
+        parents = god_parents[0].get_text()
+        gods_info.append((name, parents))
 ```
 
-As you can see, one URL returns a 404 and a number of gods do not have data about their parents in the format we are scraping. We are excluding them from the results and we now have a list of tuples. Here are the first 5 tuples:
+As you can see, a number of gods do not have data about their parents in the format we are scraping. We are excluding them from the results and we now have a list of tuples. Here are the first 5 tuples:
 
 ```{python}
 gods_info[:5]
