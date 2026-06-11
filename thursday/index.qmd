@@ -32,6 +32,7 @@ It would be fantastic if you could chose a website that contains data useful for
 - [Library of Congress](https://guides.loc.gov/digital-scholarship/accessing-digital-materials#s-lib-ctab-26648178-2)
 - [World Bank](https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information)
 - [NASA](https://api.nasa.gov/)
+- [Smithsonian Institution Open Access API](https://edan.si.edu/openaccess/apidocs) - requires an API key (needs registration)
 
 You can find other sites with good APIs [here](https://libguides.mit.edu/c.php?g=1253643&p=9182104#s-lg-box-wrapper-34833896) and [here](https://github.com/public-apis/public-apis).
 
