@@ -178,13 +178,13 @@ For instance, to get a single element such as the HTML segment containing the ti
 mainpage.title
 ```
 
-- using `find` to look for HTML markers (tags, attributes, etc.):
+- using `find()` to look for HTML markers (tags, attributes, etc.):
 
 ```{python}
 mainpage.find("title")
 ```
 
-- using `select_one` which accepts CSS selectors:
+- using `select_one()` which accepts CSS selectors:
 
 ```{python}
 mainpage.select_one("title")
@@ -206,13 +206,13 @@ mainpage.select_one("a")
 
 If you want to extract all elements, you need to use instead:
 
-- `find_all` for HTML markers
+- `find_all()` for HTML markers
 
 ```{python}
 mainpage.find_all("a")[:5]  # let's only print the first 5
 ```
 
-- `select` for CSS selectors:
+- `select()` for CSS selectors:
 
 ```{python}
 mainpage.select("a")[:5]    # let's only print the first 5
@@ -222,14 +222,14 @@ Both methods return a BeautifulSoup `ResultSet` object which behaves like a list
 
 :::{.info}
 
+**Difference between methods:**
+
 |              | Python objects | CSS selectors                                           |
 |--------------|----------------|---------------------------------------------------------|
 | Single match | `find()`       | `select_one()`                                          |
 | All matches  | `find_all()`   | `select()`                                              |
 | Dependency   | None           | [Soup Sieve](https://github.com/facelessuser/soupsieve) |
 | Performance  | Faster         | Slower due to CSS parsing                               |
-
-: Difference between methods
 
 :::
 
@@ -383,7 +383,10 @@ base_url + subcat0_captions[0].get("href")
 
 :::{.notenoit}
 
-This URL might look peculiar to you but it is actually totally valid: `..` represents the parent directory and `https://www.theoi.com/Olympios/../Olympios/Aphrodite.html` is actually exactly the same as `https://www.theoi.com/Olympios/Aphrodite.html`.
+This URL might look peculiar to you but it is actually totally valid: \
+`..` represents the parent directory and \
+`https://www.theoi.com/Olympios/../Olympios/Aphrodite.html` is actually exactly the same as \
+`https://www.theoi.com/Olympios/Aphrodite.html`.
 
 :::
 
@@ -452,12 +455,6 @@ Length of our list of gods URLs:
 ```{python}
 len(gods_urls)
 ```
-
-:::{.note}
-
-There appears to be 174 Greek gods in the Theoi project.
-
-:::
 
 5 URLs somewhere in the middle of the list:
 
@@ -536,12 +533,10 @@ for god_url in gods_urls:
     r = requests.get(god_url)
     god = BeautifulSoup(r.text, "html.parser")
     title = god.title.get_text()
-    god_name = re.sub(r"\s*-.*$", "", title)
-    name = god_name.capitalize()
-    god_parents = god.select_one("tr:nth-child(1) td")
-    parents = god_parents.get_text()
+    god_name = re.sub(r"\s*-.*$", "", title).capitalize()
+    god_parents = god.select_one("tr:nth-child(1) td").get_text()
     # Save the god name and its parents names in a tuple
-    gods_info.append((name, parents))
+    gods_info.append((god_name, god_parents))
 ```
 
 We are getting an error message because the site has inconsistencies and the code works for most, but not all gods pages. As soon as the loop hits the first error, it stops the execution.
@@ -555,21 +550,20 @@ for god_url in gods_urls:
     r = requests.get(god_url)
     god = BeautifulSoup(r.text, "html.parser")
     title = god.title.get_text()
-    god_name = re.sub(r"\s*-.*$", "", title)
-    name = god_name.capitalize()
-    god_parents = god.select_one("tr:nth-child(1) td")
-    if len(god_parents) == 0:
-        print(f"{god_url} does not have data about parents")
+    god_name = re.sub(r"\s*-.*$", "", title).capitalize()
+    god_parents_element = god.select_one("tr:nth-child(1) td")
+    if god_parents_element is None:
+        print(f"{god_url} does not have scrapable data about parents")
     else:
-        parents = god_parents.get_text()
-        gods_info.append((name, parents))
+        god_parents = god_parents_element.get_text()
+        gods_info.append((god_name, god_parents))
 ```
 
 As you can see, a number of gods URLs do not have data about their parents in the format we are scraping.
 
-<https://www.theoi.com/greek-mythology/../Daimon/Soteria.html> is an inconsistent page because her parentage is uncertain.
+<https://www.theoi.com/greek-mythology/../Daimon/Soteria.html> is an inconsistent page because Sotoria's parentage is uncertain.
 
-<https://www.theoi.com/greek-mythology/heracles.html> is a totally different page, probably because he started as a demi-god.
+<https://www.theoi.com/greek-mythology/heracles.html> is a totally different page, probably because Heracles started as a demi-god.
 
 The remaining URLs are actually not gods URLs (the website is really inconsistent there) but pages about cults of those gods. We already have links to the pages of the gods in question in our list.
 
@@ -579,7 +573,7 @@ We are excluding all those bad entries from the results and we now have a list o
 gods_info[:5]
 ```
 
-## Store result in DataFrame
+## Store the result in a DataFrame
 
 A DataFrame might be more convenient than a list of tuples to hold these data. Let's create one with Polars:
 
@@ -593,7 +587,7 @@ result = pl.DataFrame(
 result
 ```
 
-## Save result to file
+## Save the result to file
 
 As a final step, we will save our data to a parquet file:
 
