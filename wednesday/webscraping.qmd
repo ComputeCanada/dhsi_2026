@@ -9,7 +9,7 @@ The internet is a trove of information. A lot of it is publicly available and th
 
 Web scraping tools allow to automate parts of that process and Python is a popular language for the task.
 
-In this workshop, I will guide you through a simple example using the package [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/).
+In this workshop, I will guide you through an example using the package [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/).
 
 :::
 
@@ -96,10 +96,14 @@ In our case, we should start from [the page of the Greek gods](https://www.theoi
 Let's load the packages that will make scraping websites with Python easier:
 
 ```{python}
+# External packages:
 import requests                 # To download the HTML data from a site
 from bs4 import BeautifulSoup   # To parse the HTML data
-import time                     # To add a delay between each requests
 import polars as pl             # To store the data
+
+# Modules from the standard library:
+import time                     # To add a delay between each requests
+import re                       # To use regular expressions
 ```
 
 Let's create a string with the main URL we want to scrape:
@@ -120,6 +124,10 @@ Let's see what our response looks like:
 r
 ```
 
+```{python}
+r.status_code
+```
+
 If you look in the [list of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), you can see that a response with a code of `200` means that the request was successful.
 
 ## Explore the raw data
@@ -134,7 +142,7 @@ print(r.text[:800])
 
 ## Parse the data
 
-The package [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/) transforms (parses) such HTML data into a parse tree, which will make extracting information easier.
+The package [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/) takes disorganized HTML "tag soup" and structures it into a "beautiful", easily traversable object tree which will make extracting information easier.
 
 Let's create an object called `mainpage` with the parse tree:
 
@@ -160,9 +168,9 @@ The `prettify` method turns the BeautifulSoup object we created into a string (w
 
 :::
 
-It doesn't look any more clear to us, but it is now in a format the Beautiful Soup package can work with.
+It looks like the same HTML, but BeautifulSoup has now created a parse tree and will be able to extract information based on Python keyword arguments and dictionaries or based on CSS selectors.
 
-For instance, we can get the HTML segment containing the title of the page with three methods:
+For instance, to get a single element such as the HTML segment containing the title of the page, we can use these methods:
 
 - using the title tag name:
 
@@ -176,41 +184,41 @@ mainpage.title
 mainpage.find("title")
 ```
 
-- using `select` which accepts CSS selectors:
+- using `select_one` which accepts CSS selectors:
 
 ```{python}
-mainpage.select("title")
+mainpage.select_one("title")
 ```
 
-Now, this method returns a bs4 `ResultSet` object which behaves like a list (you can see that the output is in square brackets). To get the content, we need to index it out of the object:
-
-```{python}
-mainpage.select("title")[0]
-```
-
-`find` will only return the first element. `find_all` will return all elements. `select` will also return all elements. Which one you chose depends on what you need to extract. There often several ways to get you there.
-
-Below are other examples of data extraction.
-
-The HTML head section of the parsed data can be accessed with `mainpage.head` (it is a bit long, so let's not print it).
-
-The first link in the data:
+If you use these methods on elements that occur multiple times, they will return the first element:
 
 ```{python}
 mainpage.a
 ```
 
-The first 5 links (returned as a list):
-
 ```{python}
-mainpage.find_all("a")[:5]
+mainpage.find("a")
 ```
 
-or:
+```{python}
+mainpage.select_one("a")
+```
+
+If you want to extract all elements, you need to use instead:
+
+- for HTML markers
 
 ```{python}
-mainpage.select("a")[:5]
+mainpage.find_all("a")[:5]  # let's only print the first 5
 ```
+
+- CSS selectors:
+
+```{python}
+mainpage.select("a")[:5]    # let's only print the first 5
+```
+
+This returns a BeautifulSoup `ResultSet` object which behaves like a list.
 
 ## Identify relevant markers
 
@@ -262,10 +270,14 @@ This gives you the full hyperlink code. What you want out of it is the URL. You 
 mainpage_captions[0].get("href")
 ```
 
-Unfortunately, this is not a full URL and you need to prepend `https://www.theoi.com/greek-mythology/` to it:
+Unfortunately, this is not a full URL and you need to prepend `https://www.theoi.com/greek-mythology/` to it. This string is actually the base URL that you will have to prepend everywhere, so let's create a variable with it:
 
 ```{python}
-"https://www.theoi.com/greek-mythology/" + mainpage_captions[0].get("href")
+base_url = "https://www.theoi.com/greek-mythology/"
+```
+
+```{python}
+base_url + mainpage_captions[0].get("href")
 ```
 
 That looks good! We got the first URL.
@@ -294,7 +306,7 @@ Now we run the loop and fill in our empty list with `append`:
 
 ```{python}
 for caption in mainpage_captions:
-    subcats_urls.append("https://www.theoi.com/greek-mythology/" + caption.get("href"))
+    subcats_urls.append(base_url + caption.get("href"))
 ```
 
 :::{.exo}
@@ -344,33 +356,35 @@ Let's print the first element to make sure it looks like what we expect:
 subcat0_captions[0]
 ```
 
-The information is here, but it is not formatted in the same fashion as the links we had in the previous part, so there will be a bit more work to recreate the URL of the gods pages. Luckily, it is the same operation for all links so we will be able to do this with a for loop.
-
 Let's extract the URL part of the hyperlink:
 
 ```{python}
 subcat0_captions[0].get("href")
 ```
 
-Now, to recreate the actual URL, we first need to remove `../Olympios/`:
+Now, to recreate the actual URL, you prepend `base_url` as we did before:
 
 ```{python}
-subcat0_captions[0].get("href").replace("../Olympios/", "")
+base_url + subcat0_captions[0].get("href")
 ```
 
-Then you prepend `https://www.theoi.com/Olympios/`:
+:::{.notenoit}
 
-```{python}
-"https://www.theoi.com/Olympios/" + subcat0_captions[0].get("href").replace("../Olympios/", "")
-```
+This URL might look peculiar to you but it is actually totally valid: `..` represents the parent directory and `https://www.theoi.com/Olympios/../Olympios/Aphrodite.html` is actually exactly the same as `https://www.theoi.com/Olympios/Aphrodite.html`.
+
+:::
 
 Now that we checked that the code works on a single entry, we can do it on all elements of the list:
+
+```{python}
+type(subcat0_captions)
+```
 
 ```{python}
 gods_urls0 = []
 
 for caption in subcat0_captions:
-    gods_urls0.append("https://www.theoi.com/Olympios/" + caption.get("href").replace("../Olympios/", ""))
+    gods_urls0.append(base_url + caption.get("href"))
 ```
 
 As a sanity check, let's see how many gods URL we have for this first subcategory of gods:
@@ -399,7 +413,7 @@ for subcats_url in subcats_urls:
     subcat = BeautifulSoup(r.text, "html.parser")
     subcat_captions = subcat.select(".caption a")
     for caption in subcat_captions:
-        gods_urls.append("https://www.theoi.com/Olympios/" + caption.get("href").replace("../Olympios/", ""))
+        gods_urls.append(base_url + caption.get("href"))
     # Add a delay at each iteration
     time.sleep(0.1)
 ```
@@ -409,14 +423,6 @@ for subcats_url in subcats_urls:
 Note the presence of a nested for loop (a for loop within a for loop). It is getting complicated!
 
 :::
-
-Let's check the length of our filled in list:
-
-```{python}
-len(gods_urls)
-```
-
-There are 174 Greek gods in the Theoi project.
 
 Let's do a few sanity checks.
 
@@ -438,17 +444,21 @@ Length of our list of gods URLs:
 len(gods_urls)
 ```
 
+:::{.note}
+
+There appears to be 174 Greek gods in the Theoi project.
+
+:::
+
 5 URLs somewhere in the middle of the list:
 
 ```{python}
 gods_urls[80:85]
 ```
 
-The URLs look suspicious and are different from what you would see if you were browsing the site. However, via some alias or redirect implemented within the site, they actually work fine.
+## Get the gods info
 
-## Get gods info
-
-Remember that our goal was to get the gods names and their parents names. As always, we test the code on a single element (here one god URL). Let's extract the first gods URL from the list:
+Remember that our goal was to get the gods names and their parents names. As always, we test the code on a single element (here one god URL) first before we implement a loop. Let's extract the first gods URL from the list:
 
 ```{python}
 gods_urls0 = gods_urls[0]
@@ -474,7 +484,7 @@ title0 = god0.title.get_text()
 title0
 ```
 
-We then use a regular expression again to clean the part of the title that we are not interested in:
+We then use a regular expression to clean the part of the title that we are not interested in:
 
 ```{python}
 god_name0 = re.sub(r"\s*-.*$", "", title0)
@@ -515,7 +525,7 @@ god0_parents_item.get_text()
 
 🥳
 
-We now need to create a loop to do this for all gods:
+We can now create a loop to run this code on all the elements of the result set:
 
 ```{python}
 gods_info = []
@@ -528,36 +538,35 @@ for god_url in gods_urls:
     name = god_name.capitalize()
     god_parents = god.select("tr:nth-child(1) td")
     parents = god_parents[0].get_text()
-    # Save the god's name and its parents' names in a tuple
+    # Save the god name and its parents names in a tuple
     gods_info.append((name, parents))
 ```
 
-We are getting an error message because the site has inconsistencies so the code works for most, but not all gods' pages (and the error message is triggered when the loop runs for this (or these) page(s).
+We are getting an error message because the site has inconsistencies and the code works for most, but not all gods pages. As soon as the loop hits the first error, it stops the execution.
 
-Let's add some `if` statements to get rid of the problems:
+Let's add `if` statements to keep the execution running and print the problematic URLs:
 
 ```{python}
 gods_info = []
 
 for god_url in gods_urls:
     r = requests.get(god_url)
-    if r.status_code == 200:
+    if r.status_code != 200:
+        print(f"{god_url} has a status code of {r.status_code}")
+    else:
         god = BeautifulSoup(r.text, "html.parser")
         title = god.title.get_text()
         god_name = re.sub(r"\s*-.*$", "", title)
         name = god_name.capitalize()
         god_parents = god.select("tr:nth-child(1) td")
         if len(god_parents) == 0:
-            print(god_url)
+            print(f"{god_url} does not have data about parents")
         else:
             parents = god_parents[0].get_text()
             gods_info.append((name, parents))
 ```
 
-As you can see, a number of gods (their names printed) do not have parents. Also, some `requests.get()` calls
-return 404, so we process only those that return 200.
-
-We now have a list of tuples with our result. Here are the first 5 tuples:
+As you can see, one URL returns a 404 and a number of gods do not have data about their parents in the format we are scraping. We are excluding them from the results and we now have a list of tuples. Here are the first 5 tuples:
 
 ```{python}
 gods_info[:5]
@@ -565,7 +574,7 @@ gods_info[:5]
 
 ## Store result in DataFrame
 
-A DataFrame would be a lot more convenient than a list of tuples to hold our result. Let's create one with Polars:
+A DataFrame might be more convenient than a list of tuples to hold these data. Let's create one with Polars:
 
 ```{python}
 result = pl.DataFrame(
@@ -573,9 +582,7 @@ result = pl.DataFrame(
      schema=["God", "Parents"],
      orient="row"
  )
-```
 
-```{python}
 result
 ```
 
@@ -595,6 +602,6 @@ You could save the data as a CSV file if you wanted. As the data here is small, 
 result.write_csv('god_data.csv')
 ```
 
-*Because parquet is so much more efficient and the right format to use for large datasets, I like using it all the time everywhere.*
+*Because parquet is so much more efficient and the best format for large datasets, I like using it everywhere.*
 
 :::
